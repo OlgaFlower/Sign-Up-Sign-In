@@ -19,8 +19,8 @@ class AuthorizationViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter.setStartScreenButtons(signUpButton, "SIGN UP")
-        presenter.setStartScreenButtons(signInButton, "SIGN IN")
+        presenter.setScreenButton(signUpButton, "SIGN UP")
+        presenter.setScreenButton(signInButton, "SIGN IN")
         
     }
     

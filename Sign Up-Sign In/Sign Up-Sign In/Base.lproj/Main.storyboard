@@ -19,32 +19,32 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="4" translatesAutoresizingMaskIntoConstraints="NO" id="Jcc-aG-xBK">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <button opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C2k-Fz-I0d">
-                                <rect key="frame" x="80" y="576" width="215" height="45"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C2k-Fz-I0d">
+                                <rect key="frame" x="75" y="581" width="225" height="40"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="7kQ-NE-Pum"/>
-                                    <constraint firstAttribute="width" constant="215" id="Jzs-6P-dP9"/>
+                                    <constraint firstAttribute="height" constant="40" id="7kQ-NE-Pum"/>
+                                    <constraint firstAttribute="width" constant="225" id="Jzs-6P-dP9"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="SIGN IN">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="17"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="signIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DLn-SY-rlp"/>
                                     <segue destination="HyN-JS-cSv" kind="presentation" id="irX-1K-3fp"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cXZ-gK-x0l">
-                                <rect key="frame" x="80" y="517" width="215" height="45"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cXZ-gK-x0l">
+                                <rect key="frame" x="75" y="527" width="225" height="40"/>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="dfu-Fn-hT7"/>
-                                    <constraint firstAttribute="width" constant="215" id="fzT-hd-kcb"/>
+                                    <constraint firstAttribute="height" constant="40" id="dfu-Fn-hT7"/>
+                                    <constraint firstAttribute="width" constant="225" id="fzT-hd-kcb"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <state key="normal" title="SIGN UP">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="17"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="signUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wR4-rJ-qH6"/>
@@ -57,10 +57,10 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="C2k-Fz-I0d" secondAttribute="bottom" constant="46" id="1qO-Xd-yv0"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Jcc-aG-xBK" secondAttribute="trailing" id="3eJ-8T-0fe"/>
                             <constraint firstItem="C2k-Fz-I0d" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="C1b-3K-sI2"/>
-                            <constraint firstItem="Jcc-aG-xBK" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Kst-4m-KqR"/>
+                            <constraint firstItem="Jcc-aG-xBK" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="Kst-4m-KqR"/>
                             <constraint firstItem="cXZ-gK-x0l" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bdx-Sm-FxN"/>
                             <constraint firstItem="Jcc-aG-xBK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ivj-LP-Hh1"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Jcc-aG-xBK" secondAttribute="bottom" id="wJb-JT-kgp"/>
+                            <constraint firstAttribute="bottom" secondItem="Jcc-aG-xBK" secondAttribute="bottom" id="wJb-JT-kgp"/>
                             <constraint firstItem="C2k-Fz-I0d" firstAttribute="top" secondItem="cXZ-gK-x0l" secondAttribute="bottom" constant="14" id="yqS-hO-h8G"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
