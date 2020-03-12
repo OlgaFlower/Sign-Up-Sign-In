@@ -9,21 +9,25 @@
 /* Begin PBXBuildFile section */
 		84132C77241A2FAE008D4B92 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84132C76241A2FAE008D4B92 /* AppDelegate.swift */; };
 		84132C79241A2FAE008D4B92 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84132C78241A2FAE008D4B92 /* SceneDelegate.swift */; };
-		84132C7B241A2FAE008D4B92 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84132C7A241A2FAE008D4B92 /* ViewController.swift */; };
 		84132C7E241A2FAE008D4B92 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84132C7C241A2FAE008D4B92 /* Main.storyboard */; };
 		84132C80241A2FB6008D4B92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84132C7F241A2FB6008D4B92 /* Assets.xcassets */; };
 		84132C83241A2FB6008D4B92 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84132C81241A2FB6008D4B92 /* LaunchScreen.storyboard */; };
+		841444FA241A73A600495677 /* AuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841444F9241A73A600495677 /* AuthorizationViewController.swift */; };
+		841444FF241A74F500495677 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841444FE241A74F500495677 /* SignInViewController.swift */; };
+		84144501241A750100495677 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84144500241A750100495677 /* SignUpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		84132C73241A2FAE008D4B92 /* Sign Up-Sign In.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sign Up-Sign In.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84132C76241A2FAE008D4B92 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84132C78241A2FAE008D4B92 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		84132C7A241A2FAE008D4B92 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		84132C7D241A2FAE008D4B92 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		84132C7F241A2FB6008D4B92 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84132C82241A2FB6008D4B92 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84132C84241A2FB6008D4B92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		841444F9241A73A600495677 /* AuthorizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewController.swift; sourceTree = "<group>"; };
+		841444FE241A74F500495677 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		84144500241A750100495677 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,13 +62,39 @@
 			children = (
 				84132C76241A2FAE008D4B92 /* AppDelegate.swift */,
 				84132C78241A2FAE008D4B92 /* SceneDelegate.swift */,
-				84132C7A241A2FAE008D4B92 /* ViewController.swift */,
+				841444FB241A73AD00495677 /* Authorization */,
 				84132C7C241A2FAE008D4B92 /* Main.storyboard */,
 				84132C7F241A2FB6008D4B92 /* Assets.xcassets */,
 				84132C81241A2FB6008D4B92 /* LaunchScreen.storyboard */,
 				84132C84241A2FB6008D4B92 /* Info.plist */,
 			);
 			path = "Sign Up-Sign In";
+			sourceTree = "<group>";
+		};
+		841444FB241A73AD00495677 /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+				841444F9241A73A600495677 /* AuthorizationViewController.swift */,
+				841444FD241A74E300495677 /* SignIn */,
+				841444FC241A74D900495677 /* SignUp */,
+			);
+			path = Authorization;
+			sourceTree = "<group>";
+		};
+		841444FC241A74D900495677 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				84144500241A750100495677 /* SignUpViewController.swift */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		841444FD241A74E300495677 /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				841444FE241A74F500495677 /* SignInViewController.swift */,
+			);
+			path = SignIn;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +168,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				84132C7B241A2FAE008D4B92 /* ViewController.swift in Sources */,
+				841444FF241A74F500495677 /* SignInViewController.swift in Sources */,
+				841444FA241A73A600495677 /* AuthorizationViewController.swift in Sources */,
 				84132C77241A2FAE008D4B92 /* AppDelegate.swift in Sources */,
 				84132C79241A2FAE008D4B92 /* SceneDelegate.swift in Sources */,
+				84144501241A750100495677 /* SignUpViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,7 +319,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N6BY6CQFA4;
 				INFOPLIST_FILE = "Sign Up-Sign In/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -306,7 +338,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N6BY6CQFA4;
 				INFOPLIST_FILE = "Sign Up-Sign In/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
