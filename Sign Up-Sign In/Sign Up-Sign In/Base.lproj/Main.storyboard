@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
@@ -8,19 +8,19 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Authorization View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="AuthorizationViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ViewController" customModule="AuthorizationViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AuthorizationViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="AuthorizationViewController" customModule="Sign_Up_Sign_In" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="4" translatesAutoresizingMaskIntoConstraints="NO" id="n0n-DG-AUI">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="4" translatesAutoresizingMaskIntoConstraints="NO" id="Jcc-aG-xBK">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <button opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C2k-Fz-I0d">
-                                <rect key="frame" x="99.5" y="771" width="215" height="45"/>
+                                <rect key="frame" x="80" y="576" width="215" height="45"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="7kQ-NE-Pum"/>
@@ -31,11 +31,12 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="HyN-JS-cSv" kind="presentation" id="jv3-Hq-R8n"/>
+                                    <action selector="signIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DLn-SY-rlp"/>
+                                    <segue destination="HyN-JS-cSv" kind="presentation" id="irX-1K-3fp"/>
                                 </connections>
                             </button>
                             <button opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cXZ-gK-x0l">
-                                <rect key="frame" x="99.5" y="712" width="215" height="45"/>
+                                <rect key="frame" x="80" y="517" width="215" height="45"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="dfu-Fn-hT7"/>
@@ -46,23 +47,29 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="474-th-cai" kind="presentation" id="WCh-zc-cmi"/>
+                                    <action selector="signUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wR4-rJ-qH6"/>
+                                    <segue destination="474-th-cai" kind="presentation" id="Pxp-zv-TfJ"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="C2k-Fz-I0d" secondAttribute="bottom" constant="46" id="1qO-Xd-yv0"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Jcc-aG-xBK" secondAttribute="trailing" id="3eJ-8T-0fe"/>
                             <constraint firstItem="C2k-Fz-I0d" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="C1b-3K-sI2"/>
-                            <constraint firstItem="n0n-DG-AUI" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottom" id="KRo-Ti-WuD"/>
+                            <constraint firstItem="Jcc-aG-xBK" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Kst-4m-KqR"/>
                             <constraint firstItem="cXZ-gK-x0l" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bdx-Sm-FxN"/>
-                            <constraint firstItem="n0n-DG-AUI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="dBk-dm-6G8"/>
-                            <constraint firstItem="n0n-DG-AUI" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="hHr-PK-8y0"/>
-                            <constraint firstItem="n0n-DG-AUI" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="smF-bI-gcA"/>
+                            <constraint firstItem="Jcc-aG-xBK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ivj-LP-Hh1"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Jcc-aG-xBK" secondAttribute="bottom" id="wJb-JT-kgp"/>
                             <constraint firstItem="C2k-Fz-I0d" firstAttribute="top" secondItem="cXZ-gK-x0l" secondAttribute="bottom" constant="14" id="yqS-hO-h8G"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="backImageView" destination="Jcc-aG-xBK" id="AbV-32-vct"/>
+                        <outlet property="signInButton" destination="C2k-Fz-I0d" id="H8m-4b-Xvb"/>
+                        <outlet property="signUpButton" destination="cXZ-gK-x0l" id="XTx-si-TVU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -73,7 +80,7 @@
             <objects>
                 <viewController storyboardIdentifier="SignUpViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="474-th-cai" customClass="SignUpViewController" customModule="Sign_Up_Sign_In" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dpX-Br-OWB">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="VhP-Vj-KVS"/>
@@ -88,7 +95,7 @@
             <objects>
                 <viewController storyboardIdentifier="SignInViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="HyN-JS-cSv" customClass="SignInViewController" customModule="Sign_Up_Sign_In" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zk1-9x-pq7">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="iZ8-lz-fdb"/>

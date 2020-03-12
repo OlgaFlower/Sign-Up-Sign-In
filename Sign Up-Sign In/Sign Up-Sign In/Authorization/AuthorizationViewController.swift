@@ -9,22 +9,28 @@
 import UIKit
 
 class AuthorizationViewController: UIViewController {
+    @IBOutlet weak var backImageView: UIImageView!
+    @IBOutlet weak var signInButton: UIButton!
+    @IBOutlet weak var signUpButton: UIButton!
+    
+    
+    
+    let presenter = AuthPresenter()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        presenter.setStartScreenButtons(signUpButton, "SIGN UP")
+        presenter.setStartScreenButtons(signInButton, "SIGN IN")
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func signIn(_ sender: Any) {
+        
     }
-    */
-
+    
+    @IBAction func signUp(_ sender: Any) {
+        
+    }
+    
+    
 }

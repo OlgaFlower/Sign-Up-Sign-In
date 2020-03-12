@@ -15,6 +15,7 @@
 		841444FA241A73A600495677 /* AuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841444F9241A73A600495677 /* AuthorizationViewController.swift */; };
 		841444FF241A74F500495677 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841444FE241A74F500495677 /* SignInViewController.swift */; };
 		84144501241A750100495677 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84144500241A750100495677 /* SignUpViewController.swift */; };
+		84144503241A8ADE00495677 /* AuthPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84144502241A8ADE00495677 /* AuthPresenter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		841444F9241A73A600495677 /* AuthorizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewController.swift; sourceTree = "<group>"; };
 		841444FE241A74F500495677 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		84144500241A750100495677 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		84144502241A8ADE00495677 /* AuthPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPresenter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				841444F9241A73A600495677 /* AuthorizationViewController.swift */,
+				84144502241A8ADE00495677 /* AuthPresenter.swift */,
 				841444FD241A74E300495677 /* SignIn */,
 				841444FC241A74D900495677 /* SignUp */,
 			);
@@ -172,6 +175,7 @@
 				841444FA241A73A600495677 /* AuthorizationViewController.swift in Sources */,
 				84132C77241A2FAE008D4B92 /* AppDelegate.swift in Sources */,
 				84132C79241A2FAE008D4B92 /* SceneDelegate.swift in Sources */,
+				84144503241A8ADE00495677 /* AuthPresenter.swift in Sources */,
 				84144501241A750100495677 /* SignUpViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
