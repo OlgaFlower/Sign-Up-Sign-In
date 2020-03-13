@@ -10,6 +10,19 @@ import UIKit
 
 class SignInViewController: UIViewController {
 
+    @IBOutlet weak var emailTitleLabel: UILabel!
+    @IBOutlet weak var inputEmailTextField: UITextField!
+    @IBOutlet weak var errorEmailRedLineView: UIView!
+    @IBOutlet weak var emailErrorLabel: UILabel!
+    
+    @IBOutlet weak var passTitleLabel: UILabel!
+    @IBOutlet weak var inputPassTextField: UITextField!
+    @IBOutlet weak var errorPassRedLineView: UIView!
+    @IBOutlet weak var passErrorLabel: UILabel!
+    
+    @IBOutlet weak var LoginButton: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -17,6 +30,9 @@ class SignInViewController: UIViewController {
     }
     
 
-
+    @IBAction func confirmLogin(_ sender: Any) {
+        
+    }
+    
 
 }

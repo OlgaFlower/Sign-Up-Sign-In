@@ -331,9 +331,152 @@
                     <view key="view" contentMode="scaleToFill" id="zk1-9x-pq7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xO7-o5-d0l">
+                                <rect key="frame" x="34.5" y="60" width="306" height="168"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="SJw-hv-21Y">
+                                        <rect key="frame" x="18" y="7" width="270" height="154"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="TDj-rT-IeK" userLabel="Email">
+                                                <rect key="frame" x="0.0" y="0.0" width="270" height="73"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gFH-Ro-XfJ">
+                                                        <rect key="frame" x="0.0" y="0.0" width="270" height="21"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="21" id="8rw-39-fgC"/>
+                                                            <constraint firstAttribute="width" constant="270" id="QRO-on-7fc"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="15"/>
+                                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" alpha="0.60000002384185791" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ouW-PB-6gg">
+                                                        <rect key="frame" x="0.0" y="21" width="270" height="34"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="270" id="IYJ-c7-EEQ"/>
+                                                            <constraint firstAttribute="height" constant="34" id="wxN-pK-xjC"/>
+                                                        </constraints>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="16"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I8v-IU-DwK">
+                                                        <rect key="frame" x="0.0" y="55" width="270" height="1"/>
+                                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="1" id="X3Z-mE-cGM"/>
+                                                            <constraint firstAttribute="width" constant="270" id="YgT-zW-vj5"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mow-aX-bG8">
+                                                        <rect key="frame" x="0.0" y="56" width="270" height="17"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="17" id="2V9-fo-Sbr"/>
+                                                            <constraint firstAttribute="width" constant="270" id="i3o-Ld-tPM"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="15"/>
+                                                        <color key="textColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="FcJ-aQ-APh" userLabel="Password">
+                                                <rect key="frame" x="0.0" y="81" width="270" height="73"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yfU-fG-InO">
+                                                        <rect key="frame" x="0.0" y="0.0" width="270" height="21"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="270" id="K1W-o5-zJm"/>
+                                                            <constraint firstAttribute="height" constant="21" id="l7Z-4U-yoi"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="15"/>
+                                                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aa3-g2-9Xh">
+                                                        <rect key="frame" x="0.0" y="21" width="270" height="34"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="270" id="Z6G-FA-q6i"/>
+                                                            <constraint firstAttribute="height" constant="34" id="uRC-qD-GD2"/>
+                                                        </constraints>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="16"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6EG-9F-Vb2">
+                                                        <rect key="frame" x="0.0" y="55" width="270" height="1"/>
+                                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="1" id="9L6-Ul-SX0"/>
+                                                            <constraint firstAttribute="width" constant="270" id="ZAc-q8-mEd"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="620-wp-l4j">
+                                                        <rect key="frame" x="0.0" y="56" width="270" height="17"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="270" id="5Rq-ym-ZWi"/>
+                                                            <constraint firstAttribute="height" constant="17" id="iZF-MY-5wN"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="15"/>
+                                                        <color key="textColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="SJw-hv-21Y" firstAttribute="centerY" secondItem="xO7-o5-d0l" secondAttribute="centerY" id="Cfu-g7-7Q7"/>
+                                    <constraint firstItem="SJw-hv-21Y" firstAttribute="centerX" secondItem="xO7-o5-d0l" secondAttribute="centerX" id="EaQ-CE-QP1"/>
+                                    <constraint firstAttribute="width" constant="306" id="Nky-fN-vvB"/>
+                                    <constraint firstAttribute="height" constant="168" id="VX2-Bg-LI5"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" alpha="0.69999998807907104" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zjj-SH-teJ">
+                                <rect key="frame" x="75" y="288" width="225" height="40"/>
+                                <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="gHd-QS-d5u"/>
+                                    <constraint firstAttribute="width" constant="225" id="gY5-gV-W0L"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="17"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="confirmLogin:" destination="HyN-JS-cSv" eventType="touchUpInside" id="3YE-OM-msO"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="zjj-SH-teJ" firstAttribute="centerX" secondItem="zk1-9x-pq7" secondAttribute="centerX" id="0oq-CJ-kCw"/>
+                            <constraint firstItem="xO7-o5-d0l" firstAttribute="top" secondItem="iZ8-lz-fdb" secondAttribute="top" constant="60" id="7hB-uh-Vpg"/>
+                            <constraint firstItem="zjj-SH-teJ" firstAttribute="top" secondItem="xO7-o5-d0l" secondAttribute="bottom" constant="60" id="OtD-3o-pee"/>
+                            <constraint firstItem="xO7-o5-d0l" firstAttribute="centerX" secondItem="zk1-9x-pq7" secondAttribute="centerX" id="uxw-xd-sjc"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="iZ8-lz-fdb"/>
                     </view>
+                    <connections>
+                        <outlet property="LoginButton" destination="zjj-SH-teJ" id="F6u-ML-ahs"/>
+                        <outlet property="emailErrorLabel" destination="mow-aX-bG8" id="BkM-4f-pFf"/>
+                        <outlet property="emailTitleLabel" destination="gFH-Ro-XfJ" id="GCX-8m-L9N"/>
+                        <outlet property="errorEmailRedLineView" destination="I8v-IU-DwK" id="0sj-SJ-Ji1"/>
+                        <outlet property="errorPassRedLineView" destination="6EG-9F-Vb2" id="YVD-1A-UjN"/>
+                        <outlet property="inputEmailTextField" destination="ouW-PB-6gg" id="1lh-UN-ojq"/>
+                        <outlet property="inputPassTextField" destination="aa3-g2-9Xh" id="iG1-rv-Ko3"/>
+                        <outlet property="passErrorLabel" destination="620-wp-l4j" id="xxD-cV-07r"/>
+                        <outlet property="passTitleLabel" destination="yfU-fG-InO" id="fdh-jJ-GiT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PNu-Hm-0vj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
