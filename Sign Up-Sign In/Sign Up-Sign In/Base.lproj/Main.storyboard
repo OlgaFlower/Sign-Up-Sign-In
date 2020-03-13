@@ -267,6 +267,9 @@
                                 <state key="normal" title="Button">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="confirmRegistration:" destination="474-th-cai" eventType="touchUpInside" id="KoM-5J-qfJ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -280,10 +283,27 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VhP-Vj-KVS"/>
                     </view>
+                    <connections>
+                        <outlet property="confirmPassTitleLabel" destination="wys-eI-bu0" id="Oeh-3w-JbL"/>
+                        <outlet property="confirmRegistrationButton" destination="wuk-IJ-gAu" id="vMw-H9-Yjq"/>
+                        <outlet property="emailErrorLabel" destination="oj0-3d-ZKD" id="sPb-lS-Kw7"/>
+                        <outlet property="emailErrorRedLineView" destination="3ao-jB-TSB" id="iPK-BZ-z6p"/>
+                        <outlet property="emailTitleLabel" destination="rLr-IV-z6L" id="7zF-7b-kON"/>
+                        <outlet property="inputConfirmPassTextField" destination="Pt3-mb-Xku" id="CeF-11-yfc"/>
+                        <outlet property="inputEmailTextField" destination="9gH-nN-OUx" id="nl8-Yv-GxW"/>
+                        <outlet property="inputNameTextField" destination="wdY-Ya-0rf" id="xVN-su-Pz2"/>
+                        <outlet property="inputPassTextField" destination="wN6-ye-AGc" id="EMc-r1-Brp"/>
+                        <outlet property="nameErrorLabel" destination="EQI-sH-STN" id="8RC-9k-IZs"/>
+                        <outlet property="nameErrorRedLineView" destination="hvu-5f-n4R" id="brV-3Q-1pp"/>
+                        <outlet property="nameTitleLabel" destination="1P0-T5-3Ib" id="wcL-Kc-R8s"/>
+                        <outlet property="passErrorLabel" destination="q4M-pT-8hT" id="3ZR-eN-3dl"/>
+                        <outlet property="passErrorRedLineView" destination="bY8-0E-wJA" id="QhU-u3-mDk"/>
+                        <outlet property="passTitleLabel" destination="nYf-Qn-tZ4" id="Rqm-f0-fjQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="02L-Ff-OTi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="976.79999999999995" y="-205.54722638680661"/>
+            <point key="canvasLocation" x="-194" y="850"/>
         </scene>
         <!--Sign In View Controller-->
         <scene sceneID="fPQ-bE-v5p">
@@ -292,13 +312,13 @@
                     <view key="view" contentMode="scaleToFill" id="zk1-9x-pq7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="iZ8-lz-fdb"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PNu-Hm-0vj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="977" y="466"/>
+            <point key="canvasLocation" x="524" y="850"/>
         </scene>
     </scenes>
     <resources>

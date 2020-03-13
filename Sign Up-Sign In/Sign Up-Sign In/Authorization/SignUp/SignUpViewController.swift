@@ -9,22 +9,37 @@
 import UIKit
 
 class SignUpViewController: UIViewController {
-
+    
+    @IBOutlet weak var emailTitleLabel: UILabel!
+    @IBOutlet weak var inputEmailTextField: UITextField!
+    @IBOutlet weak var emailErrorRedLineView: UIView!
+    @IBOutlet weak var emailErrorLabel: UILabel!
+    
+    @IBOutlet weak var nameTitleLabel: UILabel!
+    @IBOutlet weak var inputNameTextField: UITextField!
+    @IBOutlet weak var nameErrorRedLineView: UIView!
+    @IBOutlet weak var nameErrorLabel: UILabel!
+    
+    @IBOutlet weak var passTitleLabel: UILabel!
+    @IBOutlet weak var inputPassTextField: UITextField!
+    @IBOutlet weak var confirmPassTitleLabel: UILabel!
+    @IBOutlet weak var inputConfirmPassTextField: UITextField!
+    @IBOutlet weak var passErrorRedLineView: UIView!
+    @IBOutlet weak var passErrorLabel: UILabel!
+    
+    @IBOutlet weak var confirmRegistrationButton: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func confirmRegistration(_ sender: Any) {
+        
     }
-    */
+    
+ 
 
 }

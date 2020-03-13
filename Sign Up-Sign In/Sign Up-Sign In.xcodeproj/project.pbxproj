@@ -81,8 +81,8 @@
 			children = (
 				841444F9241A73A600495677 /* AuthorizationViewController.swift */,
 				84144504241AAC3B00495677 /* AuthPresenter.swift */,
-				841444FD241A74E300495677 /* SignIn */,
 				841444FC241A74D900495677 /* SignUp */,
+				841444FD241A74E300495677 /* SignIn */,
 			);
 			path = Authorization;
 			sourceTree = "<group>";
