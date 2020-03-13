@@ -20,12 +20,15 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var errorPassRedLineView: UIView!
     @IBOutlet weak var passErrorLabel: UILabel!
     
-    @IBOutlet weak var LoginButton: UIButton!
+    @IBOutlet weak var logInButton: UIButton!
     
+    
+    let presenter = AuthPresenter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        presenter.setScreenButton(logInButton, "Confirm")
     
     }
     

@@ -8,19 +8,30 @@
 
 import UIKit
 
-class AuthorizationViewController: UIViewController {
+class AuthorizationViewController: UIViewController, SignUpViewControllerDelegate {
+    
+    
     @IBOutlet weak var backImageView: UIImageView!
     @IBOutlet weak var signInButton: UIButton!
     @IBOutlet weak var signUpButton: UIButton!
     
-    
-    
     let presenter = AuthPresenter()
+    var isViewDismissed: Bool = true
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter.authVC = self
+        
         presenter.setScreenButton(signUpButton, "SIGN UP")
         presenter.setScreenButton(signInButton, "SIGN IN")
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print(isViewDismissed)
+        presenter.hideShowAuthButtons(signInButton, signUpButton, isViewDismissed)
+        isViewDismissed = false
         
     }
     
@@ -29,6 +40,10 @@ class AuthorizationViewController: UIViewController {
     }
     
     @IBAction func signUp(_ sender: Any) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
+        present(vc, animated: true, completion: nil)
+        vc.delegate = self
+        presenter.hideShowAuthButtons(signUpButton, signInButton, isViewDismissed)
         
     }
     

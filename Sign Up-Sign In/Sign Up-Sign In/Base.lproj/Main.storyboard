@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -32,7 +31,6 @@
                                 </state>
                                 <connections>
                                     <action selector="signIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DLn-SY-rlp"/>
-                                    <segue destination="HyN-JS-cSv" kind="presentation" id="irX-1K-3fp"/>
                                 </connections>
                             </button>
                             <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cXZ-gK-x0l">
@@ -48,7 +46,6 @@
                                 </state>
                                 <connections>
                                     <action selector="signUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wR4-rJ-qH6"/>
-                                    <segue destination="474-th-cai" kind="presentation" id="Pxp-zv-TfJ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -80,7 +77,7 @@
             <objects>
                 <viewController storyboardIdentifier="SignUpViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="474-th-cai" customClass="SignUpViewController" customModule="Sign_Up_Sign_In" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dpX-Br-OWB">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rnm-Nl-ImD">
@@ -329,7 +326,7 @@
             <objects>
                 <viewController storyboardIdentifier="SignInViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="HyN-JS-cSv" customClass="SignInViewController" customModule="Sign_Up_Sign_In" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zk1-9x-pq7">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xO7-o5-d0l">
@@ -467,13 +464,13 @@
                         <viewLayoutGuide key="safeArea" id="iZ8-lz-fdb"/>
                     </view>
                     <connections>
-                        <outlet property="LoginButton" destination="zjj-SH-teJ" id="F6u-ML-ahs"/>
                         <outlet property="emailErrorLabel" destination="mow-aX-bG8" id="BkM-4f-pFf"/>
                         <outlet property="emailTitleLabel" destination="gFH-Ro-XfJ" id="GCX-8m-L9N"/>
                         <outlet property="errorEmailRedLineView" destination="I8v-IU-DwK" id="0sj-SJ-Ji1"/>
                         <outlet property="errorPassRedLineView" destination="6EG-9F-Vb2" id="YVD-1A-UjN"/>
                         <outlet property="inputEmailTextField" destination="ouW-PB-6gg" id="1lh-UN-ojq"/>
                         <outlet property="inputPassTextField" destination="aa3-g2-9Xh" id="iG1-rv-Ko3"/>
+                        <outlet property="logInButton" destination="zjj-SH-teJ" id="brm-Dh-oS9"/>
                         <outlet property="passErrorLabel" destination="620-wp-l4j" id="xxD-cV-07r"/>
                         <outlet property="passTitleLabel" destination="yfU-fG-InO" id="fdh-jJ-GiT"/>
                     </connections>

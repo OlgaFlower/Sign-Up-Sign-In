@@ -8,8 +8,12 @@
 
 import UIKit
 
+protocol SignUpViewControllerDelegate: class {
+    var isViewDismissed: Bool { get set }
+//    func viewDismissed(_ isDismissed: Bool)
+}
+
 class SignUpViewController: UIViewController {
-    
     @IBOutlet weak var emailTitleLabel: UILabel!
     @IBOutlet weak var inputEmailTextField: UITextField!
     @IBOutlet weak var emailErrorRedLineView: UIView!
@@ -29,11 +33,19 @@ class SignUpViewController: UIViewController {
     
     @IBOutlet weak var confirmRegistrationButton: UIButton!
     
+    let presenter = AuthPresenter()
+    weak var delegate: SignUpViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
+        presenter.setScreenButton(confirmRegistrationButton, "Confirm")
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if let delegate = delegate {
+            delegate.isViewDismissed = true
+        }
     }
     
     @IBAction func confirmRegistration(_ sender: Any) {
