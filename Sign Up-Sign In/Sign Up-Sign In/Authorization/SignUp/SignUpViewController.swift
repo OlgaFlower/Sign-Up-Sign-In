@@ -31,15 +31,17 @@ class SignUpViewController: UIViewController {
     
     let presenter = AuthPresenter()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter.signUpVC = self
         presenter.setScreenButton(confirmRegistrationButton, "CONFIRM")
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: animated)
+        presenter.setNavBar(self)
     }
     
     @IBAction func confirmRegistration(_ sender: Any) {

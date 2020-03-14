@@ -12,15 +12,16 @@ class LogedInViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    let authPresenter = AuthPresenter()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: animated)
+        authPresenter.setNavBar(self)
     }
 
 }

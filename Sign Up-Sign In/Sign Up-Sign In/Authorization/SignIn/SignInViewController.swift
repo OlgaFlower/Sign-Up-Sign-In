@@ -31,7 +31,7 @@ class SignInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter.signInVC = self
+        
         presenter.setScreenButton(loginButton, "CONFIRM")
         welcomeLabel.text = "Welcome back"
         createAccountLabel.text = "Don't have an account?"
@@ -42,8 +42,8 @@ class SignInViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        navigationController?.setNavigationBarHidden(true, animated: animated)
-        presenter.setNavBar()
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+        
     }
     
 
