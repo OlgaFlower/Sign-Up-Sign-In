@@ -33,8 +33,14 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter.signUp = self
         presenter.setScreenButton(confirmRegistrationButton, "CONFIRM")
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
     @IBAction func confirmRegistration(_ sender: Any) {

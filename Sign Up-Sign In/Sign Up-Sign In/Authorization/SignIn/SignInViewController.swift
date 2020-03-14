@@ -31,11 +31,12 @@ class SignInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        presenter.signIn = self
         presenter.setScreenButton(loginButton, "CONFIRM")
         welcomeLabel.text = "Welcome back"
         createAccountLabel.text = "Don't have an account?"
         signUpButton.setTitle("Sign Up", for: .normal)
+        
     
     }
     
@@ -50,7 +51,8 @@ class SignInViewController: UIViewController {
     }
     
     @IBAction func createAccount(_ sender: Any) {
-        
+        let vc = storyboard?.instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
+        show(vc, sender: self)
     }
     
 }
