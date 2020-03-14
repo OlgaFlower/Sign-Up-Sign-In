@@ -12,7 +12,6 @@
 		84132C7E241A2FAE008D4B92 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84132C7C241A2FAE008D4B92 /* Main.storyboard */; };
 		84132C80241A2FB6008D4B92 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84132C7F241A2FB6008D4B92 /* Assets.xcassets */; };
 		84132C83241A2FB6008D4B92 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84132C81241A2FB6008D4B92 /* LaunchScreen.storyboard */; };
-		841444FA241A73A600495677 /* AuthorizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841444F9241A73A600495677 /* AuthorizationViewController.swift */; };
 		841444FF241A74F500495677 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841444FE241A74F500495677 /* SignInViewController.swift */; };
 		84144501241A750100495677 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84144500241A750100495677 /* SignUpViewController.swift */; };
 		84144505241AAC3B00495677 /* AuthPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84144504241AAC3B00495677 /* AuthPresenter.swift */; };
@@ -27,7 +26,6 @@
 		84132C7F241A2FB6008D4B92 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84132C82241A2FB6008D4B92 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84132C84241A2FB6008D4B92 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		841444F9241A73A600495677 /* AuthorizationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationViewController.swift; sourceTree = "<group>"; };
 		841444FE241A74F500495677 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		84144500241A750100495677 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		84144504241AAC3B00495677 /* AuthPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPresenter.swift; sourceTree = "<group>"; };
@@ -79,10 +77,9 @@
 		841444FB241A73AD00495677 /* Authorization */ = {
 			isa = PBXGroup;
 			children = (
-				841444F9241A73A600495677 /* AuthorizationViewController.swift */,
 				84144504241AAC3B00495677 /* AuthPresenter.swift */,
-				841444FC241A74D900495677 /* SignUp */,
 				841444FD241A74E300495677 /* SignIn */,
+				841444FC241A74D900495677 /* SignUp */,
 			);
 			path = Authorization;
 			sourceTree = "<group>";
@@ -175,7 +172,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				841444FF241A74F500495677 /* SignInViewController.swift in Sources */,
-				841444FA241A73A600495677 /* AuthorizationViewController.swift in Sources */,
 				84132C77241A2FAE008D4B92 /* AppDelegate.swift in Sources */,
 				84132C79241A2FAE008D4B92 /* SceneDelegate.swift in Sources */,
 				84144505241AAC3B00495677 /* AuthPresenter.swift in Sources */,

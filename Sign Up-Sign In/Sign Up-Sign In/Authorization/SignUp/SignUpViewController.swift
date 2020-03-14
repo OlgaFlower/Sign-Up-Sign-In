@@ -29,10 +29,11 @@ class SignUpViewController: UIViewController {
     
     @IBOutlet weak var confirmRegistrationButton: UIButton!
     
+    let presenter = AuthPresenter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        presenter.setScreenButton(confirmRegistrationButton, "CONFIRM")
         
     }
     

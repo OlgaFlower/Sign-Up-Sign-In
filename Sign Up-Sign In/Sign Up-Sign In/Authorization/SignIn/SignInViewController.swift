@@ -9,6 +9,8 @@
 import UIKit
 
 class SignInViewController: UIViewController {
+    
+    @IBOutlet weak var welcomeLabel: UILabel!
 
     @IBOutlet weak var emailTitleLabel: UILabel!
     @IBOutlet weak var inputEmailTextField: UITextField!
@@ -20,12 +22,20 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var errorPassRedLineView: UIView!
     @IBOutlet weak var passErrorLabel: UILabel!
     
-    @IBOutlet weak var LoginButton: UIButton!
+    @IBOutlet weak var loginButton: UIButton!
     
+    @IBOutlet weak var createAccountLabel: UILabel!
+    @IBOutlet weak var signUpButton: UIButton!
+    
+    let presenter = AuthPresenter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        presenter.setScreenButton(loginButton, "CONFIRM")
+        welcomeLabel.text = "Welcome back"
+        createAccountLabel.text = "Don't have an account?"
+        signUpButton.setTitle("Sign Up", for: .normal)
     
     }
     
@@ -34,5 +44,8 @@ class SignInViewController: UIViewController {
         
     }
     
-
+    @IBAction func createAccount(_ sender: Any) {
+        
+    }
+    
 }
