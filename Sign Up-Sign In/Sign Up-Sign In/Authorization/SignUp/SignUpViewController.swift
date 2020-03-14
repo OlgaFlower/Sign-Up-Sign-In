@@ -33,7 +33,6 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter.signUp = self
         presenter.setScreenButton(confirmRegistrationButton, "CONFIRM")
         
     }

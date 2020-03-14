@@ -31,7 +31,6 @@ class SignInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter.signIn = self
         presenter.setScreenButton(loginButton, "CONFIRM")
         welcomeLabel.text = "Welcome back"
         createAccountLabel.text = "Don't have an account?"
