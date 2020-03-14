@@ -10,7 +10,7 @@
         <!--Sign Up View Controller-->
         <scene sceneID="LFR-DX-WNI">
             <objects>
-                <viewController storyboardIdentifier="SignUpViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="474-th-cai" customClass="SignUpViewController" customModule="Sign_Up_Sign_In" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUpViewController" id="474-th-cai" customClass="SignUpViewController" customModule="Sign_Up_Sign_In" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dpX-Br-OWB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -256,10 +256,54 @@
             </objects>
             <point key="canvasLocation" x="1296.8" y="122.78860569715144"/>
         </scene>
+        <!--Loged In View Controller-->
+        <scene sceneID="o4T-AJ-QwR">
+            <objects>
+                <viewController storyboardIdentifier="LogedInViewController" id="t7x-v8-Zbc" customClass="LogedInViewController" customModule="Sign_Up_Sign_In" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="P1U-v8-0FV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sEk-8Q-amS">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="logedInCell" id="LZa-Io-9xQ" customClass="LogedInTableViewCell" customModule="Sign_Up_Sign_In" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LZa-Io-9xQ" id="ewC-2l-lRc">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="t7x-v8-Zbc" id="deQ-3V-7xN"/>
+                                    <outlet property="delegate" destination="t7x-v8-Zbc" id="b39-oi-2gw"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="sEk-8Q-amS" firstAttribute="bottom" secondItem="P1U-v8-0FV" secondAttribute="bottom" id="5T6-qx-9vT"/>
+                            <constraint firstItem="sEk-8Q-amS" firstAttribute="leading" secondItem="P1U-v8-0FV" secondAttribute="leading" id="YSd-rH-oZo"/>
+                            <constraint firstItem="sEk-8Q-amS" firstAttribute="trailing" secondItem="P1U-v8-0FV" secondAttribute="trailing" id="rmm-gq-AHC"/>
+                            <constraint firstItem="sEk-8Q-amS" firstAttribute="top" secondItem="P1U-v8-0FV" secondAttribute="top" id="syw-74-Huk"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="f7C-0M-Tdf"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="sEk-8Q-amS" id="f2i-Kw-Neb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="z6s-Qn-6zq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2167.1999999999998" y="122.78860569715144"/>
+        </scene>
         <!--Sign In View Controller-->
         <scene sceneID="fPQ-bE-v5p">
             <objects>
-                <viewController storyboardIdentifier="SignInViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="HyN-JS-cSv" customClass="SignInViewController" customModule="Sign_Up_Sign_In" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignInViewController" id="HyN-JS-cSv" customClass="SignInViewController" customModule="Sign_Up_Sign_In" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zk1-9x-pq7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
