@@ -10,6 +10,8 @@ import UIKit
 
 class AuthPresenter {
     
+    weak var signInVC: SignInViewController?
+    
     func setScreenButton(_ button: UIButton, _ title: String) {
         button.layer.cornerRadius = 21
         button.layer.borderWidth = 1
@@ -17,5 +19,12 @@ class AuthPresenter {
         button.setTitle(title, for: .normal)
         
     }
-
+    
+    //transparent navbar
+    func setNavBar() {
+        signInVC?.navigationController?.setNavigationBarHidden(true, animated: true)
+        signInVC?.navigationController!.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        signInVC?.navigationController!.navigationBar.isTranslucent = true
+        
+    }
 }

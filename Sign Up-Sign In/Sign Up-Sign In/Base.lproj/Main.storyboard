@@ -266,7 +266,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sEk-8Q-amS">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="logedInCell" id="LZa-Io-9xQ" customClass="LogedInTableViewCell" customModule="Sign_Up_Sign_In" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
@@ -274,7 +274,9 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LZa-Io-9xQ" id="ewC-2l-lRc">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -283,12 +285,12 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.32472246890000001" green="0.47170811889999997" blue="0.43521353600000001" alpha="0.50013377569999995" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="sEk-8Q-amS" firstAttribute="bottom" secondItem="P1U-v8-0FV" secondAttribute="bottom" id="5T6-qx-9vT"/>
                             <constraint firstItem="sEk-8Q-amS" firstAttribute="leading" secondItem="P1U-v8-0FV" secondAttribute="leading" id="YSd-rH-oZo"/>
                             <constraint firstItem="sEk-8Q-amS" firstAttribute="trailing" secondItem="P1U-v8-0FV" secondAttribute="trailing" id="rmm-gq-AHC"/>
-                            <constraint firstItem="sEk-8Q-amS" firstAttribute="top" secondItem="P1U-v8-0FV" secondAttribute="top" id="syw-74-Huk"/>
+                            <constraint firstItem="sEk-8Q-amS" firstAttribute="top" secondItem="f7C-0M-Tdf" secondAttribute="top" id="syw-74-Huk"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="f7C-0M-Tdf"/>
                     </view>
