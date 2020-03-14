@@ -10,6 +10,8 @@ import Foundation
 
 class Validation {
     
+    
+    
     static func passValidator(_ pass: String) -> Bool {
         
         let special = CharacterSet(charactersIn: "!@#$%^&*()-+")
@@ -45,6 +47,13 @@ class Validation {
         if checkAmountOfCharsAfterPoint(email) == false { return false }
         
         return true
+    }
+    
+    static func nameValidator(_ name: String) -> Bool {
+        if name.count < 6 && name.count > 20 {
+            return false
+        }
+        return true 
     }
     
     static func checkAmountOfCharsAfterPoint(_ email: String) -> Bool {
