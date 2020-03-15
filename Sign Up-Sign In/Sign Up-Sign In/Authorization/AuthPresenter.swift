@@ -146,4 +146,24 @@ class AuthPresenter {
         })
     }
     
+    //MARK: - Check through existing names at UserDefaults
+    func checkSetForExisting(_ newName: String) -> Bool {
+        guard let vc = signUpVC else { return true }
+        if vc.userNameSet.contains(newName) {
+            print("set contain \(newName)")
+            return true
+        } else {
+            vc.userNameSet.insert(newName)
+            print("new name inserted to set")
+            return false
+        }
+    }
+    
+    //MARK: - Notificate user about existing an equal name at UserDefaults
+    func showNotificationAboutExistingName() {
+        guard let vc = signUpVC else { return }
+        showError(vc.nameErrorLabel, vc.nameErrorRedLineView)
+        vc.nameErrorLabel.text = ValidationErrors.existingName.rawValue
+    }
+    
 }

@@ -31,6 +31,7 @@ enum ValidationErrors: String {
     case passLength = "length is not equal"
     case passNotEqual = "arn't equal"
     case required = "Required field"
+    case existingName = "This name is already registered"
 }
 
 class Validation {

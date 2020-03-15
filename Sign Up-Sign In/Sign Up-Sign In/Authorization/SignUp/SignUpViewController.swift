@@ -34,6 +34,7 @@ class SignUpViewController: UIViewController {
     
     let presenter = AuthPresenter()
     let defaults = UserDefaults.standard
+    var userNameSet = Set<String>()
     var userNameArray = [String]()
     
     override func viewDidLoad() {
@@ -43,6 +44,10 @@ class SignUpViewController: UIViewController {
             userNameArray = nameArray
             print(userNameArray)
         }
+        
+        let names = userNameArray.map({ $0 })
+        let nameSet = Set(names)
+
         
         presenter.signUpVC = self
         inputEmailTextField.delegate = self
@@ -96,15 +101,24 @@ class SignUpViewController: UIViewController {
         }
     }
     
+    
+    
     @IBAction func confirmRegistration(_ sender: Any) {
         presenter.checkForEmptyTextfield()
         
         if registrationIsValid == true {
             guard let name = inputNameTextField.text else { return }
-            userNameArray.append(name)
+            if presenter.checkSetForExisting(name) == true {
+                presenter.showNotificationAboutExistingName()
+                print("enter another user name")
+                return
+            } else {
+                defaults.set(self.userNameArray, forKey: "userNameKey")
+                self.dismiss(animated: true, completion: nil)
+            }
             
             //MARK: - Save user data to userDefaults
-            defaults.set(self.userNameArray, forKey: "userNameKey")
+//            defaults.set(self.userNameArray, forKey: "userNameKey")
         }
         
     }
