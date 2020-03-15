@@ -92,6 +92,7 @@ class SignUpViewController: UIViewController {
         checkForEmptyTextfield()
         presenter.checkEmail()
         presenter.checkPass()
+        presenter.checkName()
 
     }
     

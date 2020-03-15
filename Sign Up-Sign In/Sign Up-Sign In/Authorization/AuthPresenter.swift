@@ -55,8 +55,9 @@ class AuthPresenter {
             if text.count >= 1 && Validation.emailValidator(text) != "" {
                 showError(vc.emailErrorLabel, vc.emailErrorRedLineView)
                 vc.emailErrorLabel.text = Validation.emailValidator(text)
+                return false
             }
-            return false
+            return true
         }
     
     //Pass validation
@@ -66,8 +67,9 @@ class AuthPresenter {
         if text.count >= 1 && Validation.passValidator(text) != "" {
             showError(vc.firstPassErrorLabel, vc.firstPassErrorLine)
             vc.firstPassErrorLabel.text = Validation.passValidator(text)
+            return false
         }
-        return false
+        return true
     }
     
     
@@ -81,6 +83,17 @@ class AuthPresenter {
 //        return true
 //    }
     
+    //Name validation
+    func checkName() -> Bool {
+        guard let vc = signUpVC else { return false }
+        guard let text = vc.inputNameTextField.text else { return false }
+        if text.count >= 1 && Validation.nameValidator(text) != "" {
+            showError(vc.nameErrorLabel, vc.nameErrorRedLineView)
+            vc.nameErrorLabel.text = Validation.nameValidator(text)
+            return false
+        }
+        return true
+    }
     
     
     //MARK: - Show/hide errors
