@@ -28,6 +28,8 @@ enum ValidationErrors: String {
     case moreThanOneAtSymbol = "shouldn't contain more than one @ symbol"
     case incorrectEmail = "Incorrect email"
     case incorrectName = "should contain at least one upper/lowercase English character"
+    case passLength = "length is not equal"
+    case passNotEqual = "arn't equal"
     case required = "Required field"
 }
 
@@ -104,13 +106,19 @@ class Validation {
         return ""
     }
     
-//    //MARK: - Confirm pass validator
-//    static func nameValidator(_ name: String) -> Bool {
-//        if name.count < 6 && name.count > 20 {
-//            return false
-//        }
-//        return true
-//    }
+    //MARK: - Confirm pass validator
+    static func confirmPassValidator(_ firstPass: String, _ secondPass: String) -> String {
+        let word = "Passwords"
+        
+        if (firstPass.count < secondPass.count) || (firstPass.count > secondPass.count) {
+            return word + ValidationErrors.passLength.rawValue
+        }
+        if firstPass != secondPass {
+            return word + ValidationErrors.passNotEqual.rawValue
+        }
+        return ""
+    }
+    
     
     static func checkAmountOfCharsAfterPoint(_ email: String) -> Bool {
         guard let lastSymbol = email.lastIndex(of: ".") else { return false }

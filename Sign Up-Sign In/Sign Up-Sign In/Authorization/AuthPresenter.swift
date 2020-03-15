@@ -60,6 +60,18 @@ class AuthPresenter {
             return true
         }
     
+    //Name validation
+    func checkName() -> Bool {
+        guard let vc = signUpVC else { return false }
+        guard let text = vc.inputNameTextField.text else { return false }
+        if text.count >= 1 && Validation.nameValidator(text) != "" {
+            showError(vc.nameErrorLabel, vc.nameErrorRedLineView)
+            vc.nameErrorLabel.text = Validation.nameValidator(text)
+            return false
+        }
+        return true
+    }
+    
     //Pass validation
     func checkPass() -> Bool {
         guard let vc = signUpVC else { return false }
@@ -72,24 +84,14 @@ class AuthPresenter {
         return true
     }
     
-    
-//    func checkPass(_ textfield: UITextField, _ errorLabel: UILabel, _ errorLine: UIView) -> Bool {
-//        guard let text = textfield.text else {return false }
-//        if Validation.passValidator(text) != nil {
-//            showError(errorLabel, errorLine)
-//            errorLabel.text = Validation.passValidator(text)
-//            return false
-//        }
-//        return true
-//    }
-    
-    //Name validation
-    func checkName() -> Bool {
+    //Pass confirmation validation
+    func checkConfirmPass() -> Bool {
         guard let vc = signUpVC else { return false }
-        guard let text = vc.inputNameTextField.text else { return false }
-        if text.count >= 1 && Validation.nameValidator(text) != "" {
-            showError(vc.nameErrorLabel, vc.nameErrorRedLineView)
-            vc.nameErrorLabel.text = Validation.nameValidator(text)
+        guard let firstPass = vc.inputPassTextField.text else { return false }
+        guard let secondPass = vc.inputConfirmPassTextField.text else { return false }
+        if secondPass.count >= 1 && Validation.confirmPassValidator(firstPass, secondPass) != "" {
+            showError(vc.passErrorLabel, vc.passErrorRedLineView)
+            vc.passErrorLabel.text = Validation.confirmPassValidator(firstPass, secondPass)
             return false
         }
         return true
