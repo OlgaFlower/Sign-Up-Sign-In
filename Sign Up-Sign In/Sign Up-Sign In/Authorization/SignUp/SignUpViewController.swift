@@ -34,17 +34,14 @@ class SignUpViewController: UIViewController {
     
     let presenter = AuthPresenter()
     let defaults = UserDefaults.standard
-    var userNameSet = Set<String>() //for checking for uniqueness
-    var userNameArray = [String]() //for displaying the last item
+    var userNameArray: [String]? //for displaying the last registered item
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //restore user data into Set (from userDefaults)
         if let nameArray = defaults.array(forKey: "userNameKey") as? [String] {
             userNameArray = nameArray
-            userNameSet = presenter.convertArrIntoSet(nameArray)
             print("restored arr: \(userNameArray)")
-            print("restored data into set: \(userNameSet)")
         }
         
         presenter.signUpVC = self
@@ -99,10 +96,7 @@ class SignUpViewController: UIViewController {
         }
     }
     
-    
-    
     @IBAction func confirmRegistration(_ sender: Any) {
-        presenter.checkForEmptyTextfield()
         
         if registrationIsValid == true {
             guard let name = inputNameTextField.text else { return }
@@ -112,11 +106,15 @@ class SignUpViewController: UIViewController {
                 print("enter another user name")
                 return
             } else {
-                userNameSet.insert(name)
-                print("userNameSet: \(userNameSet)")
-                //save new userName to UserDefaults
-                defaults.set(presenter.convertSetIntoArr(userNameSet), forKey: "userNameKey")
-                self.dismiss(animated: true, completion: nil)
+                if userNameArray != nil {
+                    userNameArray!.append(name)
+                    print("userNameSet: \(userNameArray)")
+                    //save new userName to UserDefaults
+                    defaults.set(self.userNameArray, forKey: "userNameKey")
+                    //return to the previous VC
+                    self.navigationController?.popViewController(animated: true)
+                }
+                
             }
         }
         
@@ -124,29 +122,22 @@ class SignUpViewController: UIViewController {
     
     
     private var registrationIsValid: Bool {
-        
-        if presenter.checkEmail() == false {
+        let emptyField = presenter.checkForEmptyTextfield()
+        //Check if textFields != nil and validateinput text
+        if emptyField == true || presenter.checkEmail() == false {
             return false
         }
-        if presenter.checkName() == false {
+        if emptyField == true || presenter.checkName() == false {
             return false
         }
-        if presenter.checkPass() == false {
+        if emptyField == true || presenter.checkPass() == false {
             return false
         }
-        if presenter.checkConfirmPass() == false {
+        if emptyField == true || presenter.checkConfirmPass() == false {
             return false
         }
         return true
     }
-    
-    
-    
-    
-    
-    
-    
-    
     
 }
 

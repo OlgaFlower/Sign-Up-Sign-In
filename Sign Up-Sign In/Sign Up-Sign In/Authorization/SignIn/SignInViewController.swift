@@ -45,7 +45,6 @@ class SignInViewController: UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: animated)
         
     }
-    
 
     @IBAction func confirmLogin(_ sender: Any) {
         let vc = storyboard?.instantiateViewController(withIdentifier: "LogedInViewController") as! LogedInViewController

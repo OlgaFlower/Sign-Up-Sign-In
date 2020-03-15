@@ -48,20 +48,25 @@ class AuthPresenter {
     }
     
     //MARK: - Check for empty text fields
-    func checkForEmptyTextfield() {
-        guard let vc = signUpVC else { return }
+    func checkForEmptyTextfield() -> Bool {
+        guard let vc = signUpVC else { return true }
         if vc.inputEmailTextField.text!.isEmpty {
             self.showRequiredField(vc.emailTitleLabel)
+            return true
         }
         if vc.inputNameTextField.text!.isEmpty {
             self.showRequiredField(vc.nameTitleLabel)
+            return true
         }
         if vc.inputPassTextField.text!.isEmpty {
             self.showRequiredField(vc.passTitleLabel)
+            return true
         }
         if vc.inputConfirmPassTextField.text!.isEmpty {
             self.showRequiredField(vc.confirmPassTitleLabel)
+            return true
         }
+        return false
     }
     
     //MARK: - Validation
@@ -114,11 +119,8 @@ class AuthPresenter {
         } else {
             self.passwordsAreEqual = true
             return true
-            
         }
-        
     }
-    
     
     //MARK: - Show/hide errors
     func showError(_ label: UILabel, _ line: UIView) {
@@ -148,15 +150,12 @@ class AuthPresenter {
     
     //MARK: - Check through existing names at UserDefaults
     func checkSetForExisting(_ newName: String) -> Bool {
-        guard let vc = signUpVC else { return true }
-        if vc.userNameSet.contains(newName) {
+        guard let nameArr = signUpVC?.userNameArray else { return true }
+        if Set(nameArr).contains(newName) {
             print("set contain \(newName)")
             return true
-        } else {
-            vc.userNameSet.insert(newName)
-            print("new name inserted to set")
-            return false
         }
+        return false
     }
     
     //MARK: - Notificate user about existing an equal name at UserDefaults
@@ -166,15 +165,4 @@ class AuthPresenter {
         vc.nameErrorLabel.text = ValidationErrors.existingName.rawValue
     }
     
-    //MARK: - Convert Arr into Set
-    func convertArrIntoSet(_ arr: [String]) -> Set<String> {
-//        let names = arr.map({ $0 })
-//        return Set(names)
-        return Set(arr)
-    }
-    
-    //MARK: - Convert Set into Arr
-    func convertSetIntoArr(_ set: Set<String>) -> [String] {
-        return Array(set)
-    }
 }
