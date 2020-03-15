@@ -39,7 +39,9 @@ class Validation {
     
     
     static func passValidator(_ pass: String) -> String? {
-
+        if pass.count < 6 || pass.count > 20 {
+            return ValidationErrors.shortInput.rawValue
+        }
         if pass.rangeOfCharacter(from: lower) == nil {
             return ValidationErrors.noLowerCase.rawValue
         }
@@ -52,10 +54,6 @@ class Validation {
         if pass.rangeOfCharacter(from: special) == nil {
             return ValidationErrors.noSpecial.rawValue
         }
-        if pass.count < 6 || pass.count > 20 {
-            return ValidationErrors.shortInput.rawValue
-        }
-        
         return nil
     }
     

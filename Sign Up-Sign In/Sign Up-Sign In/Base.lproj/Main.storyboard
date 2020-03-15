@@ -240,6 +240,8 @@
                         <outlet property="emailErrorLabel" destination="oj0-3d-ZKD" id="sPb-lS-Kw7"/>
                         <outlet property="emailErrorRedLineView" destination="3ao-jB-TSB" id="iPK-BZ-z6p"/>
                         <outlet property="emailTitleLabel" destination="rLr-IV-z6L" id="7zF-7b-kON"/>
+                        <outlet property="firstPassErrorLabel" destination="N1L-FG-BzA" id="OpD-5d-z4R"/>
+                        <outlet property="firstPassErrorLine" destination="QTv-oz-d4d" id="bef-wj-lV2"/>
                         <outlet property="inputConfirmPassTextField" destination="Pt3-mb-Xku" id="CeF-11-yfc"/>
                         <outlet property="inputEmailTextField" destination="9gH-nN-OUx" id="nl8-Yv-GxW"/>
                         <outlet property="inputNameTextField" destination="wdY-Ya-0rf" id="xVN-su-Pz2"/>

@@ -22,10 +22,11 @@ class SignUpViewController: UIViewController {
     
     @IBOutlet weak var passTitleLabel: UILabel!
     @IBOutlet weak var inputPassTextField: UITextField!
+    @IBOutlet weak var firstPassErrorLine: UIView!
+    @IBOutlet weak var firstPassErrorLabel: UILabel!
     
     @IBOutlet weak var confirmPassTitleLabel: UILabel!
     @IBOutlet weak var inputConfirmPassTextField: UITextField!
-    
     @IBOutlet weak var passErrorRedLineView: UIView!
     @IBOutlet weak var passErrorLabel: UILabel!
     
@@ -63,7 +64,7 @@ class SignUpViewController: UIViewController {
     
     @IBAction func confirmRegistration(_ sender: Any) {
         
-        if presenter.checkForValidPass(inputPassTextField, passErrorLabel, passErrorRedLineView) == true {
+        if presenter.checkForValidPass(inputPassTextField, firstPassErrorLabel, firstPassErrorLine) == true {
         self.navigationController?.popViewController(animated: true)
         } else { return }
     }
