@@ -49,9 +49,14 @@ class AuthPresenter {
     //MARK: - Validation
     
     //Email validation
-        func checkEmail(_ textfield: UITextField, _ errorLabel: UILabel, _ errorLine: UIView) -> Bool {
-
-            return true
+        func checkEmail() -> Bool {
+            guard let vc = signUpVC else { return false }
+            guard let text = vc.inputEmailTextField.text else { return false }
+            if text.count >= 1 && Validation.emailValidator(text) != "" {
+                showError(vc.emailErrorLabel, vc.emailErrorRedLineView)
+                vc.emailErrorLabel.text = Validation.emailValidator(text)
+            }
+            return false
         }
     
     

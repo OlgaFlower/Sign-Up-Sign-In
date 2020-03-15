@@ -42,29 +42,26 @@ class Validation {
     static let restrictedSymbols = #",/:;<=>?[\]“‘“"_`{'|}~ "#
     
     //MARK: - Email validator
-    static func emailValidator(_ email: String, _ errorLabel: UILabel) -> Bool {
+    
+    static func emailValidator(_ email: String) -> String {
         let word = "Email "
         if email.count < 7 || email.count > 25 {
-            errorLabel.text = word + ValidationErrors.shortEmail.rawValue
-            return false
+            return word + ValidationErrors.shortEmail.rawValue
+            
         }
         if email.rangeOfCharacter(from: symbolAt) == nil {
-            errorLabel.text = word + ValidationErrors.noAt.rawValue
-            return false
+            return word + ValidationErrors.noAt.rawValue
         }
         if email.rangeOfCharacter(from: dot) == nil {
-            errorLabel.text = word + ValidationErrors.noDot.rawValue
-            return false
+            return word + ValidationErrors.noDot.rawValue
         }
         if email.indexOf("@")! > email.lastIndex(of: ".")! {
-            errorLabel.text = word + ValidationErrors.moreThanOneAtSymbol.rawValue
-            return false
+            return word + ValidationErrors.moreThanOneAtSymbol.rawValue
         }
         if checkAmountOfCharsAfterPoint(email) == false {
-            errorLabel.text = ValidationErrors.incorrectEmail.rawValue
-            return false
+            return ValidationErrors.incorrectEmail.rawValue
         }
-        return true
+        return ""
     }
     
     //MARK: - Name validator
