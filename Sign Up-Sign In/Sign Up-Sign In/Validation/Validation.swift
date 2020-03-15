@@ -17,6 +17,13 @@ import Foundation
 //    case dotSymbol = "."
 //    case atSymbol = "@"
 
+enum RegistrationForm: String {
+    case email = "Email"
+    case name = "Name"
+    case pass = "Password"
+    case confirmPass = "Confirm password"
+}
+
 
 enum ValidationErrors: String {
     case noSpecial = "should contain at least one special symbol"
@@ -36,6 +43,10 @@ class Validation {
     static let number = CharacterSet(charactersIn: "0123456789")
     static let upper = CharacterSet(charactersIn: "ABCDEFGHIJKLMNOPQRSTUVWXYZ")
     static let lower = CharacterSet(charactersIn: "abcdefghijklmnopqrstuvwxyz")
+    
+    static func requiredField() -> String {
+        return ValidationErrors.required.rawValue
+    }
     
     
     static func passValidator(_ pass: String) -> String? {

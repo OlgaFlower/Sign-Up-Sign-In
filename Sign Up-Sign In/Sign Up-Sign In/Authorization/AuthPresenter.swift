@@ -50,16 +50,21 @@ class AuthPresenter {
     }
     
     //MARK: - Validation
-    func checkForValidPass(_ password: UITextField, _ errorLabel: UILabel, _ errorLine: UIView) -> Bool {
-        guard let pass = password.text else {
-            showError(errorLabel, errorLine)
-            errorLabel.text = ValidationErrors.required.rawValue
-            return false }
+    func checkPass(_ password: UITextField, _ titleLabel: UILabel, _ errorLabel: UILabel, _ errorLine: UIView) -> Bool {
+        guard let pass = password.text else {return false }
+        if pass.count < 1 {
+            showRequiredField(titleLabel)
+            return false
+        } else {
+            hideRequiredField(titleLabel)
+        }
+        
         if Validation.passValidator(pass) != nil {
             showError(errorLabel, errorLine)
             errorLabel.text = Validation.passValidator(pass)
             return false
         }
+        hideRequiredField(titleLabel)
         hideError(errorLabel, errorLine)
         return true
     }
@@ -72,6 +77,16 @@ class AuthPresenter {
     func hideError(_ label: UILabel, _ line: UIView) {
         label.textColor = .clear
         line.backgroundColor = .lightGray
+    }
+    
+    func showRequiredField(_ label: UILabel) {
+        label.textColor = .red
+        label.text = ValidationErrors.required.rawValue
+    }
+    
+    func hideRequiredField(_ label: UILabel) {
+        label.textColor = .lightGray
+        label.text = RegistrationForm.pass.rawValue
     }
     
 }

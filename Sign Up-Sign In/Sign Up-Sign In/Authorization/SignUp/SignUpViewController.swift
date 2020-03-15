@@ -63,9 +63,8 @@ class SignUpViewController: UIViewController {
     
     
     @IBAction func confirmRegistration(_ sender: Any) {
-        
-        if presenter.checkForValidPass(inputPassTextField, firstPassErrorLabel, firstPassErrorLine) == true {
-        self.navigationController?.popViewController(animated: true)
+        if presenter.checkPass(inputPassTextField, passTitleLabel, firstPassErrorLabel, firstPassErrorLine) == true {
+            self.navigationController?.popViewController(animated: true)
         } else { return }
     }
     
@@ -88,6 +87,13 @@ class SignUpViewController: UIViewController {
     }
     
     //MARK: - Validation
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField == inputPassTextField {
+            presenter.hideRequiredField(passTitleLabel)
+            presenter.hideError(firstPassErrorLabel, firstPassErrorLine)
+        }
+        
+    }
     @objc func textFieldDidChange(_ textField: UITextField) {
 //        let minLength = 5
 //        var emailIsValid = false
