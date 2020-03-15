@@ -42,10 +42,10 @@ class SignUpViewController: UIViewController {
         inputPassTextField.delegate = self
         presenter.setScreenButton(confirmRegistrationButton, "CONFIRM")
         
-        inputEmailTextField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: .editingChanged)
-        inputNameTextField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: .editingChanged)
-        inputPassTextField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: .editingChanged)
-        inputConfirmPassTextField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: .editingChanged)
+//        inputEmailTextField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: .editingChanged)
+//        inputNameTextField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: .editingChanged)
+//        inputPassTextField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: .editingChanged)
+//        inputConfirmPassTextField.addTarget(self, action: #selector(self.textFieldDidChange(_:)), for: .editingChanged)
         
         //add observers for keyboard
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -84,11 +84,25 @@ class SignUpViewController: UIViewController {
         }
     }
     
-    @objc func textFieldDidChange(_ textField: UITextField) {
+//    @objc func textFieldDidChange(_ textField: UITextField) {
+//
+//    }
+    
+    @IBAction func confirmRegistration(_ sender: Any) {
+        var email = true
+        
+        checkForEmptyTextfield()
+        if Validation.emailValidator(inputEmailTextField.text!, emailErrorLabel) == false {
+            presenter.showError(emailErrorLabel, emailErrorRedLineView)
+            email = false
+            print("email")
+        }
         
     }
     
-    @IBAction func confirmRegistration(_ sender: Any) {
+    
+    
+    func checkForEmptyTextfield() {
         if inputEmailTextField.text!.isEmpty {
             presenter.showRequiredField(emailTitleLabel)
         }
@@ -101,12 +115,8 @@ class SignUpViewController: UIViewController {
         if inputConfirmPassTextField.text!.isEmpty {
             presenter.showRequiredField(confirmPassTitleLabel)
         }
-        
-        if presenter.checkEmail(inputEmailTextField, emailTitleLabel, emailErrorLabel, emailErrorRedLineView) == false { return }
-        if presenter.checkPass(inputPassTextField, passTitleLabel, firstPassErrorLabel, firstPassErrorLine) == false { return }
-        
-        self.navigationController?.popViewController(animated: true)
     }
+    
 }
 
 extension SignUpViewController: UITextFieldDelegate {

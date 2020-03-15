@@ -18,7 +18,6 @@
 		847D599C241D088F00E804F4 /* LogedInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D599B241D088F00E804F4 /* LogedInViewController.swift */; };
 		849FD119241D112000C58633 /* LogedInTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849FD118241D112000C58633 /* LogedInTableViewCell.swift */; };
 		849FD11C241D14E900C58633 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849FD11B241D14E900C58633 /* Validation.swift */; };
-		849FD11E241D218B00C58633 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849FD11D241D218B00C58633 /* File.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,7 +34,6 @@
 		847D599B241D088F00E804F4 /* LogedInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogedInViewController.swift; sourceTree = "<group>"; };
 		849FD118241D112000C58633 /* LogedInTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogedInTableViewCell.swift; sourceTree = "<group>"; };
 		849FD11B241D14E900C58633 /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
-		849FD11D241D218B00C58633 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,7 +118,6 @@
 			isa = PBXGroup;
 			children = (
 				849FD11B241D14E900C58633 /* Validation.swift */,
-				849FD11D241D218B00C58633 /* File.swift */,
 			);
 			path = Validation;
 			sourceTree = "<group>";
@@ -201,7 +198,6 @@
 				849FD119241D112000C58633 /* LogedInTableViewCell.swift in Sources */,
 				84132C77241A2FAE008D4B92 /* AppDelegate.swift in Sources */,
 				849FD11C241D14E900C58633 /* Validation.swift in Sources */,
-				849FD11E241D218B00C58633 /* File.swift in Sources */,
 				84132C79241A2FAE008D4B92 /* SceneDelegate.swift in Sources */,
 				84144505241AAC3B00495677 /* AuthPresenter.swift in Sources */,
 				84144501241A750100495677 /* SignUpViewController.swift in Sources */,

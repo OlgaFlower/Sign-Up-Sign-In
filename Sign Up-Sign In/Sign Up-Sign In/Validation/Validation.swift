@@ -6,7 +6,7 @@
 //  Copyright © 2020 Flower. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 enum RegistrationForm: String {
     case email = "Email"
@@ -42,24 +42,29 @@ class Validation {
     static let restrictedSymbols = #",/:;<=>?[\]“‘“"_`{'|}~ "#
     
     //MARK: - Email validator
-    static func emailValidator(_ email: String) -> String? {
+    static func emailValidator(_ email: String, _ errorLabel: UILabel) -> Bool {
         let word = "Email "
         if email.count < 7 || email.count > 25 {
-            return word + ValidationErrors.shortEmail.rawValue
+            errorLabel.text = word + ValidationErrors.shortEmail.rawValue
+            return false
         }
         if email.rangeOfCharacter(from: symbolAt) == nil {
-            return word + ValidationErrors.noAt.rawValue
+            errorLabel.text = word + ValidationErrors.noAt.rawValue
+            return false
         }
         if email.rangeOfCharacter(from: dot) == nil {
-            return word + ValidationErrors.noDot.rawValue
+            errorLabel.text = word + ValidationErrors.noDot.rawValue
+            return false
         }
         if email.indexOf("@")! > email.lastIndex(of: ".")! {
-            return word + ValidationErrors.moreThanOneAtSymbol.rawValue
+            errorLabel.text = word + ValidationErrors.moreThanOneAtSymbol.rawValue
+            return false
         }
         if checkAmountOfCharsAfterPoint(email) == false {
-            return ValidationErrors.incorrectEmail.rawValue
+            errorLabel.text = ValidationErrors.incorrectEmail.rawValue
+            return false
         }
-        return nil
+        return true
     }
     
     //MARK: - Name validator

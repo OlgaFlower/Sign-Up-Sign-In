@@ -48,8 +48,16 @@ class AuthPresenter {
     
     //MARK: - Validation
     
+    //Email validation
+        func checkEmail(_ textfield: UITextField, _ errorLabel: UILabel, _ errorLine: UIView) -> Bool {
+
+            return true
+        }
+    
+    
+    
     //Pass validation
-    func checkPass(_ textfield: UITextField, _ titleLabel: UILabel, _ errorLabel: UILabel, _ errorLine: UIView) -> Bool {
+    func checkPass(_ textfield: UITextField, _ errorLabel: UILabel, _ errorLine: UIView) -> Bool {
         guard let text = textfield.text else {return false }
         if Validation.passValidator(text) != nil {
             showError(errorLabel, errorLine)
@@ -59,17 +67,7 @@ class AuthPresenter {
         return true
     }
     
-    //Email validation
-    func checkEmail(_ textfield: UITextField, _ titleLabel: UILabel, _ errorLabel: UILabel, _ errorLine: UIView) -> Bool {
-        guard let text = textfield.text else {return false }
-        
-        if Validation.emailValidator(text) != nil {
-            showError(errorLabel, errorLine)
-            errorLabel.text = Validation.emailValidator(text)
-            return false
-        }
-        return true
-    }
+    
     
     //MARK: - Show/hide errors
     func showError(_ label: UILabel, _ line: UIView) {
