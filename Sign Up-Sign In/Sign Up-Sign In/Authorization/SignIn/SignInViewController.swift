@@ -54,8 +54,8 @@ class SignInViewController: UIViewController {
     
     @IBAction func createAccount(_ sender: Any) {
         let vc = storyboard?.instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
-        show(vc, sender: self)
-//        present(vc, animated: true, completion: nil)
+        self.show(vc, sender: self)
+        
     }
     
 }

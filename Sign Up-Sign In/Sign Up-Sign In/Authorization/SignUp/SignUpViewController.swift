@@ -52,13 +52,10 @@ class SignUpViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         presenter.setNavBar(self)
-        confirmRegistrationButton.isHidden = true
     }
     
     @IBAction func confirmRegistration(_ sender: Any) {
-        let vc = storyboard?.instantiateViewController(withIdentifier: "LogedInViewController") as! LogedInViewController
-        show(vc, sender: self)
-        
+        self.navigationController?.popViewController(animated: true)
     }
     
     //MARK: - Handle keyboard
@@ -78,39 +75,38 @@ class SignUpViewController: UIViewController {
     
     //MARK: - Validation
     @objc func textFieldDidChange(_ textField: UITextField) {
-        let minLength = 5
-        var emailIsValid = false
-        var passIsValid = false
-        var passwordsAreEqual = false
-        var nameIsValid = false
+//        let minLength = 5
+//        var emailIsValid = false
+//        var passIsValid = false
+//        var passwordsAreEqual = false
+//        var nameIsValid = false
+//
+//        if inputEmailTextField.text!.count >= minLength {
+//            if Validation.emailValidator(inputEmailTextField.text!) == true {
+//                emailIsValid = true
+//            }
+//        }
+//
+//        if inputNameTextField.text!.count >= 5 {
+//            if Validation.nameValidator(inputNameTextField.text!) == true {
+//                nameIsValid = true
+//            }
+//        }
+//
+//        if inputPassTextField.text!.count >= minLength {
+//            if Validation.passValidator(inputPassTextField.text!) == true {
+//                passIsValid = true
+//            }
+//        }
+//
+//        if passIsValid, inputConfirmPassTextField.text == inputPassTextField.text {
+//            passwordsAreEqual = true
+//        }
         
-        if inputEmailTextField.text!.count >= minLength {
-            if Validation.emailValidator(inputEmailTextField.text!) == true {
-                emailIsValid = true
-            }
-        }
         
-        if inputNameTextField.text!.count >= 5 {
-            if Validation.nameValidator(inputNameTextField.text!) == true {
-                nameIsValid = true
-            }
-        }
         
-        if inputPassTextField.text!.count >= minLength {
-            if Validation.passValidator(inputPassTextField.text!) == true {
-                passIsValid = true
-            }
-        }
         
-        if passIsValid, inputConfirmPassTextField.text == inputPassTextField.text {
-            passwordsAreEqual = true
-        }
         
-        if emailIsValid == true, passwordsAreEqual == true, nameIsValid == true {
-            UITextView.animate(withDuration: 0.5) {
-                self.confirmRegistrationButton.isHidden = false
-            }
-        }
     }
     
     
