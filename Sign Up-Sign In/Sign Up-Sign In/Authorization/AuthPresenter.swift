@@ -49,5 +49,29 @@ class AuthPresenter {
         }
     }
     
+    //MARK: - Validation
+    func checkForValidPass(_ password: UITextField, _ errorLabel: UILabel, _ errorLine: UIView) -> Bool {
+        guard let pass = password.text else {
+            showError(errorLabel, errorLine)
+            errorLabel.text = ValidationErrors.required.rawValue
+            return false }
+        if Validation.passValidator(pass) != nil {
+            showError(errorLabel, errorLine)
+            errorLabel.text = Validation.passValidator(pass)
+            return false
+        }
+        hideError(errorLabel, errorLine)
+        return true
+    }
+    
+    func showError(_ label: UILabel, _ line: UIView) {
+        label.textColor = .red
+        line.backgroundColor = .red
+    }
+    
+    func hideError(_ label: UILabel, _ line: UIView) {
+        label.textColor = .clear
+        line.backgroundColor = .lightGray
+    }
     
 }
