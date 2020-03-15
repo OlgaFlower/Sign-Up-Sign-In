@@ -8,22 +8,12 @@
 
 import Foundation
 
-
-    
-//    case special = "!@#$%^&*()-+"
-//    case numbers = "0123456789"
-//    case upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-//    case lowerCase = "abcdefghijklmnopqrstuvwxyz"
-//    case dotSymbol = "."
-//    case atSymbol = "@"
-
 enum RegistrationForm: String {
     case email = "Email"
     case name = "Name"
     case pass = "Password"
     case confirmPass = "Confirm password"
 }
-
 
 enum ValidationErrors: String {
     case noSpecial = "should contain at least one special symbol"
@@ -33,60 +23,71 @@ enum ValidationErrors: String {
     case noDot = "should contain a dot"
     case noAt = "should contain @ symbol"
     case noCharsAfterDotInEmailDomain = "should contain at least 2 characters after dot"
-    case shortInput = "the length should be 6 - 20 symbols"
+    case shortPass = "should contain at least 6 and max 20 symbols"
+    case shortEmail = "should contain at least 7 and max 25 symbols"
+    case moreThanOneAtSymbol = "shouldn't contain more than one @ symbol"
+    case incorrectEmail = "Incorrect email"
     case required = "Required field"
 }
 
 class Validation {
     
+    //MARK: - Validation properties
     static let special = CharacterSet(charactersIn: "!@#$%^&*()-+")
     static let number = CharacterSet(charactersIn: "0123456789")
     static let upper = CharacterSet(charactersIn: "ABCDEFGHIJKLMNOPQRSTUVWXYZ")
     static let lower = CharacterSet(charactersIn: "abcdefghijklmnopqrstuvwxyz")
+    static let symbolAt = CharacterSet(charactersIn: "@")
+    static let dot = CharacterSet(charactersIn: ".")
+    static let restrictedSymbols = #",/:;<=>?[\]“‘“"_`{'|}~ "#
     
-    static func requiredField() -> String {
-        return ValidationErrors.required.rawValue
-    }
-    
-    
-    static func passValidator(_ pass: String) -> String? {
-        if pass.count < 6 || pass.count > 20 {
-            return ValidationErrors.shortInput.rawValue
+    //MARK: - Email validator
+    static func emailValidator(_ email: String) -> String? {
+        let word = "Email "
+        if email.count < 7 || email.count > 25 {
+            return word + ValidationErrors.shortEmail.rawValue
         }
-        if pass.rangeOfCharacter(from: lower) == nil {
-            return ValidationErrors.noLowerCase.rawValue
+        if email.rangeOfCharacter(from: symbolAt) == nil {
+            return word + ValidationErrors.noAt.rawValue
         }
-        if pass.rangeOfCharacter(from: upper) == nil {
-            return ValidationErrors.noUpperCase.rawValue
+        if email.rangeOfCharacter(from: dot) == nil {
+            return word + ValidationErrors.noDot.rawValue
         }
-        if pass.rangeOfCharacter(from: number) == nil {
-            return ValidationErrors.noNumbers.rawValue
+        if email.indexOf("@")! > email.lastIndex(of: ".")! {
+            return word + ValidationErrors.moreThanOneAtSymbol.rawValue
         }
-        if pass.rangeOfCharacter(from: special) == nil {
-            return ValidationErrors.noSpecial.rawValue
+        if checkAmountOfCharsAfterPoint(email) == false {
+            return ValidationErrors.incorrectEmail.rawValue
         }
         return nil
     }
     
+    //MARK: - Name validator
     
     
-    
-    
-    
-    static func emailValidator(_ email: String) -> Bool {
-        let symbolAt = CharacterSet(charactersIn: "@")
-        let point = CharacterSet(charactersIn: ".")
-        
-        if email.rangeOfCharacter(from: symbolAt) == nil { return false }
-        
-        if email.rangeOfCharacter(from: point) == nil { return false }
-        
-        if email.indexOf("@")! > email.lastIndex(of: ".")! { return false }
-        
-        if checkAmountOfCharsAfterPoint(email) == false { return false }
-        
-        return true
+    //MARK: - Pass validator
+    static func passValidator(_ pass: String) -> String? {
+        let word = "Password "
+        if pass.count < 6 || pass.count > 20 {
+            return word + ValidationErrors.shortPass.rawValue
+        }
+        if pass.rangeOfCharacter(from: lower) == nil {
+            return word + ValidationErrors.noLowerCase.rawValue
+        }
+        if pass.rangeOfCharacter(from: upper) == nil {
+            return word + ValidationErrors.noUpperCase.rawValue
+        }
+        if pass.rangeOfCharacter(from: number) == nil {
+            return word + ValidationErrors.noNumbers.rawValue
+        }
+        if pass.rangeOfCharacter(from: special) == nil {
+            return word + ValidationErrors.noSpecial.rawValue
+        }
+        return nil
     }
+    
+    //MARK: - Confirm pass validator
+    
     
     static func nameValidator(_ name: String) -> Bool {
         if name.count < 6 && name.count > 20 {

@@ -11,14 +11,12 @@ import UIKit
 class AuthPresenter {
     
     weak var signUpVC: SignUpViewController?
-    let restrictedSymbols = #",/:;<=>?[\]“‘“"_`{'|}~ "#
     
     func setScreenButton(_ button: UIButton, _ title: String) {
         button.layer.cornerRadius = 21
         button.layer.borderWidth = 1
         button.layer.borderColor = UIColor.white.cgColor
         button.setTitle(title, for: .normal)
-        
     }
     
     //transparent navbar
@@ -41,7 +39,6 @@ class AuthPresenter {
         }
     }
     
-    
     // hide keyboard and scroll view down
     func hideKeyboard(_ notification: NSNotification, _ vc: UIViewController) {
         if vc.view.frame.origin.y != 0 {
@@ -50,25 +47,31 @@ class AuthPresenter {
     }
     
     //MARK: - Validation
-    func checkPass(_ password: UITextField, _ titleLabel: UILabel, _ errorLabel: UILabel, _ errorLine: UIView) -> Bool {
-        guard let pass = password.text else {return false }
-        if pass.count < 1 {
-            showRequiredField(titleLabel)
-            return false
-        } else {
-            hideRequiredField(titleLabel)
-        }
-        
-        if Validation.passValidator(pass) != nil {
+    
+    //Pass validation
+    func checkPass(_ textfield: UITextField, _ titleLabel: UILabel, _ errorLabel: UILabel, _ errorLine: UIView) -> Bool {
+        guard let text = textfield.text else {return false }
+        if Validation.passValidator(text) != nil {
             showError(errorLabel, errorLine)
-            errorLabel.text = Validation.passValidator(pass)
+            errorLabel.text = Validation.passValidator(text)
             return false
         }
-        hideRequiredField(titleLabel)
-        hideError(errorLabel, errorLine)
         return true
     }
     
+    //Email validation
+    func checkEmail(_ textfield: UITextField, _ titleLabel: UILabel, _ errorLabel: UILabel, _ errorLine: UIView) -> Bool {
+        guard let text = textfield.text else {return false }
+        
+        if Validation.emailValidator(text) != nil {
+            showError(errorLabel, errorLine)
+            errorLabel.text = Validation.emailValidator(text)
+            return false
+        }
+        return true
+    }
+    
+    //MARK: - Show/hide errors
     func showError(_ label: UILabel, _ line: UIView) {
         label.textColor = .red
         line.backgroundColor = .red
@@ -79,14 +82,19 @@ class AuthPresenter {
         line.backgroundColor = .lightGray
     }
     
+    //MARK: - Show/hide required fields
     func showRequiredField(_ label: UILabel) {
-        label.textColor = .red
-        label.text = ValidationErrors.required.rawValue
+        UIView.animate(withDuration: 0.25, animations: {
+            label.textColor = .red
+            label.text = ValidationErrors.required.rawValue
+        })
     }
     
-    func hideRequiredField(_ label: UILabel) {
-        label.textColor = .lightGray
-        label.text = RegistrationForm.pass.rawValue
+    func hideRequiredField(_ label: UILabel,_ text: String) {
+        UIView.animate(withDuration: 0.25, animations: {
+            label.textColor = .lightGray
+            label.text = text
+        })
     }
     
 }
