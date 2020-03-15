@@ -42,7 +42,6 @@ class Validation {
     static let restrictedSymbols = #",/:;<=>?[\]“‘“"_`{'|}~ "#
     
     //MARK: - Email validator
-    
     static func emailValidator(_ email: String) -> String {
         let word = "Email "
         if email.count < 7 || email.count > 25 {

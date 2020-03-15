@@ -73,9 +73,17 @@ class SignUpViewController: UIViewController {
             presenter.hideRequiredField(emailTitleLabel, RegistrationForm.email.rawValue)
             presenter.hideError(emailErrorLabel, emailErrorRedLineView)
         }
+        if textField == inputNameTextField {
+            presenter.hideRequiredField(nameTitleLabel, RegistrationForm.name.rawValue)
+            presenter.hideError(nameErrorLabel, nameErrorRedLineView)
+        }
         if textField == inputPassTextField {
             presenter.hideRequiredField(passTitleLabel, RegistrationForm.pass.rawValue)
             presenter.hideError(firstPassErrorLabel, firstPassErrorLine)
+        }
+        if textField == inputConfirmPassTextField {
+            presenter.hideRequiredField(confirmPassTitleLabel, RegistrationForm.confirmPass.rawValue)
+            presenter.hideError(passErrorLabel, passErrorRedLineView)
         }
     }
     
@@ -83,6 +91,7 @@ class SignUpViewController: UIViewController {
         
         checkForEmptyTextfield()
         presenter.checkEmail()
+        presenter.checkPass()
 
     }
     

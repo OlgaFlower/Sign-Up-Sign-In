@@ -59,18 +59,27 @@ class AuthPresenter {
             return false
         }
     
-    
-    
     //Pass validation
-    func checkPass(_ textfield: UITextField, _ errorLabel: UILabel, _ errorLine: UIView) -> Bool {
-        guard let text = textfield.text else {return false }
-        if Validation.passValidator(text) != nil {
-            showError(errorLabel, errorLine)
-            errorLabel.text = Validation.passValidator(text)
-            return false
+    func checkPass() -> Bool {
+        guard let vc = signUpVC else { return false }
+        guard let text = vc.inputPassTextField.text else { return false }
+        if text.count >= 1 && Validation.passValidator(text) != "" {
+            showError(vc.firstPassErrorLabel, vc.firstPassErrorLine)
+            vc.firstPassErrorLabel.text = Validation.passValidator(text)
         }
-        return true
+        return false
     }
+    
+    
+//    func checkPass(_ textfield: UITextField, _ errorLabel: UILabel, _ errorLine: UIView) -> Bool {
+//        guard let text = textfield.text else {return false }
+//        if Validation.passValidator(text) != nil {
+//            showError(errorLabel, errorLine)
+//            errorLabel.text = Validation.passValidator(text)
+//            return false
+//        }
+//        return true
+//    }
     
     
     
