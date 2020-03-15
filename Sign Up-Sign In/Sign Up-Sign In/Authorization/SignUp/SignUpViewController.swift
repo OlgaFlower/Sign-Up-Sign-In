@@ -90,10 +90,33 @@ class SignUpViewController: UIViewController {
     
     @IBAction func confirmRegistration(_ sender: Any) {
         presenter.checkForEmptyTextfield()
-        presenter.checkEmail()
-        presenter.checkName()
-        presenter.checkPass()
-        presenter.checkConfirmPass()
+        
+        if registrationIsValid == true {
+            guard let email = inputEmailTextField.text else { return }
+            guard let name = inputNameTextField.text else { return }
+            guard let password = inputPassTextField.text else { return }
+            
+            //MARK: - Save user data to userDefaults
+            
+        }
+        
+    }
+    
+    private var registrationIsValid: Bool {
+        
+        if presenter.checkEmail() == false {
+            return false
+        }
+        if presenter.checkName() == false {
+            return false
+        }
+        if presenter.checkPass() == false {
+            return false
+        }
+        if presenter.checkConfirmPass() == false {
+            return false
+        }
+        return true
     }
     
 }
