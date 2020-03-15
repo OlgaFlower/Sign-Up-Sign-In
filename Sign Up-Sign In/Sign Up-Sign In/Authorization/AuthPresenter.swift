@@ -166,4 +166,15 @@ class AuthPresenter {
         vc.nameErrorLabel.text = ValidationErrors.existingName.rawValue
     }
     
+    //MARK: - Convert Arr into Set
+    func convertArrIntoSet(_ arr: [String]) -> Set<String> {
+//        let names = arr.map({ $0 })
+//        return Set(names)
+        return Set(arr)
+    }
+    
+    //MARK: - Convert Set into Arr
+    func convertSetIntoArr(_ set: Set<String>) -> [String] {
+        return Array(set)
+    }
 }

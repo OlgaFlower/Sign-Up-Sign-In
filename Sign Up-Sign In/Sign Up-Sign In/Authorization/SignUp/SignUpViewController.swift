@@ -34,20 +34,18 @@ class SignUpViewController: UIViewController {
     
     let presenter = AuthPresenter()
     let defaults = UserDefaults.standard
-    var userNameSet = Set<String>()
-    var userNameArray = [String]()
+    var userNameSet = Set<String>() //for checking for uniqueness
+    var userNameArray = [String]() //for displaying the last item
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //restore user data from userDefaults
+        //restore user data into Set (from userDefaults)
         if let nameArray = defaults.array(forKey: "userNameKey") as? [String] {
             userNameArray = nameArray
-            print(userNameArray)
+            userNameSet = presenter.convertArrIntoSet(nameArray)
+            print("restored arr: \(userNameArray)")
+            print("restored data into set: \(userNameSet)")
         }
-        
-        let names = userNameArray.map({ $0 })
-        let nameSet = Set(names)
-
         
         presenter.signUpVC = self
         inputEmailTextField.delegate = self
@@ -108,20 +106,22 @@ class SignUpViewController: UIViewController {
         
         if registrationIsValid == true {
             guard let name = inputNameTextField.text else { return }
+            
             if presenter.checkSetForExisting(name) == true {
                 presenter.showNotificationAboutExistingName()
                 print("enter another user name")
                 return
             } else {
-                defaults.set(self.userNameArray, forKey: "userNameKey")
+                userNameSet.insert(name)
+                print("userNameSet: \(userNameSet)")
+                //save new userName to UserDefaults
+                defaults.set(presenter.convertSetIntoArr(userNameSet), forKey: "userNameKey")
                 self.dismiss(animated: true, completion: nil)
             }
-            
-            //MARK: - Save user data to userDefaults
-//            defaults.set(self.userNameArray, forKey: "userNameKey")
         }
         
     }
+    
     
     private var registrationIsValid: Bool {
         
