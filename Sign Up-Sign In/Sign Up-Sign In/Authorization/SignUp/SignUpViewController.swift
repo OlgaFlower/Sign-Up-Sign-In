@@ -33,9 +33,17 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var confirmRegistrationButton: UIButton!
     
     let presenter = AuthPresenter()
+    let defaults = UserDefaults.standard
+    var userNameArray = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //restore user data from userDefaults
+        if let nameArray = defaults.array(forKey: "userNameKey") as? [String] {
+            userNameArray = nameArray
+            print(userNameArray)
+        }
+        
         presenter.signUpVC = self
         inputEmailTextField.delegate = self
         inputNameTextField.delegate = self
@@ -68,7 +76,7 @@ class SignUpViewController: UIViewController {
         presenter.hideKeyboard(notification, self)
     }
     
-    //MARK: - Validation
+    //MARK: - Hide error marks
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if textField == inputEmailTextField {
             presenter.hideRequiredField(emailTitleLabel, RegistrationForm.email.rawValue)
@@ -92,12 +100,11 @@ class SignUpViewController: UIViewController {
         presenter.checkForEmptyTextfield()
         
         if registrationIsValid == true {
-            guard let email = inputEmailTextField.text else { return }
             guard let name = inputNameTextField.text else { return }
-            guard let password = inputPassTextField.text else { return }
+            userNameArray.append(name)
             
             //MARK: - Save user data to userDefaults
-            
+            defaults.set(self.userNameArray, forKey: "userNameKey")
         }
         
     }
@@ -119,7 +126,17 @@ class SignUpViewController: UIViewController {
         return true
     }
     
+    
+    
+    
+    
+    
+    
+    
+    
 }
+
+
 
 extension SignUpViewController: UITextFieldDelegate {
     
