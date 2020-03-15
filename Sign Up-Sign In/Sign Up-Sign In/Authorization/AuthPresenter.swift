@@ -11,6 +11,7 @@ import UIKit
 class AuthPresenter {
     
     weak var signUpVC: SignUpViewController?
+    var passwordsAreEqual = false
     
     func setScreenButton(_ button: UIButton, _ title: String) {
         button.layer.cornerRadius = 21
@@ -46,19 +47,36 @@ class AuthPresenter {
         }
     }
     
+    //MARK: - Check for empty text fields
+    func checkForEmptyTextfield() {
+        guard let vc = signUpVC else { return }
+        if vc.inputEmailTextField.text!.isEmpty {
+            self.showRequiredField(vc.emailTitleLabel)
+        }
+        if vc.inputNameTextField.text!.isEmpty {
+            self.showRequiredField(vc.nameTitleLabel)
+        }
+        if vc.inputPassTextField.text!.isEmpty {
+            self.showRequiredField(vc.passTitleLabel)
+        }
+        if vc.inputConfirmPassTextField.text!.isEmpty {
+            self.showRequiredField(vc.confirmPassTitleLabel)
+        }
+    }
+    
     //MARK: - Validation
     
     //Email validation
-        func checkEmail() -> Bool {
-            guard let vc = signUpVC else { return false }
-            guard let text = vc.inputEmailTextField.text else { return false }
-            if text.count >= 1 && Validation.emailValidator(text) != "" {
-                showError(vc.emailErrorLabel, vc.emailErrorRedLineView)
-                vc.emailErrorLabel.text = Validation.emailValidator(text)
-                return false
-            }
-            return true
+    func checkEmail() -> Bool {
+        guard let vc = signUpVC else { return false }
+        guard let text = vc.inputEmailTextField.text else { return false }
+        if text.count >= 1 && Validation.emailValidator(text) != "" {
+            showError(vc.emailErrorLabel, vc.emailErrorRedLineView)
+            vc.emailErrorLabel.text = Validation.emailValidator(text)
+            return false
         }
+        return true
+    }
     
     //Name validation
     func checkName() -> Bool {
@@ -93,8 +111,12 @@ class AuthPresenter {
             showError(vc.passErrorLabel, vc.passErrorRedLineView)
             vc.passErrorLabel.text = Validation.confirmPassValidator(firstPass, secondPass)
             return false
+        } else {
+            self.passwordsAreEqual = true
+            return true
+            
         }
-        return true
+        
     }
     
     

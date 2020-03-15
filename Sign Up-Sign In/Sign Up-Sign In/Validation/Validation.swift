@@ -109,7 +109,6 @@ class Validation {
     //MARK: - Confirm pass validator
     static func confirmPassValidator(_ firstPass: String, _ secondPass: String) -> String {
         let word = "Passwords "
-        
         if (firstPass.count < secondPass.count) || (firstPass.count > secondPass.count) {
             return word + ValidationErrors.passLength.rawValue
         }

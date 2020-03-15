@@ -40,6 +40,7 @@ class SignUpViewController: UIViewController {
         inputEmailTextField.delegate = self
         inputNameTextField.delegate = self
         inputPassTextField.delegate = self
+        inputConfirmPassTextField.delegate = self
         presenter.setScreenButton(confirmRegistrationButton, "CONFIRM")
         
         //add observers for keyboard
@@ -88,31 +89,11 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func confirmRegistration(_ sender: Any) {
-        
-        checkForEmptyTextfield()
+        presenter.checkForEmptyTextfield()
         presenter.checkEmail()
         presenter.checkName()
         presenter.checkPass()
         presenter.checkConfirmPass()
-        
-
-    }
-    
-    
-    
-    func checkForEmptyTextfield() {
-        if inputEmailTextField.text!.isEmpty {
-            presenter.showRequiredField(emailTitleLabel)
-        }
-        if inputNameTextField.text!.isEmpty {
-            presenter.showRequiredField(nameTitleLabel)
-        }
-        if inputPassTextField.text!.isEmpty {
-            presenter.showRequiredField(passTitleLabel)
-        }
-        if inputConfirmPassTextField.text!.isEmpty {
-            presenter.showRequiredField(confirmPassTitleLabel)
-        }
     }
     
 }
