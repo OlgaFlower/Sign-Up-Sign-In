@@ -66,11 +66,17 @@ class SignInViewController: UIViewController {
            }
            if textField == inputPassTextField {
                presenter.hideRequiredField(passTitleLabel, RegistrationForm.pass.rawValue)
-               presenter.hideError(passErrorLabel, errorPassRedLineView)
-           }
-       }
+            presenter.hideError(passErrorLabel, errorPassRedLineView)
+        }
+    }
     
     //MARK: - Show/hide keyboard
+    //hide keyboard by tap out of text field
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+        super.touchesBegan(touches, with: event)
+    }
+    
     @objc func keyboardWillShow(notification: NSNotification) {
         presenter.showKeyboard(notification, self)
     }
@@ -81,13 +87,15 @@ class SignInViewController: UIViewController {
 
     //MARK: - Actions
     @IBAction func confirmLogin(_ sender: Any) {
+        
+        
         guard let name = inputNameTextField.text else { return }
         guard let pass = inputPassTextField.text else { return }
         
         if presenter.checkNameForExisting(namePassDict, name) {
             if pass == namePassDict[name] {
-                let vc = storyboard?.instantiateViewController(withIdentifier: "LogedInViewController") as! LogedInViewController
-                show(vc, sender: self)
+//                let vc = storyboard?.instantiateViewController(withIdentifier: "LogedInViewController") as! LogedInViewController
+//                show(vc, sender: self)
             } else {
                 UIView.animate(withDuration: 0.25, animations: {
                     self.presenter.showError(self.passErrorLabel, self.errorPassRedLineView)
@@ -100,6 +108,11 @@ class SignInViewController: UIViewController {
                 self.nameErrorLabel.text = ValidationErrors.nameNotExist.rawValue
             })
         }
+        
+        
+        
+        let vc = storyboard?.instantiateViewController(withIdentifier: "LogedInViewController") as! LogedInViewController
+        show(vc, sender: self)
     }
     
     @IBAction func createAccount(_ sender: Any) {

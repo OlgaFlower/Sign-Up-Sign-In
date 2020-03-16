@@ -328,14 +328,14 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="TDj-rT-IeK" userLabel="Name">
                                                 <rect key="frame" x="0.0" y="0.0" width="270" height="73"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gFH-Ro-XfJ">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gFH-Ro-XfJ">
                                                         <rect key="frame" x="0.0" y="0.0" width="270" height="21"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="21" id="8rw-39-fgC"/>
                                                             <constraint firstAttribute="width" constant="270" id="QRO-on-7fc"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="15"/>
+                                                        <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="13"/>
                                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -347,7 +347,7 @@
                                                             <constraint firstAttribute="height" constant="34" id="wxN-pK-xjC"/>
                                                         </constraints>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="16"/>
+                                                        <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="15"/>
                                                         <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                                     </textField>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I8v-IU-DwK">
@@ -358,14 +358,14 @@
                                                             <constraint firstAttribute="width" constant="270" id="YgT-zW-vj5"/>
                                                         </constraints>
                                                     </view>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mow-aX-bG8">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mow-aX-bG8">
                                                         <rect key="frame" x="0.0" y="56" width="270" height="17"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="17" id="2V9-fo-Sbr"/>
                                                             <constraint firstAttribute="width" constant="270" id="i3o-Ld-tPM"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="15"/>
+                                                        <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="11"/>
                                                         <color key="textColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -374,14 +374,14 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="FcJ-aQ-APh" userLabel="Password">
                                                 <rect key="frame" x="0.0" y="81" width="270" height="73"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yfU-fG-InO">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yfU-fG-InO">
                                                         <rect key="frame" x="0.0" y="0.0" width="270" height="21"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="270" id="K1W-o5-zJm"/>
                                                             <constraint firstAttribute="height" constant="21" id="l7Z-4U-yoi"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="15"/>
+                                                        <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="13"/>
                                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -393,7 +393,7 @@
                                                             <constraint firstAttribute="height" constant="34" id="uRC-qD-GD2"/>
                                                         </constraints>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="16"/>
+                                                        <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="15"/>
                                                         <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                                     </textField>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6EG-9F-Vb2">
@@ -404,14 +404,14 @@
                                                             <constraint firstAttribute="width" constant="270" id="ZAc-q8-mEd"/>
                                                         </constraints>
                                                     </view>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="620-wp-l4j">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="620-wp-l4j">
                                                         <rect key="frame" x="0.0" y="56" width="270" height="17"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="270" id="5Rq-ym-ZWi"/>
                                                             <constraint firstAttribute="height" constant="17" id="iZF-MY-5wN"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="15"/>
+                                                        <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="11"/>
                                                         <color key="textColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -444,8 +444,8 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iro-s4-ZhF">
-                                <rect key="frame" x="16" y="124" width="343" height="42"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <rect key="frame" x="16" y="144" width="343" height="36"/>
+                                <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="36"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -484,7 +484,7 @@
                             <constraint firstItem="iZ8-lz-fdb" firstAttribute="bottom" secondItem="zjj-SH-teJ" secondAttribute="bottom" constant="140" id="BTd-8G-VeP"/>
                             <constraint firstItem="tef-Vm-czG" firstAttribute="centerX" secondItem="zk1-9x-pq7" secondAttribute="centerX" id="Bbc-IR-DGO"/>
                             <constraint firstItem="zjj-SH-teJ" firstAttribute="top" secondItem="xO7-o5-d0l" secondAttribute="bottom" constant="70" id="Mg5-WN-xrl"/>
-                            <constraint firstItem="iro-s4-ZhF" firstAttribute="top" secondItem="iZ8-lz-fdb" secondAttribute="top" constant="80" id="SJx-JI-oNr"/>
+                            <constraint firstItem="iro-s4-ZhF" firstAttribute="top" secondItem="iZ8-lz-fdb" secondAttribute="top" constant="100" id="SJx-JI-oNr"/>
                             <constraint firstItem="Pt4-aS-KjN" firstAttribute="top" secondItem="zk1-9x-pq7" secondAttribute="top" id="Xms-Aq-Kps"/>
                             <constraint firstItem="iZ8-lz-fdb" firstAttribute="bottom" secondItem="tef-Vm-czG" secondAttribute="bottom" constant="20" id="Y0F-9V-uel"/>
                             <constraint firstItem="iZ8-lz-fdb" firstAttribute="trailing" secondItem="Pt4-aS-KjN" secondAttribute="trailing" id="ZQL-v6-K2F"/>
@@ -523,6 +523,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vtV-hm-msP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

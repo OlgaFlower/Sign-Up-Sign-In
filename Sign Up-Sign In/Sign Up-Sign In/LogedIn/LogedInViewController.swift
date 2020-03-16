@@ -13,10 +13,16 @@ class LogedInViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     let authPresenter = AuthPresenter()
+    let presenter = LogedInPresenter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        presenter.loadData { data in
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

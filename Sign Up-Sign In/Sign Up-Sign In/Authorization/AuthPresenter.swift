@@ -11,6 +11,7 @@ import UIKit
 class AuthPresenter {
     
     weak var signUpVC: SignUpViewController?
+    weak var logInVC: SignInViewController?
     var passwordsAreEqual = false
     
     func setScreenButton(_ button: UIButton, _ title: String) {
@@ -47,7 +48,7 @@ class AuthPresenter {
         }
     }
     
-    //MARK: - Check for empty text fields
+    //MARK: - Check for empty text fields at SignUpViewController
     func checkForEmptyTextfield() -> Bool {
         guard let vc = signUpVC else { return true }
         if vc.inputEmailTextField.text!.isEmpty {
@@ -68,6 +69,20 @@ class AuthPresenter {
         }
         return false
     }
+    
+//    //MARK: - Check for empty text fields at SignInViewController
+//       func checkForEmptyLoginTextfield() -> Bool {
+//           guard let vc = logInVC else { return true }
+//        if vc.inputNameTextField.text!.isEmpty {
+//               self.showRequiredField(vc.nameTitleLabel)
+//               return true
+//           }
+//           if vc.inputPassTextField.text!.isEmpty {
+//               self.showRequiredField(vc.passTitleLabel)
+//               return true
+//           }
+//           return false
+//       }
     
     //MARK: - Validation
     
