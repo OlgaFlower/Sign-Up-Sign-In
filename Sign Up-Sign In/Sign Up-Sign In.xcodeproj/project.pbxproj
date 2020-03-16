@@ -15,7 +15,6 @@
 		841444FF241A74F500495677 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 841444FE241A74F500495677 /* SignInViewController.swift */; };
 		84144501241A750100495677 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84144500241A750100495677 /* SignUpViewController.swift */; };
 		84144505241AAC3B00495677 /* AuthPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84144504241AAC3B00495677 /* AuthPresenter.swift */; };
-		84662A25241E991800DD7BF7 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84662A24241E991800DD7BF7 /* UserDefaults.swift */; };
 		847D599C241D088F00E804F4 /* LogedInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847D599B241D088F00E804F4 /* LogedInViewController.swift */; };
 		849FD119241D112000C58633 /* LogedInTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849FD118241D112000C58633 /* LogedInTableViewCell.swift */; };
 		849FD11C241D14E900C58633 /* Validation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849FD11B241D14E900C58633 /* Validation.swift */; };
@@ -32,7 +31,6 @@
 		841444FE241A74F500495677 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		84144500241A750100495677 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		84144504241AAC3B00495677 /* AuthPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPresenter.swift; sourceTree = "<group>"; };
-		84662A24241E991800DD7BF7 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		847D599B241D088F00E804F4 /* LogedInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogedInViewController.swift; sourceTree = "<group>"; };
 		849FD118241D112000C58633 /* LogedInTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogedInTableViewCell.swift; sourceTree = "<group>"; };
 		849FD11B241D14E900C58633 /* Validation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validation.swift; sourceTree = "<group>"; };
@@ -73,7 +71,6 @@
 				841444FB241A73AD00495677 /* Authorization */,
 				847D599A241D086A00E804F4 /* LogedIn */,
 				849FD11A241D14CB00C58633 /* Validation */,
-				84662A1F241E96D300DD7BF7 /* Manager */,
 				84132C7C241A2FAE008D4B92 /* Main.storyboard */,
 				84132C7F241A2FB6008D4B92 /* Assets.xcassets */,
 				84132C81241A2FB6008D4B92 /* LaunchScreen.storyboard */,
@@ -106,14 +103,6 @@
 				841444FE241A74F500495677 /* SignInViewController.swift */,
 			);
 			path = SignIn;
-			sourceTree = "<group>";
-		};
-		84662A1F241E96D300DD7BF7 /* Manager */ = {
-			isa = PBXGroup;
-			children = (
-				84662A24241E991800DD7BF7 /* UserDefaults.swift */,
-			);
-			path = Manager;
 			sourceTree = "<group>";
 		};
 		847D599A241D086A00E804F4 /* LogedIn */ = {
@@ -209,7 +198,6 @@
 				849FD119241D112000C58633 /* LogedInTableViewCell.swift in Sources */,
 				84132C77241A2FAE008D4B92 /* AppDelegate.swift in Sources */,
 				849FD11C241D14E900C58633 /* Validation.swift in Sources */,
-				84662A25241E991800DD7BF7 /* UserDefaults.swift in Sources */,
 				84132C79241A2FAE008D4B92 /* SceneDelegate.swift in Sources */,
 				84144505241AAC3B00495677 /* AuthPresenter.swift in Sources */,
 				84144501241A750100495677 /* SignUpViewController.swift in Sources */,

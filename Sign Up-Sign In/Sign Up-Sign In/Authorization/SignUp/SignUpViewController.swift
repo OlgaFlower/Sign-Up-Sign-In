@@ -34,14 +34,14 @@ class SignUpViewController: UIViewController {
     
     let presenter = AuthPresenter()
     let defaults = UserDefaults.standard
-    var userNameArray: [String]? //for displaying the last registered item
+    var namePassDict = [String : String]() //for user log in data
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         //restore user data into Set (from userDefaults)
-        if let nameArray = defaults.array(forKey: "userNameKey") as? [String] {
-            userNameArray = nameArray
-            print("restored arr: \(userNameArray)")
+        if let restoredNamePassDict = defaults.dictionary(forKey: "namePassDict") as? [String : String] {
+            namePassDict = restoredNamePassDict
         }
         
         presenter.signUpVC = self
@@ -100,26 +100,23 @@ class SignUpViewController: UIViewController {
         
         if registrationIsValid == true {
             guard let name = inputNameTextField.text else { return }
+            guard let pass = inputPassTextField.text else { return }
             
-            if presenter.checkSetForExisting(name) == true {
+            if presenter.checkNameForExisting(namePassDict, name) == true {
                 presenter.showNotificationAboutExistingName()
-                print("enter another user name")
                 return
-            } else {
-                if userNameArray != nil {
-                    userNameArray!.append(name)
-                    print("userNameSet: \(userNameArray)")
-                    //save new userName to UserDefaults
-                    defaults.set(self.userNameArray, forKey: "userNameKey")
-                    //return to the previous VC
-                    self.navigationController?.popViewController(animated: true)
-                }
                 
+            } else {
+                namePassDict[name] = pass
+                //save to userDefaults
+                defaults.set(self.namePassDict, forKey: "namePassDict")
+                
+                //return to the previous VC
+                self.navigationController?.popViewController(animated: true)
             }
         }
         
     }
-    
     
     private var registrationIsValid: Bool {
         let emptyField = presenter.checkForEmptyTextfield()
