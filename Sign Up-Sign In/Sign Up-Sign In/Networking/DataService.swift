@@ -16,26 +16,24 @@ enum NetworkingErrors: String {
 
 class DataService {
     
-        let reference = "http://names.drycodes.com/10"
-        
+    let reference = "http://names.drycodes.com/10"
+    
     func fetchData(completion: @escaping ([String]?) -> ()) {
-            guard let url = URL(string: reference) else { return }
-            URLSession.shared.dataTask(with: url) { data, response, error in
-                if error != nil {
-                    print("Fetching data: \(error!.localizedDescription)")
-                }
-                guard let data = data else {
-                    print("Fetching data: " + NetworkingErrors.downloadError.rawValue)
-                    return
-                }
-                do {
-                    let recievedData = try JSONDecoder().decode([String]?.self, from: data)
-                    print(recievedData)
-                    completion(recievedData)
-                } catch {
-                    print("Fetching data: " + NetworkingErrors.decodeError.rawValue)
-                }
-            }.resume()
-        }
-        
+        guard let url = URL(string: reference) else { return }
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            if error != nil {
+                print("Fetching data: \(error!.localizedDescription)")
+            }
+            guard let data = data else {
+                print("Fetching data: " + NetworkingErrors.downloadError.rawValue)
+                return
+            }
+            do {
+                let recievedData = try JSONDecoder().decode([String]?.self, from: data)
+                completion(recievedData)
+            } catch {
+                print("Fetching data: " + NetworkingErrors.decodeError.rawValue)
+            }
+        }.resume()
     }
+}

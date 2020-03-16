@@ -29,22 +29,20 @@ class LogedInViewController: UIViewController {
         super.viewWillAppear(animated)
         authPresenter.setNavBar(self)
     }
-
 }
 
 extension LogedInViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        guard let count = presenter.recievedData?.count else { return 0 }
+        return count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-         let cell = tableView.dequeueReusableCell(withIdentifier: "logedInCell", for: indexPath)
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "logedInCell", for: indexPath) as! LogedInTableViewCell
+        guard let data = presenter.recievedData else { return UITableViewCell() }
+        cell.label.text = data[indexPath.row]
         return cell
     }
-    
-    
-    
     
 }
