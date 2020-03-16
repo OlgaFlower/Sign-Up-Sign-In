@@ -43,6 +43,7 @@ class SignUpViewController: UIViewController {
         if let restoredNamePassDict = defaults.dictionary(forKey: "namePassDict") as? [String : String] {
             namePassDict = restoredNamePassDict
         }
+        print(namePassDict)
         
         presenter.signUpVC = self
         inputEmailTextField.delegate = self

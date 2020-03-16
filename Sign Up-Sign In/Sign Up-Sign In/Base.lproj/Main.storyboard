@@ -325,7 +325,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="SJw-hv-21Y">
                                         <rect key="frame" x="18" y="7" width="270" height="154"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="TDj-rT-IeK" userLabel="Email">
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="TDj-rT-IeK" userLabel="Name">
                                                 <rect key="frame" x="0.0" y="0.0" width="270" height="73"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gFH-Ro-XfJ">
@@ -498,13 +498,13 @@
                     <navigationItem key="navigationItem" id="jh0-Xt-i6X"/>
                     <connections>
                         <outlet property="createAccountLabel" destination="ewh-eW-hoU" id="Igu-3m-r2e"/>
-                        <outlet property="emailErrorLabel" destination="mow-aX-bG8" id="BkM-4f-pFf"/>
-                        <outlet property="emailTitleLabel" destination="gFH-Ro-XfJ" id="GCX-8m-L9N"/>
-                        <outlet property="errorEmailRedLineView" destination="I8v-IU-DwK" id="0sj-SJ-Ji1"/>
+                        <outlet property="errorNameRedLine" destination="I8v-IU-DwK" id="6vn-zf-LIw"/>
                         <outlet property="errorPassRedLineView" destination="6EG-9F-Vb2" id="YVD-1A-UjN"/>
-                        <outlet property="inputEmailTextField" destination="ouW-PB-6gg" id="1lh-UN-ojq"/>
+                        <outlet property="inputNameTextField" destination="ouW-PB-6gg" id="D8p-gN-fE4"/>
                         <outlet property="inputPassTextField" destination="aa3-g2-9Xh" id="iG1-rv-Ko3"/>
                         <outlet property="loginButton" destination="zjj-SH-teJ" id="F1L-Sp-gDt"/>
+                        <outlet property="nameErrorLabel" destination="mow-aX-bG8" id="qt8-H2-X82"/>
+                        <outlet property="nameTitleLabel" destination="gFH-Ro-XfJ" id="tKC-Qt-ywa"/>
                         <outlet property="passErrorLabel" destination="620-wp-l4j" id="xxD-cV-07r"/>
                         <outlet property="passTitleLabel" destination="yfU-fG-InO" id="fdh-jJ-GiT"/>
                         <outlet property="signUpButton" destination="YQv-iN-pbA" id="myk-GL-kcQ"/>

@@ -12,10 +12,10 @@ class SignInViewController: UIViewController {
     
     @IBOutlet weak var welcomeLabel: UILabel!
 
-    @IBOutlet weak var emailTitleLabel: UILabel!
-    @IBOutlet weak var inputEmailTextField: UITextField!
-    @IBOutlet weak var errorEmailRedLineView: UIView!
-    @IBOutlet weak var emailErrorLabel: UILabel!
+    @IBOutlet weak var nameTitleLabel: UILabel!
+    @IBOutlet weak var inputNameTextField: UITextField!
+    @IBOutlet weak var errorNameRedLine: UIView!
+    @IBOutlet weak var nameErrorLabel: UILabel!
     
     @IBOutlet weak var passTitleLabel: UILabel!
     @IBOutlet weak var inputPassTextField: UITextField!
