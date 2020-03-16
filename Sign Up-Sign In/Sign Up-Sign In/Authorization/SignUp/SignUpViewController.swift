@@ -39,7 +39,7 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //restore user data into Set (from userDefaults)
+        //restore user data from userDefaults
         if let restoredNamePassDict = defaults.dictionary(forKey: "namePassDict") as? [String : String] {
             namePassDict = restoredNamePassDict
         }

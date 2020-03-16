@@ -16,6 +16,7 @@ enum RegistrationForm: String {
 }
 
 enum ValidationErrors: String {
+    //Registration
     case noSpecial = "should contain at least one special symbol"
     case noNumbers = "should contain at least one number"
     case noUpperCase = "should contain at least one uppercase English character"
@@ -32,6 +33,10 @@ enum ValidationErrors: String {
     case passNotEqual = "arn't equal"
     case required = "Required field"
     case existingName = "This name is already registered"
+    
+    //LogIn
+    case nameNotExist = "This name doesn't exist"
+    case incorrectPass = "Incorrect password"
 }
 
 class Validation {
