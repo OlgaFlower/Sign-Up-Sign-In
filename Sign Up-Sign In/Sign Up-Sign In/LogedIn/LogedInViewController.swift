@@ -17,7 +17,6 @@ class LogedInViewController: UIViewController {
     let defaults = UserDefaults.standard
     var loggedInCondition: Bool?
     
-    weak var signInDelegate: SignInViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,9 +38,6 @@ class LogedInViewController: UIViewController {
         //save condition to userDefaults
         loggedInCondition = false
         defaults.set(self.loggedInCondition, forKey: "loggedInCondition")
-        signInDelegate?.inputNameTextField.text = ""
-        signInDelegate?.inputPassTextField.text = ""
-        signInDelegate?.view.reloadInputViews()
         //return to the previous VC
         self.navigationController?.popViewController(animated: true)
     }

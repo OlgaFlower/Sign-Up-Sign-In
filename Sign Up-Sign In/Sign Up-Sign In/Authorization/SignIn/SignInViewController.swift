@@ -35,13 +35,11 @@ class SignInViewController: UIViewController {
     var loggedInCondition: Bool?
     var usersBase = [String : String]() //all registered users
     
-    let loggedInVC = LogedInViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         presenter.vc = self
-        loggedInVC.signInDelegate = self
         
         //restore from userDefaults
         if let user = defaults.dictionary(forKey: "lastUser") as? [String : String] {
@@ -53,14 +51,6 @@ class SignInViewController: UIViewController {
             loggedInCondition = condition
         }
         print("restored condition = \(loggedInCondition)")
-        
-//        if loggedInCondition == true {
-//        guard let name = lastUser.keys.first else { return }
-//        inputNameTextField.text = name
-//        inputPassTextField.text = lastUser[name]
-//        print("display lastUser: \(lastUser)")
-//        }
-        
         
         authPresenter.setScreenButton(loginButton, "CONFIRM")
         welcomeLabel.text = "Welcome back"
@@ -79,13 +69,14 @@ class SignInViewController: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
         
-        if loggedInCondition == true {
-        guard let name = lastUser.keys.first else { return }
-        inputNameTextField.text = name
-        inputPassTextField.text = lastUser[name]
-        print("display lastUser: \(lastUser)")
+        //check if was user logged out
+        if let condition = defaults.bool(forKey: "loggedInCondition") as? Bool {
+            loggedInCondition = condition
+            if condition == false {
+                inputPassTextField.text = ""
+                inputNameTextField.text = ""
+            }
         }
-        
     }
     
     //MARK: - Hide error marks
