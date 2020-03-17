@@ -35,7 +35,6 @@ class SignInViewController: UIViewController {
     var loggedInCondition: Bool?
     var usersBase = [String : String]() //all registered users
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -108,6 +107,10 @@ class SignInViewController: UIViewController {
 
     //MARK: - Actions
     @IBAction func confirmLogin(_ sender: Any) {
+        let emptyField = presenter.checkForEmptyLoginTextfield()
+        if emptyField == true {
+            return
+        }
         
         if loggedInCondition == true {
             let vc = storyboard?.instantiateViewController(withIdentifier: "LogedInViewController") as! LogedInViewController
