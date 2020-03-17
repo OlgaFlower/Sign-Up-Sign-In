@@ -9,7 +9,7 @@
 import Foundation
 
 class LogedInPresenter {
-    
+    weak var loggedInVC: LogedInViewController?
     let dataService = DataService()
     var recievedData: [String]?
     
@@ -21,7 +21,25 @@ class LogedInPresenter {
         }
     }
     
+    func insertNewRow() {
+        
+    }
     
+    //count number of rows for each section
+    func rowsNumberInTable(_ section: Int) -> Int {
+        guard let data = recievedData else { return 0 }
+        guard let vc = loggedInVC else { return 0 }
+        var rowsNumber = 0
+        
+        if section == 0 {
+            rowsNumber = data.count
+        }
+        if section == 1 {
+            guard let addedRows = vc.userAddedRows?.count else { return 0 }
+            rowsNumber = addedRows
+        }
+        return rowsNumber
+    }
 }
 
 
