@@ -24,23 +24,25 @@ class SignUpPresenter {
     //MARK: - Check for empty text fields at SignUpViewController
     func checkForEmptyTextfield() -> Bool {
         guard let vc = signUpVC else { return true }
+        var textfieldIsEmpty = false
+        
         if vc.inputEmailTextField.text!.isEmpty {
+            textfieldIsEmpty = true
             authPresenter.showRequiredField(vc.emailTitleLabel)
-            return true
         }
         if vc.inputNameTextField.text!.isEmpty {
+            textfieldIsEmpty = true
             authPresenter.showRequiredField(vc.nameTitleLabel)
-            return true
         }
         if vc.inputPassTextField.text!.isEmpty {
+            textfieldIsEmpty = true
             authPresenter.showRequiredField(vc.passTitleLabel)
-            return true
         }
         if vc.inputConfirmPassTextField.text!.isEmpty {
+            textfieldIsEmpty = true
             authPresenter.showRequiredField(vc.confirmPassTitleLabel)
-            return true
         }
-        return false
+        return textfieldIsEmpty
     }
     
     
