@@ -33,17 +33,20 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var confirmRegistrationButton: UIButton!
     
     let presenter = AuthPresenter()
+    
     let defaults = UserDefaults.standard
-    var namePassDict = [String : String]() //for user log in data
+    var lastUser = [String : String]() //the last logged in
+    var loggedInCondition: Bool?
+    var usersBase = [String : String]() //all registered users
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //restore user data from userDefaults
-        if let restoredNamePassDict = defaults.dictionary(forKey: "namePassDict") as? [String : String] {
-            namePassDict = restoredNamePassDict
+        if let base = defaults.dictionary(forKey: "usersBase") as? [String : String] {
+            usersBase = base
         }
-        print(namePassDict)
+        print(lastUser)
         
         presenter.signUpVC = self
         inputEmailTextField.delegate = self
@@ -103,14 +106,20 @@ class SignUpViewController: UIViewController {
             guard let name = inputNameTextField.text else { return }
             guard let pass = inputPassTextField.text else { return }
             
-            if presenter.checkNameForExisting(namePassDict, name) == true {
+            if presenter.checkNameForExisting(lastUser, name) == true {
                 presenter.showNotificationAboutExistingName()
                 return
-                
             } else {
-                namePassDict[name] = pass
+                
+                lastUser = [name : pass]
+                print("namePassLast: \(lastUser)")  //*****************
+                loggedInCondition = true
+                usersBase[name] = pass
+                
                 //save to userDefaults
-                defaults.set(self.namePassDict, forKey: "namePassDict")
+                defaults.set(self.lastUser, forKey: "lastUser")
+                defaults.set(self.loggedInCondition, forKey: "loggedInCondition")
+                defaults.set(self.usersBase, forKey: "usersBase")
                 
                 //return to the previous VC
                 self.navigationController?.popViewController(animated: true)
@@ -138,8 +147,6 @@ class SignUpViewController: UIViewController {
     }
     
 }
-
-
 
 extension SignUpViewController: UITextFieldDelegate {
     
