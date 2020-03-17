@@ -52,6 +52,7 @@ class SignInViewController: UIViewController {
         print("restored condition = \(loggedInCondition)")
         
         authPresenter.setRoundedButton(loginButton, "CONFIRM")
+        signUpButton.setTitle("Sign Up", for: .normal)
         
         
         
