@@ -31,13 +31,15 @@ class LogedInViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         authPresenter.setNavBar(self)
+        //create Logout button
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logoutTapped))
     }
     
     @objc func logoutTapped() {
         //save condition to userDefaults
-        loggedInCondition = false
-        defaults.set(self.loggedInCondition, forKey: "loggedInCondition")
+//        loggedInCondition = false
+        defaults.set(false, forKey: "loggedInCondition")
+        print("logoutTapped")
         //return to the previous VC
         self.navigationController?.popViewController(animated: true)
     }

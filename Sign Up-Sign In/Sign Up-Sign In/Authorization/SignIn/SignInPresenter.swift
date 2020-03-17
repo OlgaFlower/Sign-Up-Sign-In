@@ -14,17 +14,20 @@ class SignInPresenter {
     let authPresenter = AuthPresenter()
     
     //MARK: - Check for empty text fields at SignInViewController
-    func checkForEmptyLoginTextfield() -> Bool {
+    func isLoginTextFieldsEmpty() -> Bool {
         guard let vc = signInVC else { return true }
-        if vc.inputNameTextField.text!.isEmpty {
+        var textfieldIsEmpty = false
+        
+        if vc.inputNameTextField.text!.isEmpty == true {
+            textfieldIsEmpty = true
             authPresenter.showRequiredField(vc.nameTitleLabel)
-            return true
         }
-        if vc.inputPassTextField.text!.isEmpty {
+        if vc.inputPassTextField.text!.isEmpty == true{
+            textfieldIsEmpty = true
             authPresenter.showRequiredField(vc.passTitleLabel)
-            return true
         }
-        return false
+        
+        return textfieldIsEmpty
     }
     
     func setLabels() {
