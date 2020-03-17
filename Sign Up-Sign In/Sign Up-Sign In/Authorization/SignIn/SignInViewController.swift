@@ -40,7 +40,7 @@ class SignInViewController: UIViewController {
         
         presenter.signInVC = self
         
-        //restore from userDefaults
+        //restore lastUser data from userDefaults
         if let user = defaults.dictionary(forKey: "lastUser") as? [String : String] {
             lastUser = user
         }
@@ -49,7 +49,6 @@ class SignInViewController: UIViewController {
         if let condition = defaults.bool(forKey: "loggedInCondition") as? Bool {
             loggedInCondition = condition
         }
-        print("restored condition = \(loggedInCondition)")
         
         authPresenter.setRoundedButton(loginButton, "CONFIRM")
         signUpButton.setTitle("Sign Up", for: .normal)
@@ -72,7 +71,6 @@ class SignInViewController: UIViewController {
         //check if was user logged out
         if let condition = defaults.bool(forKey: "loggedInCondition") as? Bool {
             loggedInCondition = condition
-            print("check if was user logged out: \(loggedInCondition)")
             if condition == false {
                 inputPassTextField.text = ""
                 inputNameTextField.text = ""
@@ -110,9 +108,10 @@ class SignInViewController: UIViewController {
     //MARK: - Actions
     @IBAction func confirmLogin(_ sender: Any) {
         guard let name = inputNameTextField.text else { return }
+        
         if presenter.isLoginTextFieldsEmpty() == false {
-            if loggedInCondition == true && name == lastUser[name] {
-                print("loggedInCondition sign in view: \(loggedInCondition)")
+            
+            if loggedInCondition == true && presenter.checkInputsForEquivWithSavedData() == true {
                 let vc = storyboard?.instantiateViewController(withIdentifier: "LogedInViewController") as! LogedInViewController
                 show(vc, sender: self)
             }

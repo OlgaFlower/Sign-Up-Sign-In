@@ -37,4 +37,16 @@ class SignInPresenter {
         vc.passTitleLabel.text = "Password"
         vc.createAccountLabel.text = "Don't have an account?"
     }
+    
+    func checkInputsForEquivWithSavedData() -> Bool {
+        guard let vc = signInVC else { return false }
+        
+        guard let name = vc.inputNameTextField.text else { return false }
+        guard let pass = vc.inputNameTextField.text else { return false }
+        
+        if name == vc.lastUser.keys.first! && pass == vc.lastUser[name] {
+            return true
+        }
+        return false
+    }
 }
