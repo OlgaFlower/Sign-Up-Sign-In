@@ -32,7 +32,7 @@ class SignInViewController: UIViewController {
     
     let defaults = UserDefaults.standard
     var lastUser = [String : String]() //last logged in
-    var loggedInCondition: Bool?
+    var loggedInCondition = false
     var usersBase = [String : String]() //all registered users
     
     override func viewDidLoad() {
@@ -71,6 +71,7 @@ class SignInViewController: UIViewController {
         //check if was user logged out
         if let condition = defaults.bool(forKey: "loggedInCondition") as? Bool {
             loggedInCondition = condition
+            print(condition)
             if condition == false {
                 inputPassTextField.text = ""
                 inputNameTextField.text = ""

@@ -37,7 +37,7 @@ class SignUpViewController: UIViewController {
     
     let defaults = UserDefaults.standard
     var lastUser = [String : String]() //the last logged in
-    var loggedInCondition: Bool?
+    var loggedInCondition = false
     var usersBase = [String : String]() //all registered users
     
     override func viewDidLoad() {
