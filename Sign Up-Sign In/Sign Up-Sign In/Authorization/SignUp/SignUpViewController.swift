@@ -32,7 +32,8 @@ class SignUpViewController: UIViewController {
     
     @IBOutlet weak var confirmRegistrationButton: UIButton!
     
-    let presenter = AuthPresenter()
+    let authPresenter = AuthPresenter()
+    let presenter = SignUpPresenter()
     
     let defaults = UserDefaults.standard
     var lastUser = [String : String]() //the last logged in
@@ -48,12 +49,14 @@ class SignUpViewController: UIViewController {
         }
         print(lastUser)
         
-        presenter.signUpVC = self
+        authPresenter.signUpVC = self
+        presenter.vc = self
+        
         inputEmailTextField.delegate = self
         inputNameTextField.delegate = self
         inputPassTextField.delegate = self
         inputConfirmPassTextField.delegate = self
-        presenter.setScreenButton(confirmRegistrationButton, "CONFIRM")
+        authPresenter.setScreenButton(confirmRegistrationButton, "CONFIRM")
         
         //add observers for keyboard
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -62,7 +65,7 @@ class SignUpViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        presenter.setNavBar(self)
+        authPresenter.setNavBar(self)
     }
     
     //MARK: - Handle keyboard
@@ -73,30 +76,30 @@ class SignUpViewController: UIViewController {
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
-        presenter.showKeyboard(notification, self)
+        authPresenter.showKeyboard(notification, self)
     }
     
     @objc func keyboardWillHide(notification: NSNotification) {
-        presenter.hideKeyboard(notification, self)
+        authPresenter.hideKeyboard(notification, self)
     }
     
     //MARK: - Hide error marks
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if textField == inputEmailTextField {
-            presenter.hideRequiredField(emailTitleLabel, RegistrationForm.email.rawValue)
-            presenter.hideError(emailErrorLabel, emailErrorRedLineView)
+            authPresenter.hideRequiredField(emailTitleLabel, RegistrationForm.email.rawValue)
+            authPresenter.hideError(emailErrorLabel, emailErrorRedLineView)
         }
         if textField == inputNameTextField {
-            presenter.hideRequiredField(nameTitleLabel, RegistrationForm.name.rawValue)
-            presenter.hideError(nameErrorLabel, nameErrorRedLineView)
+            authPresenter.hideRequiredField(nameTitleLabel, RegistrationForm.name.rawValue)
+            authPresenter.hideError(nameErrorLabel, nameErrorRedLineView)
         }
         if textField == inputPassTextField {
-            presenter.hideRequiredField(passTitleLabel, RegistrationForm.pass.rawValue)
-            presenter.hideError(firstPassErrorLabel, firstPassErrorLine)
+            authPresenter.hideRequiredField(passTitleLabel, RegistrationForm.pass.rawValue)
+            authPresenter.hideError(firstPassErrorLabel, firstPassErrorLine)
         }
         if textField == inputConfirmPassTextField {
-            presenter.hideRequiredField(confirmPassTitleLabel, RegistrationForm.confirmPass.rawValue)
-            presenter.hideError(passErrorLabel, passErrorRedLineView)
+            authPresenter.hideRequiredField(confirmPassTitleLabel, RegistrationForm.confirmPass.rawValue)
+            authPresenter.hideError(passErrorLabel, passErrorRedLineView)
         }
     }
     
@@ -106,8 +109,8 @@ class SignUpViewController: UIViewController {
             guard let name = inputNameTextField.text else { return }
             guard let pass = inputPassTextField.text else { return }
             
-            if presenter.checkNameForExisting(lastUser, name) == true {
-                presenter.showNotificationAboutExistingName()
+            if authPresenter.checkNameForExisting(lastUser, name) == true {
+                authPresenter.showNotificationAboutExistingName()
                 return
             } else {
                 
@@ -131,16 +134,16 @@ class SignUpViewController: UIViewController {
     private var registrationIsValid: Bool {
         let emptyField = presenter.checkForEmptyTextfield()
         //Check if textFields != nil and validateinput text
-        if emptyField == true || presenter.checkEmail() == false {
+        if emptyField == true || authPresenter.checkEmail() == false {
             return false
         }
-        if emptyField == true || presenter.checkName() == false {
+        if emptyField == true || authPresenter.checkName() == false {
             return false
         }
-        if emptyField == true || presenter.checkPass() == false {
+        if emptyField == true || authPresenter.checkPass() == false {
             return false
         }
-        if emptyField == true || presenter.checkConfirmPass() == false {
+        if emptyField == true || authPresenter.checkConfirmPass() == false {
             return false
         }
         return true

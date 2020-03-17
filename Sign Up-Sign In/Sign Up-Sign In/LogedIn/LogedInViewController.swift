@@ -15,7 +15,9 @@ class LogedInViewController: UIViewController {
     let authPresenter = AuthPresenter()
     let presenter = LogedInPresenter()
     let defaults = UserDefaults.standard
-    var isUserLogedIn: Bool?
+    var loggedInCondition: Bool?
+    
+    weak var signInDelegate: SignInViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,8 +37,11 @@ class LogedInViewController: UIViewController {
     
     @objc func logoutTapped() {
         //save condition to userDefaults
-        isUserLogedIn = true
-        defaults.set(self.isUserLogedIn, forKey: "isUserLogedIn")
+        loggedInCondition = false
+        defaults.set(self.loggedInCondition, forKey: "loggedInCondition")
+        signInDelegate?.inputNameTextField.text = ""
+        signInDelegate?.inputPassTextField.text = ""
+        signInDelegate?.view.reloadInputViews()
         //return to the previous VC
         self.navigationController?.popViewController(animated: true)
     }

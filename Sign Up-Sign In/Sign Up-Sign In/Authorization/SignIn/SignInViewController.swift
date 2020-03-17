@@ -27,15 +27,21 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var createAccountLabel: UILabel!
     @IBOutlet weak var signUpButton: UIButton!
     
-    let presenter = AuthPresenter()
+    let authPresenter = AuthPresenter()
+    let presenter = SignInPresenter()
     
     let defaults = UserDefaults.standard
     var lastUser = [String : String]() //last logged in
     var loggedInCondition: Bool?
     var usersBase = [String : String]() //all registered users
     
+    let loggedInVC = LogedInViewController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        presenter.vc = self
+        loggedInVC.signInDelegate = self
         
         //restore from userDefaults
         if let user = defaults.dictionary(forKey: "lastUser") as? [String : String] {
@@ -48,18 +54,15 @@ class SignInViewController: UIViewController {
         }
         print("restored condition = \(loggedInCondition)")
         
-        if loggedInCondition == true {
-        guard let name = lastUser.keys.first else { return }
-        inputNameTextField.text = name
-        inputPassTextField.text = lastUser[name]
-        print("display lastUser: \(lastUser)")
-        }
+//        if loggedInCondition == true {
+//        guard let name = lastUser.keys.first else { return }
+//        inputNameTextField.text = name
+//        inputPassTextField.text = lastUser[name]
+//        print("display lastUser: \(lastUser)")
+//        }
         
         
-        
-        
-        
-        presenter.setScreenButton(loginButton, "CONFIRM")
+        authPresenter.setScreenButton(loginButton, "CONFIRM")
         welcomeLabel.text = "Welcome back"
         createAccountLabel.text = "Don't have an account?"
         signUpButton.setTitle("Sign Up", for: .normal)
@@ -76,17 +79,24 @@ class SignInViewController: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
         
+        if loggedInCondition == true {
+        guard let name = lastUser.keys.first else { return }
+        inputNameTextField.text = name
+        inputPassTextField.text = lastUser[name]
+        print("display lastUser: \(lastUser)")
+        }
+        
     }
     
     //MARK: - Hide error marks
        func textFieldDidBeginEditing(_ textField: UITextField) {
            if textField == inputNameTextField {
-               presenter.hideRequiredField(nameTitleLabel, RegistrationForm.name.rawValue)
-               presenter.hideError(nameErrorLabel, errorNameRedLine)
+               authPresenter.hideRequiredField(nameTitleLabel, RegistrationForm.name.rawValue)
+               authPresenter.hideError(nameErrorLabel, errorNameRedLine)
            }
            if textField == inputPassTextField {
-               presenter.hideRequiredField(passTitleLabel, RegistrationForm.pass.rawValue)
-            presenter.hideError(passErrorLabel, errorPassRedLineView)
+               authPresenter.hideRequiredField(passTitleLabel, RegistrationForm.pass.rawValue)
+            authPresenter.hideError(passErrorLabel, errorPassRedLineView)
         }
     }
     
@@ -98,11 +108,11 @@ class SignInViewController: UIViewController {
     }
     
     @objc func keyboardWillShow(notification: NSNotification) {
-        presenter.showKeyboard(notification, self)
+        authPresenter.showKeyboard(notification, self)
     }
     
     @objc func keyboardWillHide(notification: NSNotification) {
-        presenter.hideKeyboard(notification, self)
+        authPresenter.hideKeyboard(notification, self)
     }
 
     //MARK: - Actions
@@ -122,7 +132,7 @@ class SignInViewController: UIViewController {
             }
             
             //if user exist in the base
-            if presenter.checkNameForExisting(usersBase, name) {
+            if authPresenter.checkNameForExisting(usersBase, name) {
                 //if pass is equal
                 if pass == usersBase[name] {
                     loggedInCondition = true
@@ -138,43 +148,19 @@ class SignInViewController: UIViewController {
                 } else {
                     //if passwords arn't equal
                     UIView.animate(withDuration: 0.25, animations: {
-                        self.presenter.showError(self.passErrorLabel, self.errorPassRedLineView)
+                        self.authPresenter.showError(self.passErrorLabel, self.errorPassRedLineView)
                         self.passErrorLabel.text = ValidationErrors.incorrectPass.rawValue
                     })
                 }
             } else {
                 //if user doesn't exist in the base
                 UIView.animate(withDuration: 0.25, animations: {
-                    self.presenter.showError(self.nameErrorLabel, self.errorNameRedLine)
+                    self.authPresenter.showError(self.nameErrorLabel, self.errorNameRedLine)
                     self.nameErrorLabel.text = ValidationErrors.nameNotExist.rawValue
                 })
             }
             
         }
-        
-        
-//        if presenter.checkNameForExisting(lastUser, name) {
-//            if pass == lastUser[name] {
-//                loggedInCondition = true
-//                //save to userDefaults
-//                defaults.set(self.loggedInCondition, forKey: "loggedInCondition")
-//
-//
-//            } else {
-//                UIView.animate(withDuration: 0.25, animations: {
-//                    self.presenter.showError(self.passErrorLabel, self.errorPassRedLineView)
-//                    self.passErrorLabel.text = ValidationErrors.incorrectPass.rawValue
-//                })
-//            }
-//        } else {
-//            UIView.animate(withDuration: 0.25, animations: {
-//                self.presenter.showError(self.nameErrorLabel, self.errorNameRedLine)
-//                self.nameErrorLabel.text = ValidationErrors.nameNotExist.rawValue
-//            })
-//        }
-//
-        
-        
         
     }
     

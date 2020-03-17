@@ -48,27 +48,8 @@ class AuthPresenter {
         }
     }
     
-    //MARK: - Check for empty text fields at SignUpViewController
-    func checkForEmptyTextfield() -> Bool {
-        guard let vc = signUpVC else { return true }
-        if vc.inputEmailTextField.text!.isEmpty {
-            self.showRequiredField(vc.emailTitleLabel)
-            return true
-        }
-        if vc.inputNameTextField.text!.isEmpty {
-            self.showRequiredField(vc.nameTitleLabel)
-            return true
-        }
-        if vc.inputPassTextField.text!.isEmpty {
-            self.showRequiredField(vc.passTitleLabel)
-            return true
-        }
-        if vc.inputConfirmPassTextField.text!.isEmpty {
-            self.showRequiredField(vc.confirmPassTitleLabel)
-            return true
-        }
-        return false
-    }
+//    //MARK: - Check for empty text fields at SignUpViewController
+//   
     
 //    //MARK: - Check for empty text fields at SignInViewController
 //       func checkForEmptyLoginTextfield() -> Bool {
