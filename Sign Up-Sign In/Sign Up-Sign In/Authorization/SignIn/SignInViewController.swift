@@ -109,10 +109,9 @@ class SignInViewController: UIViewController {
 
     //MARK: - Actions
     @IBAction func confirmLogin(_ sender: Any) {
-        
+        guard let name = inputNameTextField.text else { return }
         if presenter.isLoginTextFieldsEmpty() == false {
-            
-            if loggedInCondition == true {
+            if loggedInCondition == true && name == lastUser[name] {
                 print("loggedInCondition sign in view: \(loggedInCondition)")
                 let vc = storyboard?.instantiateViewController(withIdentifier: "LogedInViewController") as! LogedInViewController
                 show(vc, sender: self)
