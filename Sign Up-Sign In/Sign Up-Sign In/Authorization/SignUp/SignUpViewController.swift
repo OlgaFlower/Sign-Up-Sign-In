@@ -50,13 +50,13 @@ class SignUpViewController: UIViewController {
         print(lastUser)
         
         authPresenter.signUpVC = self
-        presenter.vc = self
+        presenter.signUpVC = self
         
         inputEmailTextField.delegate = self
         inputNameTextField.delegate = self
         inputPassTextField.delegate = self
         inputConfirmPassTextField.delegate = self
-        authPresenter.setScreenButton(confirmRegistrationButton, "CONFIRM")
+        authPresenter.setRoundedButton(confirmRegistrationButton, "CONFIRM")
         
         //add observers for keyboard
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -65,6 +65,7 @@ class SignUpViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        presenter.setLabels()
         authPresenter.setNavBar(self)
     }
     

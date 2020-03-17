@@ -10,12 +10,12 @@ import Foundation
 
 class SignInPresenter {
     
-    weak var vc: SignInViewController?
+    weak var signInVC: SignInViewController?
     let authPresenter = AuthPresenter()
     
     //MARK: - Check for empty text fields at SignInViewController
     func checkForEmptyLoginTextfield() -> Bool {
-        guard let vc = vc else { return true }
+        guard let vc = signInVC else { return true }
         if vc.inputNameTextField.text!.isEmpty {
             authPresenter.showRequiredField(vc.nameTitleLabel)
             return true
@@ -25,5 +25,13 @@ class SignInPresenter {
             return true
         }
         return false
+    }
+    
+    func setLabels() {
+        guard let vc = signInVC else { return }
+        vc.welcomeLabel.text = "Welcome back"
+        vc.nameTitleLabel.text = "Name"
+        vc.passTitleLabel.text = "Password"
+        vc.createAccountLabel.text = "Don't have an account?"
     }
 }

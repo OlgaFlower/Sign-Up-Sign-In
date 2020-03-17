@@ -38,7 +38,7 @@ class SignInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        presenter.vc = self
+        presenter.signInVC = self
         
         //restore from userDefaults
         if let user = defaults.dictionary(forKey: "lastUser") as? [String : String] {
@@ -51,13 +51,12 @@ class SignInViewController: UIViewController {
         }
         print("restored condition = \(loggedInCondition)")
         
-        authPresenter.setScreenButton(loginButton, "CONFIRM")
-        welcomeLabel.text = "Welcome back"
-        createAccountLabel.text = "Don't have an account?"
-        signUpButton.setTitle("Sign Up", for: .normal)
+        authPresenter.setRoundedButton(loginButton, "CONFIRM")
         
-        inputNameTextField.delegate = self as? UITextFieldDelegate
-        inputPassTextField.delegate = self as? UITextFieldDelegate
+        
+        
+        inputNameTextField.delegate = self as UITextFieldDelegate
+        inputPassTextField.delegate = self as UITextFieldDelegate
     
         //add observers for keyboard
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -67,6 +66,7 @@ class SignInViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
+        presenter.setLabels()
         
         //check if was user logged out
         if let condition = defaults.bool(forKey: "loggedInCondition") as? Bool {

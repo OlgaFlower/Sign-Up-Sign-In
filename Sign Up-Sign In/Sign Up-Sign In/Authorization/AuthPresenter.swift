@@ -14,7 +14,7 @@ class AuthPresenter {
     weak var logInVC: SignInViewController?
     var passwordsAreEqual = false
     
-    func setScreenButton(_ button: UIButton, _ title: String) {
+    func setRoundedButton(_ button: UIButton, _ title: String) {
         button.layer.cornerRadius = 21
         button.layer.borderWidth = 1
         button.layer.borderColor = UIColor.white.cgColor
@@ -47,23 +47,7 @@ class AuthPresenter {
             vc.view.frame.origin.y = 0
         }
     }
-    
-//    //MARK: - Check for empty text fields at SignUpViewController
-//   
-    
-//    //MARK: - Check for empty text fields at SignInViewController
-//       func checkForEmptyLoginTextfield() -> Bool {
-//           guard let vc = logInVC else { return true }
-//        if vc.inputNameTextField.text!.isEmpty {
-//               self.showRequiredField(vc.nameTitleLabel)
-//               return true
-//           }
-//           if vc.inputPassTextField.text!.isEmpty {
-//               self.showRequiredField(vc.passTitleLabel)
-//               return true
-//           }
-//           return false
-//       }
+
     
     //MARK: - Validation
     
