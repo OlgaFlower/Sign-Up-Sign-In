@@ -159,6 +159,7 @@ class SignInViewController: UIViewController {
     
     
     @IBAction func createAccount(_ sender: Any) {
+        presenter.hideAllErrorsIfSignUpButtonTapped()
         let vc = storyboard?.instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
         self.show(vc, sender: self)
     }

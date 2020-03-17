@@ -49,4 +49,13 @@ class SignInPresenter {
         }
         return false
     }
+    
+    func hideAllErrorsIfSignUpButtonTapped() {
+        guard let vc = signInVC else { return }
+        
+        authPresenter.hideError(vc.nameErrorLabel, vc.errorNameRedLine)
+        authPresenter.hideError(vc.passErrorLabel, vc.errorPassRedLineView)
+        authPresenter.hideRequiredField(vc.nameTitleLabel, RegistrationForm.name.rawValue)
+        authPresenter.hideRequiredField(vc.passTitleLabel, RegistrationForm.pass.rawValue)
+    }
 }
