@@ -16,7 +16,8 @@ class LogedInViewController: UIViewController {
     let presenter = LogedInPresenter()
     let defaults = UserDefaults.standard
     var loggedInCondition: Bool?
-    var userAddedRows: [String]?
+    var userAddedText: [String]?
+    var userAddedTextField: [UITextField]?
     
     override func viewDidLoad() {
         super.viewDidLoad()

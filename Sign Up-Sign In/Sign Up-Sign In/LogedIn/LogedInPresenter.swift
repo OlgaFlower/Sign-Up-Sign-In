@@ -35,7 +35,7 @@ class LogedInPresenter {
             rowsNumber = data.count
         }
         if section == 1 {
-            guard let addedRows = vc.userAddedRows?.count else { return 0 }
+            guard let addedRows = vc.userAddedTextField?.count else { return 0 }
             rowsNumber = addedRows
         }
         return rowsNumber
