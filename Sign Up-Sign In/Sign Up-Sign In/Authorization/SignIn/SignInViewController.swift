@@ -71,8 +71,12 @@ class SignInViewController: UIViewController {
         //check if was user logged out
         if let condition = defaults.bool(forKey: "loggedInCondition") as? Bool {
             loggedInCondition = condition
-            print(condition)
-            if condition == false {
+            guard let name = lastUser.keys.first else { return }
+            
+            if condition == true {
+                inputNameTextField.text = name
+                inputPassTextField.text = lastUser[name]
+            } else {
                 inputPassTextField.text = ""
                 inputNameTextField.text = ""
             }

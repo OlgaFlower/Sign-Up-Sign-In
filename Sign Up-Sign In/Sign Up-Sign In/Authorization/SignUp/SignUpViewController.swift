@@ -116,7 +116,6 @@ class SignUpViewController: UIViewController {
             } else {
                 
                 lastUser = [name : pass]
-                print("namePassLast: \(lastUser)")  //*****************
                 loggedInCondition = true
                 usersBase[name] = pass
                 

@@ -32,16 +32,26 @@ class LogedInViewController: UIViewController {
         super.viewWillAppear(animated)
         authPresenter.setNavBar(self)
         //create Logout button
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logoutTapped))
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logoutTapped))
+        let logoutButton = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logoutTapped))
+        
+        let addButton = UIButton()
+        addButton.setImage(.add, for: .normal)
+        addButton.addTarget(self, action: #selector(addTapped), for: UIControl.Event.touchUpInside)
+        let addRowButton = UIBarButtonItem(customView: addButton)
+        navigationItem.rightBarButtonItems = [addRowButton, logoutButton]
     }
     
     @objc func logoutTapped() {
         //save condition to userDefaults
-//        loggedInCondition = false
         defaults.set(false, forKey: "loggedInCondition")
         print("logoutTapped")
         //return to the previous VC
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    @objc func addTapped() {
+        
     }
     
 }
