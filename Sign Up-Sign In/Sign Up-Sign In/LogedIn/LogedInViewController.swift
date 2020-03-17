@@ -55,7 +55,6 @@ class LogedInViewController: UIViewController {
         
         
     }
-    
 }
 
 extension LogedInViewController: UITableViewDelegate, UITableViewDataSource {
