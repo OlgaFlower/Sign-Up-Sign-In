@@ -102,15 +102,8 @@ extension LogedInViewController: UITableViewDelegate, UITableViewDataSource {
         
         let edit = UIContextualAction(style: .normal, title: "Edit") { (contextualAction, view, actionPerformed: (Bool) -> Void) in
             
-            self.presenter.showAlertWithTextField { text in
-                print("text = \(text)")
-                self.userAddedText.append(text)
-                
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
-                print(self.userAddedText)
-            }
+            self.presenter.editUserItem(indexPath)
+            
         }
         
         edit.backgroundColor = #colorLiteral(red: 0.3606874657, green: 0.3401126865, blue: 0.009175551238, alpha: 1)

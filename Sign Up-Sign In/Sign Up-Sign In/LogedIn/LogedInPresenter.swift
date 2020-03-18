@@ -56,6 +56,19 @@ class LogedInPresenter {
         vc.present(alertController, animated: true, completion: nil)
     }
     
+    func editUserItem(_ index: IndexPath) {
+        guard let vc = loggedInVC else { return }
+        
+        self.showAlertWithTextField { text in
+//            vc.userAddedText.append(text)
+            vc.userAddedText[index.row] = text
+            DispatchQueue.main.async {
+                vc.tableView.reloadData()
+            }
+            print(vc.userAddedText)
+        }
+    }
+    
 }
 
 
