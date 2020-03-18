@@ -21,9 +21,13 @@ class LogedInPresenter {
         }
     }
     
-    func insertNewRow() {
-        
-    }
+//    func insertNewRow() {
+//        guard let vc = loggedInVC else { return }
+//        let indexPath = IndexPath(row: vc.userAddedTextField.count - 1, section: 1)
+//        vc.tableView.beginUpdates()
+//        vc.tableView.insertRows(at: [indexPath], with: .automatic)
+//        vc.tableView.endUpdates()
+//    }
     
     //count number of rows for each section
     func rowsNumberInTable(_ section: Int) -> Int {
@@ -35,8 +39,8 @@ class LogedInPresenter {
             rowsNumber = data.count
         }
         if section == 1 {
-            guard let addedRows = vc.userAddedTextField?.count else { return 0 }
-            rowsNumber = addedRows
+//            guard let addedRows = vc.userAddedTextField.count else { return 0 }
+            rowsNumber = vc.userAddedTextField.count
         }
         return rowsNumber
     }

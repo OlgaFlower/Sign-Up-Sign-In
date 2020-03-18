@@ -17,10 +17,12 @@ class LogedInViewController: UIViewController {
     let defaults = UserDefaults.standard
     var loggedInCondition: Bool?
     var userAddedText: [String]?
-    var userAddedTextField: [UITextField]?
+    var userAddedTextField = [UITextField]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.dataSource = self
+        tableView.delegate = self
         
         presenter.loggedInVC = self
         presenter.loadData { data in
@@ -54,7 +56,6 @@ class LogedInViewController: UIViewController {
     @objc func addTapped() {
         print("add button tapped")
         
-        
     }
 }
 
@@ -73,6 +74,16 @@ extension LogedInViewController: UITableViewDelegate, UITableViewDataSource {
         guard let data = presenter.recievedData else { return UITableViewCell() }
         cell.label.text = data[indexPath.row]
         return cell
+    }
+    
+    //remove chosen row
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            presenter.recievedData?.remove(at: indexPath.row)
+            DispatchQueue.main.async {
+                self.tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.fade)
+            }
+        }
     }
     
 }
