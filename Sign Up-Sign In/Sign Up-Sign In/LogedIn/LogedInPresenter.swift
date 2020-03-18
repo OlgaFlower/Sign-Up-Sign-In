@@ -9,6 +9,7 @@
 import UIKit
 
 class LogedInPresenter {
+    
     weak var loggedInVC: LogedInViewController?
     let dataService = DataService()
     var recievedData: [String]?
@@ -21,7 +22,7 @@ class LogedInPresenter {
         }
     }
     
-    //count number of rows for each section
+    //MARK: - Number of rows for each section
     func rowsNumberInTable(_ section: Int) -> Int {
         guard let data = recievedData else { return 0 }
         guard let vc = loggedInVC else { return 0 }
@@ -36,31 +37,30 @@ class LogedInPresenter {
         return rowsNumber
     }
     
-    //add new item by user
+    //MARK: - Interface for editing user's item
     func showAlertWithTextField(completion: @escaping (String)->Void) {
         guard let vc = loggedInVC else { return }
         
-        let alertController = UIAlertController(title: "Add new item", message: nil, preferredStyle: .alert)
+        let alertController = UIAlertController(title: "Edit item", message: nil, preferredStyle: .alert)
         let confirmAction = UIAlertAction(title: "Done", style: .default) { text in
             if let txtField = alertController.textFields?.first, let text = txtField.text {
-                print("Text==>" + text)
                 completion(text)
             }
         }
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in }
         alertController.addTextField { (textField) in
-            textField.placeholder = "Tag"
+            textField.placeholder = "Edit..."
         }
         alertController.addAction(confirmAction)
         alertController.addAction(cancelAction)
         vc.present(alertController, animated: true, completion: nil)
     }
     
+    //MARK: - Add chenged item text to the arr and display
     func editUserItem(_ index: IndexPath) {
         guard let vc = loggedInVC else { return }
         
         self.showAlertWithTextField { text in
-//            vc.userAddedText.append(text)
             vc.userAddedText[index.row] = text
             DispatchQueue.main.async {
                 vc.tableView.reloadData()

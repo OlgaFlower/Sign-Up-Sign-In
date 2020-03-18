@@ -77,13 +77,12 @@ extension LogedInViewController: UITableViewDelegate, UITableViewDataSource {
         cell.selectionStyle = .none
         guard let data = presenter.recievedData else { return UITableViewCell() }
         
-        
         switch indexPath.section {
         case 0:
             cell.label.text = data[indexPath.row]
             return cell
         case 1:
-            cell.backgroundColor = #colorLiteral(red: 0.1960784346, green: 0.3411764801, blue: 0.1019607857, alpha: 1)
+            cell.backgroundColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
             cell.label.text = userAddedText[indexPath.row]
             return cell
         default:
@@ -111,9 +110,6 @@ extension LogedInViewController: UITableViewDelegate, UITableViewDataSource {
         
         return UISwipeActionsConfiguration(actions: [edit])
     }
-    
-    
-    
     
     //MARK: - Remove row
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
