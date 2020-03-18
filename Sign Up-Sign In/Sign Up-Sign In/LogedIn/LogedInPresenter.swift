@@ -6,7 +6,7 @@
 //  Copyright © 2020 Flower. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class LogedInPresenter {
     weak var loggedInVC: LogedInViewController?
@@ -35,6 +35,27 @@ class LogedInPresenter {
         }
         return rowsNumber
     }
+    
+    //add new item by user
+    func showAlertWithTextField(completion: @escaping (String)->Void) {
+        guard let vc = loggedInVC else { return }
+        
+        let alertController = UIAlertController(title: "Add new item", message: nil, preferredStyle: .alert)
+        let confirmAction = UIAlertAction(title: "Done", style: .default) { text in
+            if let txtField = alertController.textFields?.first, let text = txtField.text {
+                print("Text==>" + text)
+                completion(text)
+            }
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in }
+        alertController.addTextField { (textField) in
+            textField.placeholder = "Tag"
+        }
+        alertController.addAction(confirmAction)
+        alertController.addAction(cancelAction)
+        vc.present(alertController, animated: true, completion: nil)
+    }
+    
 }
 
 

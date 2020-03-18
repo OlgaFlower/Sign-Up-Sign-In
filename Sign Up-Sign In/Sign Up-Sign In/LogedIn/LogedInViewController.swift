@@ -73,8 +73,19 @@ extension LogedInViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "logedInCell", for: indexPath) as! LogedInTableViewCell
         cell.selectionStyle = .none
         guard let data = presenter.recievedData else { return UITableViewCell() }
-        cell.label.text = data[indexPath.row]
-        return cell
+        
+        
+        switch indexPath.section {
+        case 0:
+            cell.label.text = data[indexPath.row]
+            return cell
+        case 1:
+            cell.label.text = userAddedText[indexPath.row]
+            return cell
+        default:
+            break
+        }
+        return UITableViewCell()
     }
     
     
@@ -87,35 +98,24 @@ extension LogedInViewController: UITableViewDelegate, UITableViewDataSource {
         
         let edit = UIContextualAction(style: .normal, title: "Edit") { (contextualAction, view, actionPerformed: (Bool) -> Void) in
             
-            self.showAlertWithTextField { text in
+            self.presenter.showAlertWithTextField { text in
                 print("text = \(text)")
-                let text2 = text
-                self.userAddedText.append(text2)
+                self.userAddedText.append(text)
+                
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
                 print(self.userAddedText)
             }
         }
         
         edit.backgroundColor = #colorLiteral(red: 0.3606874657, green: 0.3401126865, blue: 0.009175551238, alpha: 1)
         edit.title = "Edit"
+        
         return UISwipeActionsConfiguration(actions: [edit])
     }
     
-    func showAlertWithTextField(completion: @escaping (String)->Void) {
-        let alertController = UIAlertController(title: "Add new item", message: nil, preferredStyle: .alert)
-        let confirmAction = UIAlertAction(title: "Done", style: .default) { text in
-            if let txtField = alertController.textFields?.first, let text = txtField.text {
-                print("Text==>" + text)
-                completion(text)
-            }
-        }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in }
-        alertController.addTextField { (textField) in
-            textField.placeholder = "Tag"
-        }
-        alertController.addAction(confirmAction)
-        alertController.addAction(cancelAction)
-        self.present(alertController, animated: true, completion: nil)
-    }
+    
     
     
     //MARK: - Remove row
