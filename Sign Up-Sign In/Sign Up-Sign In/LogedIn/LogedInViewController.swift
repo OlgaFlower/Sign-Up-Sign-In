@@ -86,4 +86,15 @@ extension LogedInViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+    
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let edit = UIContextualAction(style: .normal, title: "Edit") { (contextualAction, view, actionPerformed: (Bool) -> Void) in
+            print("edit")
+        }
+//        edit.image = #imageLiteral(resourceName: "edit")
+        edit.backgroundColor = #colorLiteral(red: 0.3606874657, green: 0.3401126865, blue: 0.009175551238, alpha: 1)
+        edit.title = "Edit"
+        return UISwipeActionsConfiguration(actions: [edit])
+    }
 }
