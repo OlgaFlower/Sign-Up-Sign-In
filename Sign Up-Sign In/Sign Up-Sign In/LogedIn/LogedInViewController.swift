@@ -98,7 +98,7 @@ extension LogedInViewController: UITableViewDelegate, UITableViewDataSource {
     
     //MARK: - Edit row
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        
+        if indexPath.section == 1 {
         let edit = UIContextualAction(style: .normal, title: "Edit") { (contextualAction, view, actionPerformed: (Bool) -> Void) in
             
             self.presenter.editUserItem(indexPath)
@@ -109,6 +109,8 @@ extension LogedInViewController: UITableViewDelegate, UITableViewDataSource {
         edit.title = "Edit"
         
         return UISwipeActionsConfiguration(actions: [edit])
+        }
+        return nil
     }
     
     //MARK: - Remove row
