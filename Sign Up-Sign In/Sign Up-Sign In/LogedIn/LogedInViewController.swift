@@ -16,13 +16,19 @@ class LogedInViewController: UIViewController {
     let presenter = LogedInPresenter()
     let defaults = UserDefaults.standard
     var loggedInCondition: Bool?
+    
     var userAddedText: [String]?
     var userAddedTextField = [UITextField]()
+    var indexToEdit: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
         tableView.delegate = self
+        
+//        if let index = indexToEdit {
+//            let textForEditing = presenter.recievedData[index]
+//        }
         
         presenter.loggedInVC = self
         presenter.loadData { data in
@@ -71,30 +77,73 @@ extension LogedInViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "logedInCell", for: indexPath) as! LogedInTableViewCell
+        cell.selectionStyle = .none
         guard let data = presenter.recievedData else { return UITableViewCell() }
         cell.label.text = data[indexPath.row]
         return cell
     }
     
-    //remove chosen row
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            presenter.recievedData?.remove(at: indexPath.row)
-            DispatchQueue.main.async {
-                self.tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.fade)
-            }
-        }
+    
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
     }
     
-    
+    //MARK: - Edit row
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
         let edit = UIContextualAction(style: .normal, title: "Edit") { (contextualAction, view, actionPerformed: (Bool) -> Void) in
             print("edit")
         }
-//        edit.image = #imageLiteral(resourceName: "edit")
+        //        edit.image = #imageLiteral(resourceName: "edit")
         edit.backgroundColor = #colorLiteral(red: 0.3606874657, green: 0.3401126865, blue: 0.009175551238, alpha: 1)
         edit.title = "Edit"
         return UISwipeActionsConfiguration(actions: [edit])
     }
+    
+    //MARK: - Remove row
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let delete = UIContextualAction(style: .normal, title: "Delete") { (contextualAction, view, actionPerformed: (Bool) -> Void) in
+            print("delete")
+            self.presenter.recievedData?.remove(at: indexPath.row)
+            DispatchQueue.main.async {
+                self.tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.fade)
+                tableView.reloadData()
+            }
+        }
+        delete.backgroundColor = #colorLiteral(red: 0.8960420025, green: 0, blue: 0.08362072053, alpha: 1)
+        delete.title = "Delete"
+        return UISwipeActionsConfiguration(actions: [delete])
+    }
+    
+    
+//    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+//        let editAction = UITableViewRowAction(style: .default, title: "Edit", handler: { (action, indexPath) in
+//            let alert = UIAlertController(title: "", message: "Edit list item", preferredStyle: .alert)
+//            alert.addTextField(configurationHandler: { (textField) in
+//                textField.text = self.list[indexPath.row]
+//            })
+//            alert.addAction(UIAlertAction(title: "Update", style: .default, handler: { (updateAction) in
+//                self.list[indexPath.row] = alert.textFields!.first!.text!
+//                self.tableView.reloadRows(at: [indexPath], with: .fade)
+//            }))
+//            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+//            self.present(alert, animated: false)
+//        })
+//
+//        let deleteAction = UITableViewRowAction(style: .default, title: "Delete", handler: { (action, indexPath) in
+//            self.list.remove(at: indexPath.row)
+//            tableView.reloadData()
+//        })
+//
+//        return [deleteAction, editAction]
+//    }
+//
+    
+    
+    
+    
+    
 }
+
+
