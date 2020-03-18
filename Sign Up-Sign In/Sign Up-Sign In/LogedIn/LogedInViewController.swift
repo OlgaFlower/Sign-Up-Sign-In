@@ -53,9 +53,12 @@ class LogedInViewController: UIViewController, UITextFieldDelegate {
         self.navigationController?.popViewController(animated: true)
     }
     
+    //MARK: - add row to tableview
     @objc func addTapped() {
-        print("add button tapped")
-        
+        userAddedText.append("")
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
 }
 
@@ -80,6 +83,7 @@ extension LogedInViewController: UITableViewDelegate, UITableViewDataSource {
             cell.label.text = data[indexPath.row]
             return cell
         case 1:
+            cell.backgroundColor = #colorLiteral(red: 0.1960784346, green: 0.3411764801, blue: 0.1019607857, alpha: 1)
             cell.label.text = userAddedText[indexPath.row]
             return cell
         default:
