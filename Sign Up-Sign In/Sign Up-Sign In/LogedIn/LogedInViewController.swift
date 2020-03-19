@@ -65,7 +65,7 @@ class LogedInViewController: UIViewController, UITextFieldDelegate {
 extension LogedInViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        presenter.sectionNumber()
+        return 2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -123,7 +123,6 @@ extension LogedInViewController: UITableViewDelegate, UITableViewDataSource {
             if indexPath.section == 1 {
                 self.userAddedText.remove(at: indexPath.row)
             }
-//            self.presenter.recievedData?.remove(at: indexPath.row)
             DispatchQueue.main.async {
                 self.tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.fade)
                 tableView.reloadData()

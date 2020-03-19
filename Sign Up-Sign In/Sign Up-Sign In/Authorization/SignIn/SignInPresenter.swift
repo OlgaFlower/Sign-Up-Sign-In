@@ -43,8 +43,9 @@ class SignInPresenter {
         
         guard let name = vc.inputNameTextField.text else { return false }
         guard let pass = vc.inputNameTextField.text else { return false }
+        guard let user = vc.lastUser.keys.first else { return false }
         
-        if name == vc.lastUser.keys.first! && pass == vc.lastUser[name] {
+        if name == user && pass == vc.lastUser[name] {
             return true
         }
         return false
