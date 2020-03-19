@@ -17,7 +17,7 @@ class LogedInViewController: UIViewController, UITextFieldDelegate {
     let defaults = UserDefaults.standard
     var loggedInCondition: Bool?
     
-    var userAddedText = [String]()
+    var userAddedText = [String?]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,7 +65,7 @@ class LogedInViewController: UIViewController, UITextFieldDelegate {
 extension LogedInViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        presenter.sectionNumber()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -117,7 +117,13 @@ extension LogedInViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let delete = UIContextualAction(style: .normal, title: "Delete") { (contextualAction, view, actionPerformed: (Bool) -> Void) in
             print("delete")
-            self.presenter.recievedData?.remove(at: indexPath.row)
+            if indexPath.section == 0 {
+                self.presenter.recievedData?.remove(at: indexPath.row)
+            }
+            if indexPath.section == 1 {
+                self.userAddedText.remove(at: indexPath.row)
+            }
+//            self.presenter.recievedData?.remove(at: indexPath.row)
             DispatchQueue.main.async {
                 self.tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.fade)
                 tableView.reloadData()

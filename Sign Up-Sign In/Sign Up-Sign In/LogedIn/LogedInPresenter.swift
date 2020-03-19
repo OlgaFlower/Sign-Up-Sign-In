@@ -22,19 +22,26 @@ class LogedInPresenter {
         }
     }
     
+    //MARK: - Section number in table
+    func sectionNumber() -> Int {
+        guard let vc = loggedInVC else { return 0 }
+        if recievedData == nil && vc.userAddedText.count == 0 { return 0 }
+        if recievedData == nil || vc.userAddedText.count == 0 { return 1 }
+        return 2
+    }
+    
     //MARK: - Number of rows for each section
     func rowsNumberInTable(_ section: Int) -> Int {
         guard let data = recievedData else { return 0 }
         guard let vc = loggedInVC else { return 0 }
-        var rowsNumber = 0
         
         if section == 0 {
-            rowsNumber = data.count
+            return data.count
         }
         if section == 1 {
-            rowsNumber = vc.userAddedText.count ?? 0
+                return vc.userAddedText.count
         }
-        return rowsNumber
+        return 0
     }
     
     //MARK: - Interface for editing user's item
