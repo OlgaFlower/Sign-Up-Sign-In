@@ -7,6 +7,7 @@
 //
 
 import UIKit
+//import MobileCoreServices
 
 class LogedInViewController: UIViewController, UITextFieldDelegate {
     
@@ -36,13 +37,15 @@ class LogedInViewController: UIViewController, UITextFieldDelegate {
         super.viewWillAppear(animated)
         authPresenter.setNavBar(self)
         //create nav bar buttons
-        let logoutButton = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logoutTapped))
+        let logoutButton = UIBarButtonItem(title: "        Logout", style: .plain, target: self, action: #selector(logoutTapped))
+        
+        let editTableButton = UIBarButtonItem(title: "        Edit", style: .plain, target: self, action: #selector(editTable))
         
         let addButton = UIButton()
         addButton.setImage(UIImage(named: "plus.png"), for: .normal)
         addButton.addTarget(self, action: #selector(addTapped), for: UIControl.Event.touchUpInside)
         let addRowButton = UIBarButtonItem(customView: addButton)
-        navigationItem.rightBarButtonItems = [logoutButton, addRowButton]
+        navigationItem.rightBarButtonItems = [logoutButton, editTableButton, addRowButton]
     }
     
     @objc func logoutTapped() {
@@ -60,7 +63,14 @@ class LogedInViewController: UIViewController, UITextFieldDelegate {
             self.tableView.reloadData()
         }
     }
+    
+    //MARK: - Drag and drop table editing
+    @objc func editTable() {
+        tableView.isEditing = true
+    }
+    
 }
+
 
 extension LogedInViewController: UITableViewDelegate, UITableViewDataSource {
     
@@ -132,7 +142,42 @@ extension LogedInViewController: UITableViewDelegate, UITableViewDataSource {
         delete.title = "Delete"
         return UISwipeActionsConfiguration(actions: [delete])
     }
+    
+    
+    
+    //Moving cells
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
 
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        switch sourceIndexPath.section {
+        case 0:
+
+            if presenter.recievedData != nil {
+                let itemToMove = presenter.recievedData?[sourceIndexPath.row]
+                //Move "itemToMove" to destination arr
+                userAddedText.insert(itemToMove, at: destinationIndexPath.row)
+                //Delete "itemToMove" from the source arr
+                presenter.recievedData?.remove(at: sourceIndexPath.row)
+
+            }
+        case 1:
+            if userAddedText.count != 0 {
+                if presenter.recievedData != nil {
+                    let itemToMove = userAddedText[sourceIndexPath.row]!
+                    presenter.recievedData?.insert(itemToMove, at: destinationIndexPath.row)
+                    userAddedText.remove(at: sourceIndexPath.row)
+                }
+            }
+
+        default:
+            break
+        }
+
+    }
+    
+    
 }
 
 
