@@ -12,11 +12,15 @@ import UIKit
 class LogedInViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var logout: UIBarButtonItem!
+    @IBOutlet weak var editTable: UIBarButtonItem!
+    @IBOutlet weak var addRow: UIBarButtonItem!
     
     let authPresenter = AuthPresenter()
     let presenter = LogedInPresenter()
     let defaults = UserDefaults.standard
     var loggedInCondition: Bool?
+    var editTableButtonName = "        Edit"
     
     var userAddedText = [String?]()
     
@@ -36,38 +40,69 @@ class LogedInViewController: UIViewController, UITextFieldDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         authPresenter.setNavBar(self)
+        logout.title = "       Logout"
+        editTable.title = "       Edit"
+        addRow.image = UIImage(named: "plus.png")
+        navigationItem.title = .none
+        
+        
         //create nav bar buttons
-        let logoutButton = UIBarButtonItem(title: "        Logout", style: .plain, target: self, action: #selector(logoutTapped))
-        
-        let editTableButton = UIBarButtonItem(title: "        Edit", style: .plain, target: self, action: #selector(editTable))
-        
-        let addButton = UIButton()
-        addButton.setImage(UIImage(named: "plus.png"), for: .normal)
-        addButton.addTarget(self, action: #selector(addTapped), for: UIControl.Event.touchUpInside)
-        let addRowButton = UIBarButtonItem(customView: addButton)
-        navigationItem.rightBarButtonItems = [logoutButton, editTableButton, addRowButton]
+//        let logoutButton = UIBarButtonItem(title: "        Logout", style: .plain, target: self, action: #selector(logoutTapped))
+//
+//        let editTableButton = UIBarButtonItem(title: editTableButtonName, style: .plain, target: self, action: #selector(editTable))
+//
+//        let addButton = UIButton()
+//        addButton.setImage(UIImage(named: "plus.png"), for: .normal)
+//        addButton.addTarget(self, action: #selector(addTapped), for: UIControl.Event.touchUpInside)
+//        let addRowButton = UIBarButtonItem(customView: addButton)
+//        navigationItem.rightBarButtonItems = [logoutButton, editTableButton, addRowButton]
     }
     
-    @objc func logoutTapped() {
-        //save condition to userDefaults
-        defaults.set(false, forKey: "loggedInCondition")
-        print("logoutTapped")
-        //return to the previous VC
-        self.navigationController?.popViewController(animated: true)
-    }
+//    @objc func logoutTapped() {
+//        //save condition to userDefaults
+//        defaults.set(false, forKey: "loggedInCondition")
+//        print("logoutTapped")
+//        //return to the previous VC
+//        self.navigationController?.popViewController(animated: true)
+//    }
     
     //MARK: - add row to tableview
-    @objc func addTapped() {
-        userAddedText.append("")
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
-        }
-    }
+//    @objc func addTapped() {
+//        userAddedText.append("")
+//        DispatchQueue.main.async {
+//            self.tableView.reloadData()
+//        }
+//    }
     
     //MARK: - Drag and drop table editing
-    @objc func editTable() {
-        tableView.isEditing = true
+//    @objc func editTable() {
+//        //switcher - change true to false, false to true
+//        tableView.isEditing.toggle()
+//        DispatchQueue.main.async {
+//            if self.tableView.isEditing == true {
+//                self.editTableButtonName = "Done"
+//            } else {
+//                self.editTableButtonName = "False"
+//            }
+//            self.tableView.reloadData()
+//        }
+//
+//
+//    }
+    
+    
+    @IBAction func logoutButton(_ sender: Any) {
     }
+    
+    @IBAction func editButton(_ sender: Any) {
+    }
+    
+    @IBAction func addRowButton(_ sender: Any) {
+    }
+    
+    
+    
+    
     
 }
 

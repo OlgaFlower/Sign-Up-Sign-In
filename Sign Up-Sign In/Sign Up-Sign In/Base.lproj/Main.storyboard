@@ -318,7 +318,31 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="f7C-0M-Tdf"/>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="xKj-fJ-RSX">
+                        <rightBarButtonItems>
+                            <barButtonItem title="Item" id="kLC-Ia-xO5" userLabel="logout">
+                                <connections>
+                                    <action selector="logoutButton:" destination="t7x-v8-Zbc" id="0XQ-Pe-YiY"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Item" id="o9a-mD-Y2N" userLabel="edit">
+                                <connections>
+                                    <action selector="editButton:" destination="t7x-v8-Zbc" id="41x-0Q-dm9"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Item" id="iHL-jC-Z5m" userLabel="addRow">
+                                <connections>
+                                    <action selector="addRowButton:" destination="t7x-v8-Zbc" id="FQp-KP-aVX"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="addRow" destination="iHL-jC-Z5m" id="JyB-Vy-1pj"/>
+                        <outlet property="editTable" destination="o9a-mD-Y2N" id="nHf-iC-k2i"/>
+                        <outlet property="logout" destination="kLC-Ia-xO5" id="h0N-RJ-tAt"/>
                         <outlet property="tableView" destination="sEk-8Q-amS" id="f2i-Kw-Neb"/>
                     </connections>
                 </viewController>
