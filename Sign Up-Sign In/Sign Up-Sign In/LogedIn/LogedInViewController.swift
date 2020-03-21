@@ -20,7 +20,7 @@ class LogedInViewController: UIViewController, UITextFieldDelegate {
     let presenter = LogedInPresenter()
     let defaults = UserDefaults.standard
     var loggedInCondition: Bool?
-    var editTableButtonName = "        Edit"
+//    var editTableButtonName = "        Edit"
     
     var userAddedText = [String?]()
     
@@ -44,60 +44,33 @@ class LogedInViewController: UIViewController, UITextFieldDelegate {
         editTable.title = "       Edit"
         addRow.image = UIImage(named: "plus.png")
         navigationItem.title = .none
-        
-        
-        //create nav bar buttons
-//        let logoutButton = UIBarButtonItem(title: "        Logout", style: .plain, target: self, action: #selector(logoutTapped))
-//
-//        let editTableButton = UIBarButtonItem(title: editTableButtonName, style: .plain, target: self, action: #selector(editTable))
-//
-//        let addButton = UIButton()
-//        addButton.setImage(UIImage(named: "plus.png"), for: .normal)
-//        addButton.addTarget(self, action: #selector(addTapped), for: UIControl.Event.touchUpInside)
-//        let addRowButton = UIBarButtonItem(customView: addButton)
-//        navigationItem.rightBarButtonItems = [logoutButton, editTableButton, addRowButton]
     }
     
-//    @objc func logoutTapped() {
-//        //save condition to userDefaults
-//        defaults.set(false, forKey: "loggedInCondition")
-//        print("logoutTapped")
-//        //return to the previous VC
-//        self.navigationController?.popViewController(animated: true)
-//    }
-    
-    //MARK: - add row to tableview
-//    @objc func addTapped() {
-//        userAddedText.append("")
-//        DispatchQueue.main.async {
-//            self.tableView.reloadData()
-//        }
-//    }
+    //MARK: - Logout
+    @IBAction func logoutButton(_ sender: Any) {
+        //save condition to userDefaults
+        defaults.set(false, forKey: "loggedInCondition")
+        print("logoutTapped")
+        //return to the previous VC
+        self.navigationController?.popViewController(animated: true)
+    }
     
     //MARK: - Drag and drop table editing
-//    @objc func editTable() {
-//        //switcher - change true to false, false to true
-//        tableView.isEditing.toggle()
-//        DispatchQueue.main.async {
-//            if self.tableView.isEditing == true {
-//                self.editTableButtonName = "Done"
-//            } else {
-//                self.editTableButtonName = "False"
-//            }
-//            self.tableView.reloadData()
-//        }
-//
-//
-//    }
-    
-    
-    @IBAction func logoutButton(_ sender: Any) {
+    @IBAction func dragAndDropButton(_ sender: UIBarButtonItem) {
+        //switcher - change true to false, false to true
+        tableView.isEditing.toggle()
+        //if title == "Edit" renamt it to "Done" and opposite
+        sender.title = sender.title == "       Edit" ? "     Done" : "       Edit"
+        
+        
     }
     
-    @IBAction func editButton(_ sender: Any) {
-    }
-    
+    //MARK: - add row to tableview
     @IBAction func addRowButton(_ sender: Any) {
+        userAddedText.append("")
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
     
     

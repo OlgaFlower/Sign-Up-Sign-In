@@ -328,7 +328,7 @@
                             </barButtonItem>
                             <barButtonItem title="Item" id="o9a-mD-Y2N" userLabel="edit">
                                 <connections>
-                                    <action selector="editButton:" destination="t7x-v8-Zbc" id="41x-0Q-dm9"/>
+                                    <action selector="dragAndDropButton:" destination="t7x-v8-Zbc" id="eT5-St-3Jr"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem title="Item" id="iHL-jC-Z5m" userLabel="addRow">
