@@ -20,7 +20,6 @@ class LogedInViewController: UIViewController, UITextFieldDelegate {
     let presenter = LogedInPresenter()
     let defaults = UserDefaults.standard
     var loggedInCondition: Bool?
-//    var editTableButtonName = "        Edit"
     
     var userAddedText = [String?]()
     
@@ -159,32 +158,43 @@ extension LogedInViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        switch sourceIndexPath.section {
-        case 0:
-
-            if presenter.recievedData != nil {
-                let itemToMove = presenter.recievedData?[sourceIndexPath.row]
-                //Move "itemToMove" to destination arr
-                userAddedText.insert(itemToMove, at: destinationIndexPath.row)
-                //Delete "itemToMove" from the source arr
-                presenter.recievedData?.remove(at: sourceIndexPath.row)
-
-            }
-        case 1:
-            if userAddedText.count != 0 {
-                if presenter.recievedData != nil {
-                    let itemToMove = userAddedText[sourceIndexPath.row]!
-                    presenter.recievedData?.insert(itemToMove, at: destinationIndexPath.row)
-                    userAddedText.remove(at: sourceIndexPath.row)
-                }
-            }
-
-        default:
-            break
+        self.tableView.beginUpdates()
+        guard let data = presenter.recievedData else { return }
+        
+        if sourceIndexPath.section == 0 {
+            
+            //Get the moving item
+            let movingItem = data[sourceIndexPath.row]
+            
+            //Delete a moving item from old location
+            presenter.recievedData!.remove(at: sourceIndexPath.row)
+            
+            tableView.deleteRows(at: [sourceIndexPath], with: .automatic)
+            
+            //Insert a moving item into new location
+            userAddedText.insert(movingItem, at: destinationIndexPath.row)
+            
+//            tableView.insertRows(at: [IndexPath(row: userAddedText.count, section: 1)], with: .automatic)
+            self.tableView.endUpdates()
         }
-
+        
+        if sourceIndexPath.section == 1 {
+            //Get the moving item
+            let movingItem = userAddedText[sourceIndexPath.row]
+            
+            //Delete a moving item from old location
+            userAddedText.remove(at: sourceIndexPath.row)
+            
+            tableView.deleteRows(at: [sourceIndexPath], with: .automatic)
+            
+            //Insert a moving item into new location
+            presenter.recievedData!.insert(movingItem!, at: destinationIndexPath.row) //how to avoid "!" ??
+            
+//            tableView.insertRows(at: [IndexPath(row: presenter.recievedData!.count, section: 0)], with: .automatic)
+            self.tableView.endUpdates()
+        }
+        
     }
-    
     
 }
 

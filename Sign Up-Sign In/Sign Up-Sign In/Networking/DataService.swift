@@ -10,7 +10,7 @@ import Foundation
 
 enum NetworkingErrors: String {
     case downloadError = "Error data downloading"
-    case decodeError = "Error JSON decoding"
+    case decodeError = "Error JSON decoding or weak Internet connection"
 }
 
 
