@@ -6,8 +6,13 @@
 //  Copyright © 2020 Flower. All rights reserved.
 //
 
+
+
+
+
+
 import UIKit
-//import MobileCoreServices
+import MobileCoreServices
 
 class LogedInViewController: UIViewController, UITextFieldDelegate {
     
@@ -28,12 +33,18 @@ class LogedInViewController: UIViewController, UITextFieldDelegate {
         tableView.dataSource = self
         tableView.delegate = self
         
+        tableView.dragDelegate = self
+        tableView.dropDelegate = self
+        tableView.dragInteractionEnabled = true
+        
         presenter.loggedInVC = self
         presenter.loadData { data in
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
         }
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -77,6 +88,81 @@ class LogedInViewController: UIViewController, UITextFieldDelegate {
     
     
 }
+
+
+extension LogedInViewController: UITableViewDragDelegate, UITableViewDropDelegate {
+    
+    func tableView(_ tableView: UITableView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
+        
+        let string = indexPath.section == 0 ? presenter.recievedData?[indexPath.row] : userAddedText[indexPath.row]
+        
+        guard let data = string?.data(using: .utf8) else { return [] }
+        
+        let itemProvider = NSItemProvider(item: data as NSData, typeIdentifier: kUTTypePlainText as String)
+
+        return [UIDragItem(itemProvider: itemProvider)]
+    }
+    
+    
+    func tableView(_ tableView: UITableView, performDropWith coordinator: UITableViewDropCoordinator) {
+        
+        let destinationIndexPath: IndexPath
+
+        if let indexPath = coordinator.destinationIndexPath {
+            destinationIndexPath = indexPath
+        } else {
+            let section = tableView.numberOfSections - 1
+            let row = tableView.numberOfRows(inSection: section)
+            destinationIndexPath = IndexPath(row: row, section: section)
+        }
+        
+        
+        // load strings from the drop coordinator
+        coordinator.session.loadObjects(ofClass: NSString.self) { items in
+            // convert the item provider array to a string array
+            guard let strings = items as? [String] else { return }
+
+            // create an empty array to track rows we've copied
+            var indexPaths = [IndexPath]()
+
+            // loop over all the strings we received
+            for (index, string) in strings.enumerated() {
+                // create an index path for this new row, moving it down depending on how many we've already inserted
+                let indexPath = IndexPath(row: destinationIndexPath.row + index, section: destinationIndexPath.section)
+
+                // insert the copy into the correct array
+//                if tableView == self.leftTableView {
+//                    self.leftItems.insert(string, at: indexPath.row)
+//                } else {
+//                    self.rightItems.insert(string, at: indexPath.row)
+//                }
+                
+                if indexPath.section == 0 {
+                    self.presenter.recievedData?.insert(string, at: indexPath.row)
+                } else {
+                    self.userAddedText.insert(string, at: indexPath.row)
+                }
+
+                // keep track of this new row
+                indexPaths.append(indexPath)
+            }
+
+            // insert them all into the table view at once
+            tableView.insertRows(at: indexPaths, with: .automatic)
+        }
+        
+        
+    }
+    
+    
+}
+
+
+
+
+
+
+
 
 
 extension LogedInViewController: UITableViewDelegate, UITableViewDataSource {
@@ -158,43 +244,9 @@ extension LogedInViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        self.tableView.beginUpdates()
-        guard let data = presenter.recievedData else { return }
-        
-        if sourceIndexPath.section == 0 {
-            
-            //Get the moving item
-            let movingItem = data[sourceIndexPath.row]
-            
-            //Delete a moving item from old location
-            presenter.recievedData!.remove(at: sourceIndexPath.row)
-            
-            tableView.deleteRows(at: [sourceIndexPath], with: .automatic)
-            
-            //Insert a moving item into new location
-            userAddedText.insert(movingItem, at: destinationIndexPath.row)
-            
-//            tableView.insertRows(at: [IndexPath(row: userAddedText.count, section: 1)], with: .automatic)
-            self.tableView.endUpdates()
-        }
-        
-        if sourceIndexPath.section == 1 {
-            //Get the moving item
-            let movingItem = userAddedText[sourceIndexPath.row]
-            
-            //Delete a moving item from old location
-            userAddedText.remove(at: sourceIndexPath.row)
-            
-            tableView.deleteRows(at: [sourceIndexPath], with: .automatic)
-            
-            //Insert a moving item into new location
-            presenter.recievedData!.insert(movingItem!, at: destinationIndexPath.row) //how to avoid "!" ??
-            
-//            tableView.insertRows(at: [IndexPath(row: presenter.recievedData!.count, section: 0)], with: .automatic)
-            self.tableView.endUpdates()
-        }
         
     }
+    
     
 }
 

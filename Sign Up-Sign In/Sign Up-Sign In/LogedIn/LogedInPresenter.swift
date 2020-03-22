@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class LogedInPresenter {
     
     weak var loggedInVC: LogedInViewController?
@@ -55,7 +56,7 @@ class LogedInPresenter {
         vc.present(alertController, animated: true, completion: nil)
     }
     
-    //MARK: - Add chenged item text to the arr and display
+    //MARK: - Add edited item to the user arr and reload table
     func editUserItem(_ index: IndexPath) {
         guard let vc = loggedInVC else { return }
         
@@ -67,6 +68,16 @@ class LogedInPresenter {
             print(vc.userAddedText)
         }
     }
+    
+    
+    
+    
+//    func dataToDisplay() -> [[String]?] {
+//        guard let vc = loggedInVC else { return [[String]?]() }
+//        return [recievedData, vc.userAddedText]
+//        
+//    }
+//    
     
 }
 
