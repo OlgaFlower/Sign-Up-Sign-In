@@ -309,7 +309,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="0.27441921829999999" green="0.28330895299999997" blue="0.22494444250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.44868313733436999" green="0.54649825507614214" blue="0.33859482690384124" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="sEk-8Q-amS" firstAttribute="bottom" secondItem="P1U-v8-0FV" secondAttribute="bottom" id="5T6-qx-9vT"/>
                             <constraint firstItem="sEk-8Q-amS" firstAttribute="leading" secondItem="P1U-v8-0FV" secondAttribute="leading" id="YSd-rH-oZo"/>

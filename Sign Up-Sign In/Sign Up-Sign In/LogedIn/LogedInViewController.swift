@@ -92,6 +92,26 @@ class LogedInViewController: UIViewController, UITextFieldDelegate {
 
 extension LogedInViewController: UITableViewDragDelegate, UITableViewDropDelegate {
     
+    //MARK: - Disable delete buttons in edit mode
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .none
+    }
+
+    func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+        return false
+    }
+    
+    
+    //Moving cells
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+
+    }
+    
+    
     func tableView(_ tableView: UITableView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
         
         let string = indexPath.section == 0 ? presenter.recievedData?[indexPath.row] : userAddedText[indexPath.row]
@@ -129,13 +149,6 @@ extension LogedInViewController: UITableViewDragDelegate, UITableViewDropDelegat
             for (index, string) in strings.enumerated() {
                 // create an index path for this new row, moving it down depending on how many we've already inserted
                 let indexPath = IndexPath(row: destinationIndexPath.row + index, section: destinationIndexPath.section)
-
-                // insert the copy into the correct array
-//                if tableView == self.leftTableView {
-//                    self.leftItems.insert(string, at: indexPath.row)
-//                } else {
-//                    self.rightItems.insert(string, at: indexPath.row)
-//                }
                 
                 if indexPath.section == 0 {
                     self.presenter.recievedData?.insert(string, at: indexPath.row)
@@ -155,12 +168,9 @@ extension LogedInViewController: UITableViewDragDelegate, UITableViewDropDelegat
     }
     
     
+    
+    
 }
-
-
-
-
-
 
 
 
@@ -234,17 +244,6 @@ extension LogedInViewController: UITableViewDelegate, UITableViewDataSource {
         delete.backgroundColor = #colorLiteral(red: 0.8960420025, green: 0, blue: 0.08362072053, alpha: 1)
         delete.title = "Delete"
         return UISwipeActionsConfiguration(actions: [delete])
-    }
-    
-    
-    
-    //Moving cells
-    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-
-    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        
     }
     
     
