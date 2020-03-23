@@ -102,13 +102,18 @@ extension LogedInViewController: UITableViewDragDelegate, UITableViewDropDelegat
     }
     
     
-    //Moving cells
+    //MARK: - Moving cells
     func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         return true
     }
 
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-
+        if sourceIndexPath.section == 0 {
+            let movedItem = self.presenter.recievedData![sourceIndexPath.row] //*******
+            self.presenter.recievedData!.remove(at: sourceIndexPath.row)
+            self.userAddedText.insert(movedItem, at: destinationIndexPath.row)
+        }
+        
     }
     
     
