@@ -70,6 +70,8 @@ class SignInViewController: UIViewController {
         //change the bar style to black-translucent
         navigationController?.navigationBar.barStyle = .black
         navigationController?.navigationBar.tintColor = .white
+        //hide bottom nav bar separator
+        navigationController?.navigationBar.shadowImage = UIImage()
         
         presenter.setLabels()
         
