@@ -32,7 +32,7 @@ class LogedInPresenter {
             return data.count
         }
         if section == 1 {
-                return vc.userAddedText.count
+            return vc.userAddedText.count
         }
         return 0
     }
@@ -68,8 +68,6 @@ class LogedInPresenter {
             print(vc.userAddedText)
         }
     }
-    
-    
 }
 
 

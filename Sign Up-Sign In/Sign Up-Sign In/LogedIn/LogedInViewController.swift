@@ -6,13 +6,8 @@
 //  Copyright © 2020 Flower. All rights reserved.
 //
 
-
-
-
-
-
 import UIKit
-import MobileCoreServices
+import MobileCoreServices //for drag-and-drop
 
 class LogedInViewController: UIViewController, UITextFieldDelegate {
     
@@ -24,7 +19,6 @@ class LogedInViewController: UIViewController, UITextFieldDelegate {
     let authPresenter = AuthPresenter()
     let presenter = LogedInPresenter()
     let defaults = UserDefaults.standard
-    var loggedInCondition: Bool?
     
     var userAddedText = [String?]()
     
@@ -43,8 +37,6 @@ class LogedInViewController: UIViewController, UITextFieldDelegate {
                 self.tableView.reloadData()
             }
         }
-        
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -60,35 +52,34 @@ class LogedInViewController: UIViewController, UITextFieldDelegate {
     @IBAction func logoutButton(_ sender: Any) {
         //save condition to userDefaults
         defaults.set(false, forKey: "loggedInCondition")
-        print("logoutTapped")
         //return to the previous VC
         self.navigationController?.popViewController(animated: true)
     }
     
-    //MARK: - Drag and drop table editing
+    //MARK: - Edit table (drag-and-drop)
     @IBAction func dragAndDropButton(_ sender: UIBarButtonItem) {
         //switcher - change true to false, false to true
         tableView.isEditing.toggle()
-        //if title == "Edit" renamt it to "Done" and opposite
+        
+        //disable addRow button while table is editing
+        if tableView.isEditing {
+            addRow.isEnabled = false
+        } else {
+            addRow.isEnabled = true
+        }
+        
+        //if title == "Edit" rename it to "Done" and opposite
         sender.title = sender.title == "       Edit" ? "     Done" : "       Edit"
-        
-        
     }
     
-    //MARK: - add row to tableview
+    //MARK: - Add row to tableview
     @IBAction func addRowButton(_ sender: Any) {
         userAddedText.append("")
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
     }
-    
-    
-    
-    
-    
 }
-
 
 extension LogedInViewController: UITableViewDragDelegate, UITableViewDropDelegate {
     
@@ -101,17 +92,17 @@ extension LogedInViewController: UITableViewDragDelegate, UITableViewDropDelegat
         return false
     }
     
-    
     //MARK: - Moving cells
     func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         return true
     }
     
+    //Handling drag-and-drop between sections
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         //move items from one section to another
         if sourceIndexPath.section != destinationIndexPath.section {
             if sourceIndexPath.section == 0 {
-                let movedItem = self.presenter.recievedData![sourceIndexPath.row] //*******
+                let movedItem = self.presenter.recievedData![sourceIndexPath.row]
                 self.presenter.recievedData!.remove(at: sourceIndexPath.row)
                 self.userAddedText.insert(movedItem, at: destinationIndexPath.row)
             }
@@ -123,7 +114,7 @@ extension LogedInViewController: UITableViewDragDelegate, UITableViewDropDelegat
         }
     }
     
-    
+    //Drag
     func tableView(_ tableView: UITableView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
         
         let string = indexPath.section == 0 ? presenter.recievedData?[indexPath.row] : userAddedText[indexPath.row]
@@ -135,9 +126,8 @@ extension LogedInViewController: UITableViewDragDelegate, UITableViewDropDelegat
         return [UIDragItem(itemProvider: itemProvider)]
     }
     
-    
+    //Drop
     func tableView(_ tableView: UITableView, performDropWith coordinator: UITableViewDropCoordinator) {
-        
         let destinationIndexPath: IndexPath
         
         if let indexPath = coordinator.destinationIndexPath {
@@ -147,7 +137,6 @@ extension LogedInViewController: UITableViewDragDelegate, UITableViewDropDelegat
             let row = tableView.numberOfRows(inSection: section)
             destinationIndexPath = IndexPath(row: row, section: section)
         }
-        
         
         // load strings from the drop coordinator
         coordinator.session.loadObjects(ofClass: NSString.self) { items in
@@ -167,25 +156,14 @@ extension LogedInViewController: UITableViewDragDelegate, UITableViewDropDelegat
                 } else {
                     self.userAddedText.insert(string, at: indexPath.row)
                 }
-                
                 // keep track of this new row
                 indexPaths.append(indexPath)
             }
-            
             // insert them all into the table view at once
             tableView.insertRows(at: indexPaths, with: .automatic)
         }
-        
-        
     }
-    
-    
-    
-    
 }
-
-
-
 
 extension LogedInViewController: UITableViewDelegate, UITableViewDataSource {
     
@@ -227,7 +205,6 @@ extension LogedInViewController: UITableViewDelegate, UITableViewDataSource {
             let edit = UIContextualAction(style: .normal, title: "Edit") { (contextualAction, view, actionPerformed: (Bool) -> Void) in
                 
                 self.presenter.editUserItem(indexPath)
-                
             }
             
             edit.backgroundColor = #colorLiteral(red: 0.3606874657, green: 0.3401126865, blue: 0.009175551238, alpha: 1)
@@ -257,8 +234,6 @@ extension LogedInViewController: UITableViewDelegate, UITableViewDataSource {
         delete.title = "Delete"
         return UISwipeActionsConfiguration(actions: [delete])
     }
-    
-    
 }
 
 
