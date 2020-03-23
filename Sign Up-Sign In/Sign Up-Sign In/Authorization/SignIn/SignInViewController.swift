@@ -65,7 +65,12 @@ class SignInViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: animated)
+        //set nav bar transparent
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        //change the bar style to black-translucent
+        navigationController?.navigationBar.barStyle = .black
+        navigationController?.navigationBar.tintColor = .white
+        
         presenter.setLabels()
         
         //check if was user logged out
