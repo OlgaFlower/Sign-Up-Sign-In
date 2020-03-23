@@ -96,7 +96,7 @@ extension LogedInViewController: UITableViewDragDelegate, UITableViewDropDelegat
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return .none
     }
-
+    
     func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
         return false
     }
@@ -106,19 +106,21 @@ extension LogedInViewController: UITableViewDragDelegate, UITableViewDropDelegat
     func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         return true
     }
-
+    
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        if sourceIndexPath.section == 0 {
-            let movedItem = self.presenter.recievedData![sourceIndexPath.row] //*******
-            self.presenter.recievedData!.remove(at: sourceIndexPath.row)
-            self.userAddedText.insert(movedItem, at: destinationIndexPath.row)
+        //move items from one section to another
+        if sourceIndexPath.section != destinationIndexPath.section {
+            if sourceIndexPath.section == 0 {
+                let movedItem = self.presenter.recievedData![sourceIndexPath.row] //*******
+                self.presenter.recievedData!.remove(at: sourceIndexPath.row)
+                self.userAddedText.insert(movedItem, at: destinationIndexPath.row)
+            }
+            if sourceIndexPath.section == 1 {
+                let movedItem = self.userAddedText[sourceIndexPath.row]
+                self.userAddedText.remove(at: sourceIndexPath.row)
+                self.presenter.recievedData!.insert(movedItem!, at: destinationIndexPath.row)
+            }
         }
-        if sourceIndexPath.section == 1 {
-            let movedItem = self.userAddedText[sourceIndexPath.row]
-            self.userAddedText.remove(at: sourceIndexPath.row)
-            self.presenter.recievedData!.insert(movedItem!, at: destinationIndexPath.row)
-        }
-        
     }
     
     
@@ -129,7 +131,7 @@ extension LogedInViewController: UITableViewDragDelegate, UITableViewDropDelegat
         guard let data = string?.data(using: .utf8) else { return [] }
         
         let itemProvider = NSItemProvider(item: data as NSData, typeIdentifier: kUTTypePlainText as String)
-
+        
         return [UIDragItem(itemProvider: itemProvider)]
     }
     
@@ -137,7 +139,7 @@ extension LogedInViewController: UITableViewDragDelegate, UITableViewDropDelegat
     func tableView(_ tableView: UITableView, performDropWith coordinator: UITableViewDropCoordinator) {
         
         let destinationIndexPath: IndexPath
-
+        
         if let indexPath = coordinator.destinationIndexPath {
             destinationIndexPath = indexPath
         } else {
@@ -151,10 +153,10 @@ extension LogedInViewController: UITableViewDragDelegate, UITableViewDropDelegat
         coordinator.session.loadObjects(ofClass: NSString.self) { items in
             // convert the item provider array to a string array
             guard let strings = items as? [String] else { return }
-
+            
             // create an empty array to track rows we've copied
             var indexPaths = [IndexPath]()
-
+            
             // loop over all the strings we received
             for (index, string) in strings.enumerated() {
                 // create an index path for this new row, moving it down depending on how many we've already inserted
@@ -165,11 +167,11 @@ extension LogedInViewController: UITableViewDragDelegate, UITableViewDropDelegat
                 } else {
                     self.userAddedText.insert(string, at: indexPath.row)
                 }
-
+                
                 // keep track of this new row
                 indexPaths.append(indexPath)
             }
-
+            
             // insert them all into the table view at once
             tableView.insertRows(at: indexPaths, with: .automatic)
         }
@@ -222,16 +224,16 @@ extension LogedInViewController: UITableViewDelegate, UITableViewDataSource {
     //MARK: - Edit row
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         if indexPath.section == 1 {
-        let edit = UIContextualAction(style: .normal, title: "Edit") { (contextualAction, view, actionPerformed: (Bool) -> Void) in
+            let edit = UIContextualAction(style: .normal, title: "Edit") { (contextualAction, view, actionPerformed: (Bool) -> Void) in
+                
+                self.presenter.editUserItem(indexPath)
+                
+            }
             
-            self.presenter.editUserItem(indexPath)
+            edit.backgroundColor = #colorLiteral(red: 0.3606874657, green: 0.3401126865, blue: 0.009175551238, alpha: 1)
+            edit.title = "Edit"
             
-        }
-        
-        edit.backgroundColor = #colorLiteral(red: 0.3606874657, green: 0.3401126865, blue: 0.009175551238, alpha: 1)
-        edit.title = "Edit"
-        
-        return UISwipeActionsConfiguration(actions: [edit])
+            return UISwipeActionsConfiguration(actions: [edit])
         }
         return nil
     }

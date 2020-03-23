@@ -70,15 +70,6 @@ class LogedInPresenter {
     }
     
     
-    
-    
-//    func dataToDisplay() -> [[String]?] {
-//        guard let vc = loggedInVC else { return [[String]?]() }
-//        return [recievedData, vc.userAddedText]
-//        
-//    }
-//    
-    
 }
 
 
