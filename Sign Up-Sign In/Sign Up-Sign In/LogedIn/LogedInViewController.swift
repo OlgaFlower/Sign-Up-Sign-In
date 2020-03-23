@@ -113,6 +113,11 @@ extension LogedInViewController: UITableViewDragDelegate, UITableViewDropDelegat
             self.presenter.recievedData!.remove(at: sourceIndexPath.row)
             self.userAddedText.insert(movedItem, at: destinationIndexPath.row)
         }
+        if sourceIndexPath.section == 1 {
+            let movedItem = self.userAddedText[sourceIndexPath.row]
+            self.userAddedText.remove(at: sourceIndexPath.row)
+            self.presenter.recievedData!.insert(movedItem!, at: destinationIndexPath.row)
+        }
         
     }
     
