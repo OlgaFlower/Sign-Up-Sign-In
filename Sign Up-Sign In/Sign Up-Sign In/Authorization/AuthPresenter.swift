@@ -131,7 +131,6 @@ class AuthPresenter {
     //MARK: - Check if name is already exist
     func checkNameForExisting(_ dict: [String: String], _ nameKey: String) -> Bool {
         if dict[nameKey] != nil {
-            print("exist name")
             return true
         }
         return false

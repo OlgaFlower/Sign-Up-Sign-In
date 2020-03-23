@@ -65,7 +65,6 @@ class LogedInPresenter {
             DispatchQueue.main.async {
                 vc.tableView.reloadData()
             }
-            print(vc.userAddedText)
         }
     }
 }

@@ -44,7 +44,6 @@ class SignInViewController: UIViewController {
         if let user = defaults.dictionary(forKey: "lastUser") as? [String : String] {
             lastUser = user
         }
-        print("restored last user = \(lastUser)")
         
         if let condition = defaults.bool(forKey: "loggedInCondition") as? Bool {
             loggedInCondition = condition
@@ -143,7 +142,6 @@ class SignInViewController: UIViewController {
                     if pass == usersBase[name] {
                         loggedInCondition = true
                         lastUser = [name : pass]
-                        print("new lastUser = \(lastUser)")
                         //save to userDefaults
                         defaults.set(self.loggedInCondition, forKey: "loggedInCondition")
                         defaults.set(self.lastUser, forKey: "lastUser")

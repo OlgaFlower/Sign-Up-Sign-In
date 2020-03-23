@@ -47,7 +47,6 @@ class SignUpViewController: UIViewController {
         if let base = defaults.dictionary(forKey: "usersBase") as? [String : String] {
             usersBase = base
         }
-        print(lastUser)
         
         authPresenter.signUpVC = self
         presenter.signUpVC = self

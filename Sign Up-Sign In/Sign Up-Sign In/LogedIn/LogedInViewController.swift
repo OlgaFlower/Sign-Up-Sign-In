@@ -218,7 +218,6 @@ extension LogedInViewController: UITableViewDelegate, UITableViewDataSource {
     //MARK: - Remove row
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let delete = UIContextualAction(style: .normal, title: "Delete") { (contextualAction, view, actionPerformed: (Bool) -> Void) in
-            print("delete")
             if indexPath.section == 0 {
                 self.presenter.recievedData?.remove(at: indexPath.row)
             }
