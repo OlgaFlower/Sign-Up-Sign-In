@@ -15,6 +15,7 @@ class SignUpPresenter {
     
     func setLabels() {
         guard let vc = signUpVC else { return }
+        vc.signUpViewTitle.text = "Registration"
         vc.emailTitleLabel.text = "Email"
         vc.nameTitleLabel.text = "Name"
         vc.passTitleLabel.text = "Password"

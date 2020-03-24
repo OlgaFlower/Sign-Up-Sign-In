@@ -20,7 +20,7 @@
                                 <color key="backgroundColor" red="0.23680448530000001" green="0.1687202454" blue="0.1428920031" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="a1h-w5-17y">
-                                <rect key="frame" x="27.5" y="203" width="320" height="284"/>
+                                <rect key="frame" x="27.5" y="199" width="320" height="284"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="300" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Xxy-Df-3Sp" userLabel="Email">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="71"/>
@@ -30,7 +30,6 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="TQo-CC-LtE"/>
-                                                    <constraint firstAttribute="width" constant="320" id="d7e-PH-M5r"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="13"/>
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -76,7 +75,6 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="Oeu-nG-UUl"/>
-                                                    <constraint firstAttribute="width" constant="320" id="bC5-zC-swE"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="13"/>
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -121,7 +119,6 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="21"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="320" id="YuI-aZ-Cgc"/>
                                                     <constraint firstAttribute="height" constant="21" id="aey-aG-Gg2"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="13"/>
@@ -163,7 +160,6 @@
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="Is1-wl-sWi"/>
-                                                    <constraint firstAttribute="width" constant="320" id="cW2-qx-5wb"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="13"/>
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -207,11 +203,11 @@
                                 </constraints>
                             </stackView>
                             <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wuk-IJ-gAu">
-                                <rect key="frame" x="75" y="527" width="225" height="40"/>
+                                <rect key="frame" x="87.5" y="523" width="200" height="44"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="NC5-rY-Ab2"/>
-                                    <constraint firstAttribute="width" constant="225" id="RfD-je-NwL"/>
+                                    <constraint firstAttribute="height" constant="44" id="0Y5-Ze-I7c"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="Sl4-US-pwj"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="17"/>
                                 <state key="normal" title="Button">
@@ -221,9 +217,19 @@
                                     <action selector="confirmRegistration:" destination="474-th-cai" eventType="touchUpInside" id="KoM-5J-qfJ"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Labelg" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TbS-Pa-Ch5">
+                                <rect key="frame" x="129" y="65" width="117.5" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="iIa-uQ-Xho"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HiraMaruProN-W4" family="Hiragino Maru Gothic ProN" pointSize="36"/>
+                                <color key="textColor" red="0.29854431079999999" green="0.73023920249999996" blue="0.68915197110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="TbS-Pa-Ch5" firstAttribute="top" secondItem="VhP-Vj-KVS" secondAttribute="top" constant="65" id="5Ym-dH-Ml6"/>
                             <constraint firstItem="VhP-Vj-KVS" firstAttribute="trailing" secondItem="rnm-Nl-ImD" secondAttribute="trailing" id="9at-KF-92T"/>
                             <constraint firstItem="rnm-Nl-ImD" firstAttribute="top" secondItem="dpX-Br-OWB" secondAttribute="top" id="MBP-uH-K4s"/>
                             <constraint firstItem="rnm-Nl-ImD" firstAttribute="leading" secondItem="VhP-Vj-KVS" secondAttribute="leading" id="RZy-Af-caz"/>
@@ -233,6 +239,7 @@
                             <constraint firstItem="VhP-Vj-KVS" firstAttribute="bottom" secondItem="rnm-Nl-ImD" secondAttribute="bottom" id="k37-Ak-jwk"/>
                             <constraint firstItem="wuk-IJ-gAu" firstAttribute="centerX" secondItem="dpX-Br-OWB" secondAttribute="centerX" id="x6Y-Q4-OBV"/>
                             <constraint firstItem="wuk-IJ-gAu" firstAttribute="top" secondItem="a1h-w5-17y" secondAttribute="bottom" constant="40" id="yJy-BV-nEL"/>
+                            <constraint firstItem="TbS-Pa-Ch5" firstAttribute="centerX" secondItem="dpX-Br-OWB" secondAttribute="centerX" id="zh1-Ip-fH0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VhP-Vj-KVS"/>
                     </view>
@@ -255,11 +262,12 @@
                         <outlet property="passErrorLabel" destination="q4M-pT-8hT" id="3ZR-eN-3dl"/>
                         <outlet property="passErrorRedLineView" destination="bY8-0E-wJA" id="QhU-u3-mDk"/>
                         <outlet property="passTitleLabel" destination="nYf-Qn-tZ4" id="Rqm-f0-fjQ"/>
+                        <outlet property="signUpViewTitle" destination="TbS-Pa-Ch5" id="Ws7-tC-Zv1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="02L-Ff-OTi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1296.8" y="122.78860569715144"/>
+            <point key="canvasLocation" x="1156" y="123"/>
         </scene>
         <!--Loged In View Controller-->
         <scene sceneID="o4T-AJ-QwR">
@@ -289,7 +297,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3m6-p0-8ni">
-                                                    <rect key="frame" x="15" y="14.5" width="40" height="19"/>
+                                                    <rect key="frame" x="15" y="14.5" width="345" height="19"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="19" id="L5f-sQ-LQ8"/>
                                                     </constraints>
@@ -300,6 +308,7 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="3m6-p0-8ni" secondAttribute="trailing" id="56G-yC-mrE"/>
                                                 <constraint firstItem="3m6-p0-8ni" firstAttribute="centerY" secondItem="ewC-2l-lRc" secondAttribute="centerY" id="AzH-tN-ENp"/>
                                                 <constraint firstItem="3m6-p0-8ni" firstAttribute="leading" secondItem="ewC-2l-lRc" secondAttribute="leadingMargin" id="OGT-FH-48g"/>
                                             </constraints>
@@ -363,7 +372,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z6s-Qn-6zq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2166.666666666667" y="122.54464285714285"/>
+            <point key="canvasLocation" x="2165.5999999999999" y="121.88905547226388"/>
         </scene>
         <!--Sign In View Controller-->
         <scene sceneID="fPQ-bE-v5p">
@@ -377,7 +386,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xO7-o5-d0l">
-                                <rect key="frame" x="34.5" y="309" width="306" height="168"/>
+                                <rect key="frame" x="34.5" y="305" width="306" height="168"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="SJw-hv-21Y">
                                         <rect key="frame" x="18" y="7" width="270" height="154"/>
@@ -390,7 +399,6 @@
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="21" id="8rw-39-fgC"/>
-                                                            <constraint firstAttribute="width" constant="270" id="QRO-on-7fc"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="13"/>
                                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -420,7 +428,6 @@
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="17" id="2V9-fo-Sbr"/>
-                                                            <constraint firstAttribute="width" constant="270" id="i3o-Ld-tPM"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="11"/>
                                                         <color key="textColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -435,7 +442,6 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="270" height="21"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="270" id="K1W-o5-zJm"/>
                                                             <constraint firstAttribute="height" constant="21" id="l7Z-4U-yoi"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="13"/>
@@ -486,7 +492,6 @@
                                                         <rect key="frame" x="0.0" y="56" width="270" height="17"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="270" id="5Rq-ym-ZWi"/>
                                                             <constraint firstAttribute="height" constant="17" id="iZF-MY-5wN"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="11"/>
@@ -506,11 +511,11 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" alpha="0.69999998807907104" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zjj-SH-teJ">
-                                <rect key="frame" x="75" y="527" width="225" height="40"/>
+                                <rect key="frame" x="87.5" y="523" width="200" height="44"/>
                                 <color key="backgroundColor" red="0.21809515360000001" green="0.082007504999999994" blue="0.036341782660000002" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="gHd-QS-d5u"/>
-                                    <constraint firstAttribute="width" constant="225" id="gY5-gV-W0L"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="3cJ-1g-Wqu"/>
+                                    <constraint firstAttribute="height" constant="44" id="gHd-QS-d5u"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="17"/>
                                 <state key="normal" title="Button">
@@ -527,22 +532,16 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="tef-Vm-czG">
-                                <rect key="frame" x="90.5" y="619" width="194" height="28"/>
+                                <rect key="frame" x="148.5" y="619" width="78" height="28"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ewh-eW-hoU">
-                                        <rect key="frame" x="0.0" y="0.0" width="142" height="28"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="142" id="7Ns-Ex-BOi"/>
-                                        </constraints>
+                                        <rect key="frame" x="0.0" y="0.0" width="33" height="28"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YQv-iN-pbA">
-                                        <rect key="frame" x="146" y="0.0" width="48" height="28"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="48" id="Mwa-CX-0BP"/>
-                                        </constraints>
+                                        <rect key="frame" x="37" y="0.0" width="41" height="28"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <state key="normal" title="Button">
                                             <color key="titleColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

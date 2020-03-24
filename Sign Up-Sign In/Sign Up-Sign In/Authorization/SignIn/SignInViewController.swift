@@ -58,8 +58,8 @@ class SignInViewController: UIViewController {
         
         
         
-        inputNameTextField.delegate = self as? UITextFieldDelegate
-        inputPassTextField.delegate = self as? UITextFieldDelegate
+        inputNameTextField.delegate = self
+        inputPassTextField.delegate = self
     
         //add observers for keyboard
         NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)

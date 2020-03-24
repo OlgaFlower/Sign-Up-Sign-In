@@ -10,6 +10,8 @@ import UIKit
 
 class SignUpViewController: UIViewController {
     
+    @IBOutlet weak var signUpViewTitle: UILabel!
+    
     @IBOutlet weak var emailTitleLabel: UILabel!
     @IBOutlet weak var inputEmailTextField: UITextField!
     @IBOutlet weak var emailErrorRedLineView: UIView!
