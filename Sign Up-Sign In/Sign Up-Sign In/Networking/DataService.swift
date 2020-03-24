@@ -13,7 +13,6 @@ enum NetworkingErrors: String {
     case decodeError = "Error JSON decoding or weak Internet connection"
 }
 
-
 class DataService {
     
     let reference = "http://names.drycodes.com/10"

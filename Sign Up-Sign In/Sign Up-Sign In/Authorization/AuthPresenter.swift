@@ -17,7 +17,6 @@ class AuthPresenter {
     func setRoundedButton(_ button: UIButton, _ title: String) {
         button.layer.cornerRadius = 21
         button.layer.borderWidth = 1
-//        button.layer.borderColor = UIColor.white.cgColor
         button.layer.borderColor = #colorLiteral(red: 0.2985443108, green: 0.7302392025, blue: 0.6891519711, alpha: 1)
         button.setTitle(title, for: .normal)
     }
@@ -54,7 +53,6 @@ class AuthPresenter {
         }
     }
 
-    
     //MARK: - Validation
     
     //Email validation

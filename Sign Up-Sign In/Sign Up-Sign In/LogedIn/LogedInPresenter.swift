@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 class LogedInPresenter {
     
     weak var loggedInVC: LogedInViewController?

@@ -56,8 +56,6 @@ class SignInViewController: UIViewController {
         authPresenter.setRoundedButton(loginButton, "CONFIRM")
         signUpButton.setTitle("Sign Up", for: .normal)
         
-        
-        
         inputNameTextField.delegate = self
         inputPassTextField.delegate = self
     
