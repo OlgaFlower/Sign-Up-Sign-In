@@ -80,7 +80,7 @@ class SignInViewController: UIViewController {
         let backImg = UIImage(named: "back.png")
         self.navigationController?.navigationBar.backIndicatorImage = backImg
         self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = backImg
-        //set nv bar font
+        //set nav bar font
         let attributes = [NSAttributedString.Key.font: UIFont(name: "Hiragino Sans W3", size: 14)!]
         UINavigationBar.appearance().titleTextAttributes = attributes
         
