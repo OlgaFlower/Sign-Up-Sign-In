@@ -11,7 +11,8 @@ import UIKit
 class SignInViewController: UIViewController {
     
     @IBOutlet weak var welcomeLabel: UILabel!
-
+    @IBOutlet weak var showHideButton: UIButton!
+    
     @IBOutlet weak var nameTitleLabel: UILabel!
     @IBOutlet weak var inputNameTextField: UITextField!
     @IBOutlet weak var errorNameRedLine: UIView!
@@ -30,6 +31,7 @@ class SignInViewController: UIViewController {
     let authPresenter = AuthPresenter()
     let presenter = SignInPresenter()
     
+    var passIsHidden = false
     let defaults = UserDefaults.standard
     var lastUser = [String : String]() //last logged in
     var loggedInCondition = false
@@ -37,7 +39,8 @@ class SignInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        inputPassTextField.isSecureTextEntry = true
+        showHideButton.setImage(UIImage(systemName: "eye.slash"), for: .normal)
         presenter.signInVC = self
         
         //restore lastUser data from userDefaults
@@ -117,8 +120,21 @@ class SignInViewController: UIViewController {
     }
 
     //MARK: - Actions
+    //Show - Hide password
+    @IBAction func showHidePasswordButton(_ sender: Any) {
+        if passIsHidden == false {
+            inputPassTextField.isSecureTextEntry = false
+            showHideButton.setImage(UIImage(systemName: "eye"), for: .normal)
+        } else {
+            inputPassTextField.isSecureTextEntry = true
+            showHideButton.setImage(UIImage(systemName: "eye.slash"), for: .normal)
+        }
+        passIsHidden = !passIsHidden
+    }
+    
+    //Confirm Login
     @IBAction func confirmLogin(_ sender: Any) {
-        guard let name = inputNameTextField.text else { return }
+        guard inputNameTextField.text != nil else { return }
         
         if presenter.isLoginTextFieldsEmpty() == false {
             
@@ -166,7 +182,7 @@ class SignInViewController: UIViewController {
         }
     }
     
-    
+    //Create account
     @IBAction func createAccount(_ sender: Any) {
         presenter.hideAllErrorsIfSignUpButtonTapped()
         let vc = storyboard?.instantiateViewController(withIdentifier: "SignUpViewController") as! SignUpViewController
@@ -174,6 +190,7 @@ class SignInViewController: UIViewController {
     }
 }
 
+//MARK: - SignIn extension
 extension SignInViewController: UITextFieldDelegate {
     //hide keyboard by click on "done"/"return" button
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

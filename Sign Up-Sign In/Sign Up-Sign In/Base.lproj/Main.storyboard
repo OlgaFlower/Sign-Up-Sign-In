@@ -427,17 +427,38 @@
                                                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aa3-g2-9Xh">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="agK-0w-MVD">
                                                         <rect key="frame" x="0.0" y="21" width="270" height="34"/>
-                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="270" id="Z6G-FA-q6i"/>
-                                                            <constraint firstAttribute="height" constant="34" id="uRC-qD-GD2"/>
-                                                        </constraints>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="15"/>
-                                                        <textInputTraits key="textInputTraits" returnKeyType="next"/>
-                                                    </textField>
+                                                        <subviews>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aa3-g2-9Xh">
+                                                                <rect key="frame" x="0.0" y="0.0" width="232" height="34"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="232" id="COf-UB-HWG"/>
+                                                                    <constraint firstAttribute="height" constant="34" id="uRC-qD-GD2"/>
+                                                                </constraints>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="15"/>
+                                                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                            </textField>
+                                                            <button opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eex-Mb-lvm">
+                                                                <rect key="frame" x="232" y="0.0" width="38" height="34"/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="38" id="Sq0-c4-Q8n"/>
+                                                                    <constraint firstAttribute="height" constant="34" id="hsx-Ak-Avd"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <state key="normal">
+                                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                </state>
+                                                                <connections>
+                                                                    <action selector="showHidePasswordButton:" destination="HyN-JS-cSv" eventType="touchUpInside" id="IpM-B5-snL"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                    </stackView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6EG-9F-Vb2">
                                                         <rect key="frame" x="0.0" y="55" width="270" height="1"/>
                                                         <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -549,6 +570,7 @@
                         <outlet property="nameTitleLabel" destination="gFH-Ro-XfJ" id="tKC-Qt-ywa"/>
                         <outlet property="passErrorLabel" destination="620-wp-l4j" id="xxD-cV-07r"/>
                         <outlet property="passTitleLabel" destination="yfU-fG-InO" id="fdh-jJ-GiT"/>
+                        <outlet property="showHideButton" destination="eex-Mb-lvm" id="Dj5-eQ-vpJ"/>
                         <outlet property="signUpButton" destination="YQv-iN-pbA" id="myk-GL-kcQ"/>
                         <outlet property="welcomeLabel" destination="iro-s4-ZhF" id="VPJ-sy-cAw"/>
                     </connections>
