@@ -277,7 +277,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back_" translatesAutoresizingMaskIntoConstraints="NO" id="MNa-Ko-q2O">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="MNa-Ko-q2O">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wvR-as-fDx">
@@ -616,6 +616,6 @@
     </scenes>
     <resources>
         <image name="3" width="666.66668701171875" height="1000"/>
-        <image name="back_" width="1008" height="1344"/>
+        <image name="background" width="1008" height="1344"/>
     </resources>
 </document>
