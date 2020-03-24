@@ -49,9 +49,7 @@ class LogedInViewController: UIViewController, UITextFieldDelegate {
         addRow.image = UIImage(named: "plus.png")
         navigationItem.title = .none
         
-        let backImg = UIImage(named: "back.png")
-        self.navigationController?.navigationBar.backIndicatorImage = backImg
-        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = backImg
+        
     }
     
     //MARK: - Logout

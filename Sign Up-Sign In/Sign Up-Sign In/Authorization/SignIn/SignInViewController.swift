@@ -76,7 +76,11 @@ class SignInViewController: UIViewController {
         navigationController?.navigationBar.shadowImage = UIImage()
         //delete "back" title 
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        
+        //set back button
+        let backImg = UIImage(named: "back.png")
+        self.navigationController?.navigationBar.backIndicatorImage = backImg
+        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = backImg
+        //set nv bar font
         let attributes = [NSAttributedString.Key.font: UIFont(name: "Hiragino Sans W3", size: 14)!]
         UINavigationBar.appearance().titleTextAttributes = attributes
         
