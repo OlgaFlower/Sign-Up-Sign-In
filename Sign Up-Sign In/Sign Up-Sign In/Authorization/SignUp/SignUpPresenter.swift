@@ -21,6 +21,14 @@ class SignUpPresenter {
         vc.confirmPassTitleLabel.text = "Confirm password"
     }
     
+    func disableTextfieldAutocorrection() {
+        guard let vc = signUpVC else { return }
+        authPresenter.disableAutocorrection(vc.inputPassTextField)
+        authPresenter.disableAutocorrection(vc.inputConfirmPassTextField)
+        authPresenter.disableAutocorrection(vc.inputNameTextField)
+        authPresenter.disableAutocorrection(vc.inputEmailTextField)
+    }
+    
     //MARK: - Check for empty text fields at SignUpViewController
     func checkForEmptyTextfield() -> Bool {
         guard let vc = signUpVC else { return true }

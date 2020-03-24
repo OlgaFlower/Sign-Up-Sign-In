@@ -55,6 +55,8 @@ class SignUpViewController: UIViewController {
         inputNameTextField.delegate = self
         inputPassTextField.delegate = self
         inputConfirmPassTextField.delegate = self
+        
+        presenter.disableTextfieldAutocorrection()
         authPresenter.setRoundedButton(confirmRegistrationButton, "CONFIRM")
         
         //add observers for keyboard

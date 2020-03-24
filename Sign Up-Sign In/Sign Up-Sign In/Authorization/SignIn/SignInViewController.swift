@@ -39,6 +39,7 @@ class SignInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        presenter.disableTextfieldAutocorrection()
         inputPassTextField.isSecureTextEntry = true
         showHideButton.setImage(UIImage(systemName: "eye.slash"), for: .normal)
         presenter.signInVC = self

@@ -21,6 +21,11 @@ class AuthPresenter {
         button.setTitle(title, for: .normal)
     }
     
+    //disable text field auto correction
+    func disableAutocorrection(_ textfield: UITextField) {
+        textfield.autocorrectionType = .no
+    }
+    
     //transparent navbar
     func setNavBar(_ vc: UIViewController) {
         vc.navigationController?.setNavigationBarHidden(false, animated: true)

@@ -38,6 +38,12 @@ class SignInPresenter {
         vc.createAccountLabel.text = "Don't have an account?"
     }
     
+    func disableTextfieldAutocorrection() {
+        guard let vc = signInVC else { return }
+        authPresenter.disableAutocorrection(vc.inputNameTextField)
+        authPresenter.disableAutocorrection(vc.inputPassTextField)
+    }
+    
     func checkInputsForEquivWithSavedData() -> Bool {
         guard let vc = signInVC else { return false }
         
