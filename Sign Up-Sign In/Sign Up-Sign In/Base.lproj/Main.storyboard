@@ -269,6 +269,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="brick" translatesAutoresizingMaskIntoConstraints="NO" id="MNa-Ko-q2O">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wvR-as-fDx">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" red="0.24438848350253806" green="0.059910589820438009" blue="0.013605499939467089" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sEk-8Q-amS">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -309,11 +316,18 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="0.44868313733436999" green="0.54649825507614214" blue="0.33859482690384124" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="sEk-8Q-amS" firstAttribute="bottom" secondItem="P1U-v8-0FV" secondAttribute="bottom" id="5T6-qx-9vT"/>
+                            <constraint firstItem="wvR-as-fDx" firstAttribute="top" secondItem="P1U-v8-0FV" secondAttribute="top" id="NSn-wJ-XUg"/>
+                            <constraint firstItem="wvR-as-fDx" firstAttribute="leading" secondItem="f7C-0M-Tdf" secondAttribute="leading" id="O0j-G4-kWi"/>
                             <constraint firstItem="sEk-8Q-amS" firstAttribute="leading" secondItem="P1U-v8-0FV" secondAttribute="leading" id="YSd-rH-oZo"/>
+                            <constraint firstItem="MNa-Ko-q2O" firstAttribute="leading" secondItem="f7C-0M-Tdf" secondAttribute="leading" id="bmg-xY-nkK"/>
+                            <constraint firstItem="MNa-Ko-q2O" firstAttribute="top" secondItem="P1U-v8-0FV" secondAttribute="top" id="ctB-eE-9Cn"/>
+                            <constraint firstAttribute="bottom" secondItem="MNa-Ko-q2O" secondAttribute="bottom" id="fjE-6N-z1R"/>
+                            <constraint firstItem="wvR-as-fDx" firstAttribute="trailing" secondItem="f7C-0M-Tdf" secondAttribute="trailing" id="fsG-L6-SeK"/>
+                            <constraint firstAttribute="bottom" secondItem="wvR-as-fDx" secondAttribute="bottom" id="rBo-GI-gWW"/>
                             <constraint firstItem="sEk-8Q-amS" firstAttribute="trailing" secondItem="P1U-v8-0FV" secondAttribute="trailing" id="rmm-gq-AHC"/>
+                            <constraint firstItem="f7C-0M-Tdf" firstAttribute="trailing" secondItem="MNa-Ko-q2O" secondAttribute="trailing" id="sPV-Jt-SuL"/>
                             <constraint firstItem="sEk-8Q-amS" firstAttribute="top" secondItem="f7C-0M-Tdf" secondAttribute="top" id="syw-74-Huk"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="f7C-0M-Tdf"/>
@@ -348,7 +362,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z6s-Qn-6zq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2167.1999999999998" y="122.78860569715144"/>
+            <point key="canvasLocation" x="2166.666666666667" y="122.54464285714285"/>
         </scene>
         <!--Sign In View Controller-->
         <scene sceneID="fPQ-bE-v5p">
@@ -602,5 +616,6 @@
     </scenes>
     <resources>
         <image name="3" width="666.66668701171875" height="1000"/>
+        <image name="brick" width="619" height="795"/>
     </resources>
 </document>
