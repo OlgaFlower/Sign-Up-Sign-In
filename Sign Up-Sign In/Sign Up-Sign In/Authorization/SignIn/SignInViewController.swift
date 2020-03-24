@@ -77,6 +77,9 @@ class SignInViewController: UIViewController {
         //delete "back" title 
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
+        let attributes = [NSAttributedString.Key.font: UIFont(name: "Hiragino Sans W3", size: 14)!]
+        UINavigationBar.appearance().titleTextAttributes = attributes
+        
         presenter.setLabels()
         
         //check if was user logged out

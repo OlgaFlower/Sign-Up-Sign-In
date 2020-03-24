@@ -44,7 +44,7 @@ class LogedInViewController: UIViewController, UITextFieldDelegate {
         authPresenter.setNavBar(self)
         
         //Set Nav bar items
-        logout.title = "Logout"
+        logout.title = "   Logout"
         editTable.image = UIImage(named: "edit.png")
         addRow.image = UIImage(named: "plus.png")
         navigationItem.title = .none
