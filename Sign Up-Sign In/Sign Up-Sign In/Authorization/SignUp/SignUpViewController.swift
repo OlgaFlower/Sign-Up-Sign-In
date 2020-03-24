@@ -118,13 +118,13 @@ class SignUpViewController: UIViewController {
                 return
             } else {
                 
-                lastUser = [name : pass]
-                loggedInCondition = true
+//                lastUser = [name : pass]
+//                loggedInCondition = true
                 usersBase[name] = pass
                 
                 //save to userDefaults
-                defaults.set(self.lastUser, forKey: "lastUser")
-                defaults.set(self.loggedInCondition, forKey: "loggedInCondition")
+//                defaults.set(self.lastUser, forKey: "lastUser")
+//                defaults.set(self.loggedInCondition, forKey: "loggedInCondition")
                 defaults.set(self.usersBase, forKey: "usersBase")
                 
                 //return to the previous VC
