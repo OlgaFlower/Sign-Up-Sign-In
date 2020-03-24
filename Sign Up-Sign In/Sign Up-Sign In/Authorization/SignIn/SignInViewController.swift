@@ -74,6 +74,8 @@ class SignInViewController: UIViewController {
         navigationController?.navigationBar.tintColor = .white
         //hide bottom nav bar separator
         navigationController?.navigationBar.shadowImage = UIImage()
+        //delete "back" title 
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
         presenter.setLabels()
         
@@ -120,7 +122,7 @@ class SignInViewController: UIViewController {
     }
 
     //MARK: - Actions
-    //Show - Hide password
+    //Show/Hide password
     @IBAction func showHidePasswordButton(_ sender: Any) {
         if passIsHidden == false {
             inputPassTextField.isSecureTextEntry = false

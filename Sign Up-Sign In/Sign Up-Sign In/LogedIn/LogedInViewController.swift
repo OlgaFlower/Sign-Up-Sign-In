@@ -42,10 +42,16 @@ class LogedInViewController: UIViewController, UITextFieldDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         authPresenter.setNavBar(self)
-        logout.title = "       Logout"
-        editTable.title = "       Edit"
+        
+        //Set Nav bar items
+        logout.title = "Logout"
+        editTable.image = UIImage(named: "edit.png")
         addRow.image = UIImage(named: "plus.png")
         navigationItem.title = .none
+        
+        let backImg = UIImage(named: "back.png")
+        self.navigationController?.navigationBar.backIndicatorImage = backImg
+        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = backImg
     }
     
     //MARK: - Logout
@@ -64,12 +70,11 @@ class LogedInViewController: UIViewController, UITextFieldDelegate {
         //disable addRow button while table is editing
         if tableView.isEditing {
             addRow.isEnabled = false
+            editTable.tintColor = .blue
         } else {
             addRow.isEnabled = true
+            editTable.tintColor = .white
         }
-        
-        //if title == "Edit" rename it to "Done" and opposite
-        sender.title = sender.title == "       Edit" ? "     Done" : "       Edit"
     }
     
     //MARK: - Add row to tableview
@@ -92,7 +97,7 @@ extension LogedInViewController: UITableViewDragDelegate, UITableViewDropDelegat
         return false
     }
     
-    //MARK: - Moving cells
+    //MARK: - Drag-and-drop
     func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         return true
     }
@@ -165,6 +170,7 @@ extension LogedInViewController: UITableViewDragDelegate, UITableViewDropDelegat
     }
 }
 
+//MARK: - Table view
 extension LogedInViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
