@@ -70,7 +70,7 @@ class LogedInViewController: UIViewController, UITextFieldDelegate {
         //disable addRow button while table is editing
         if tableView.isEditing {
             addRow.isEnabled = false
-            editTable.tintColor = .blue
+            editTable.tintColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
         } else {
             addRow.isEnabled = true
             editTable.tintColor = .white
@@ -79,7 +79,7 @@ class LogedInViewController: UIViewController, UITextFieldDelegate {
     
     //MARK: - Add row to tableview
     @IBAction func addRowButton(_ sender: Any) {
-        userAddedText.append("")
+        userAddedText.append(">")
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
@@ -191,7 +191,6 @@ extension LogedInViewController: UITableViewDelegate, UITableViewDataSource {
             cell.label.text = data[indexPath.row]
             return cell
         case 1:
-            cell.backgroundColor = #colorLiteral(red: 0.2745098174, green: 0.4862745106, blue: 0.1411764771, alpha: 1)
             cell.label.text = userAddedText[indexPath.row]
             return cell
         default:
@@ -213,7 +212,7 @@ extension LogedInViewController: UITableViewDelegate, UITableViewDataSource {
                 self.presenter.editUserItem(indexPath)
             }
             
-            edit.backgroundColor = #colorLiteral(red: 0.3606874657, green: 0.3401126865, blue: 0.009175551238, alpha: 1)
+            edit.backgroundColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
             edit.title = "Edit"
             
             return UISwipeActionsConfiguration(actions: [edit])
