@@ -41,15 +41,15 @@ class LogedInViewController: UIViewController, UITextFieldDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        authPresenter.setNavBar(self)
         
+        authPresenter.setNavBar(self)
+        //hide rows' separators
+        tableView.separatorStyle = .none
         //Set Nav bar items
         logout.title = "   Logout"
         editTable.image = UIImage(named: "edit.png")
         addRow.image = UIImage(named: "plus.png")
         navigationItem.title = .none
-        
-        
     }
     
     //MARK: - Logout
@@ -68,7 +68,7 @@ class LogedInViewController: UIViewController, UITextFieldDelegate {
         //disable addRow button while table is editing
         if tableView.isEditing {
             addRow.isEnabled = false
-            editTable.tintColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
+            editTable.tintColor = #colorLiteral(red: 0.2985443108, green: 0.7302392025, blue: 0.6891519711, alpha: 1)
         } else {
             addRow.isEnabled = true
             editTable.tintColor = .white
@@ -210,7 +210,7 @@ extension LogedInViewController: UITableViewDelegate, UITableViewDataSource {
                 self.presenter.editUserItem(indexPath)
             }
             
-            edit.backgroundColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
+            edit.backgroundColor = #colorLiteral(red: 0.2985443108, green: 0.7302392025, blue: 0.6891519711, alpha: 1)
             edit.title = "Edit"
             
             return UISwipeActionsConfiguration(actions: [edit])
