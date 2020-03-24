@@ -19,8 +19,8 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" red="0.23680448530000001" green="0.1687202454" blue="0.1428920031" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="a1h-w5-17y">
-                                <rect key="frame" x="27.5" y="177" width="320" height="300"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="a1h-w5-17y">
+                                <rect key="frame" x="27.5" y="193" width="320" height="284"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="300" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Xxy-Df-3Sp" userLabel="Email">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="71"/>
@@ -69,7 +69,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Tej-IN-3Qn" userLabel="Name">
-                                        <rect key="frame" x="0.0" y="79" width="320" height="71"/>
+                                        <rect key="frame" x="0.0" y="71" width="320" height="71"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1P0-T5-3Ib">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="21"/>
@@ -115,7 +115,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="XNe-0V-33C" userLabel="Password">
-                                        <rect key="frame" x="0.0" y="158" width="320" height="142"/>
+                                        <rect key="frame" x="0.0" y="142" width="320" height="142"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nYf-Qn-tZ4">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="21"/>
