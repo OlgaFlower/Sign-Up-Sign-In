@@ -100,6 +100,14 @@ extension LogedInViewController: UITableViewDragDelegate, UITableViewDropDelegat
         return true
     }
     
+    //drag-and-drop custom style
+    func tableView(_ tableView: UITableView, dragPreviewParametersForRowAt indexPath: IndexPath) -> UIDragPreviewParameters? {
+
+            let param = UIDragPreviewParameters()
+            param.backgroundColor = #colorLiteral(red: 0.2985443108, green: 0.7302392025, blue: 0.6891519711, alpha: 1)
+            return param
+    }
+    
     //Handling drag-and-drop between sections
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         //move items from one section to another
