@@ -42,7 +42,7 @@ class AuthPresenter {
         
         let keyboardFrame = keyboardSize.cgRectValue
         if vc.view.frame.origin.y == 0 {
-            vc.view.frame.origin.y -= (keyboardFrame.height - 180)
+            vc.view.frame.origin.y -= (keyboardFrame.height - 160)
         }
     }
     
